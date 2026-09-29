@@ -1,6 +1,0 @@
-Origin: SorenNing
-Label: SorenNing
-Suite: stable
-Architectures: iphoneos-arm iphoneos-arm64 iphoneos-arm64e
-Components: main
-Description: SorenNing's Cydia Repo
