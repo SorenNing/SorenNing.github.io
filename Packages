@@ -20,7 +20,7 @@ Maintainer: yzdmm
 Installed-Size: 476
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: mobilesubstrate, preferenceloader
-Filename: debs/roothide/com.yzdmm.wxkbtoolbar10_1.5.0_iphoneos-arm64e-4.deb
+Filename: debs/roothide/com.yzdmm.wxkbtoolbar10_1.5.0_iphoneos-arm64e.deb
 Size: 80442
 MD5sum: 87c10de34033f4ec0e507f34a06d948c
 SHA1: b4470c8311a5fc0b801f84188141a9678d91600f
