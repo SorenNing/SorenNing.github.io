@@ -14,6 +14,23 @@ Author: Soren Ning
 Name: TrollStore Chinese Localization
 
 Package: com.yzdmm.wxkbtoolbar10
+Version: 1.5.0
+Architecture: iphoneos-arm64e
+Maintainer: yzdmm
+Installed-Size: 476
+Pre-Depends: rootless-compat(>= 0.9)
+Depends: mobilesubstrate, preferenceloader
+Filename: debs/roothide/com.yzdmm.wxkbtoolbar10_1.5.0_iphoneos-arm64e-4.deb
+Size: 80442
+MD5sum: 87c10de34033f4ec0e507f34a06d948c
+SHA1: b4470c8311a5fc0b801f84188141a9678d91600f
+SHA256: e49fb647f2fdcc91481920117a6eda254412d39d47ff0afe82e91ce68a137d53
+Section: Tweaks
+Description: 微信输入法界面增强：背景、按键配色、字母渐变与圆角；基于实测可用1.5.0裁剪版精简功能设置入口
+Author: yzdmm
+Name: WxkbToolbar10
+
+Package: com.yzdmm.wxkbtoolbar10
 Version: 1.5.0-nofuncs+settings1
 Architecture: iphoneos-arm64e
 Maintainer: yzdmm
