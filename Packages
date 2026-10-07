@@ -30,20 +30,3 @@ Description: 微信输入法界面增强：背景、按键配色、字母渐变�
 Author: yzdmm
 Name: WxkbToolbar10
 
-Package: com.yzdmm.wxkbtoolbar10
-Version: 1.5.0-nofuncs+settings1
-Architecture: iphoneos-arm64e
-Maintainer: yzdmm
-Installed-Size: 476
-Pre-Depends: rootless-compat(>= 0.9)
-Depends: mobilesubstrate, preferenceloader
-Filename: debs/roothide/com.yzdmm.wxkbtoolbar10_1.5.0-nofuncs+settings1_iphoneos-arm64e.deb
-Size: 80514
-MD5sum: 9c74a66f3c38de86152ac788c8b10e68
-SHA1: 7012e129cdc9f3bb97d77c98dd023cd09aa6b391
-SHA256: 285e72b2613c141accbd638c6d7ce8758ec64bca39848371488330b7ad4e2b82
-Section: Tweaks
-Description: 微信输入法界面增强：背景、按键配色、字母渐变与圆角；基于实测可用1.5.0裁剪版精简功能设置入口
-Author: yzdmm
-Name: WxkbToolbar10
-
