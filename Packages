@@ -1,17 +1,17 @@
-Package: com.minis.trollstore-zh
+Package: com.sorenning.trollstore
 Version: 1.1.0
 Architecture: iphoneos-arm64e
 Maintainer: Minis
 Depends: mobilesubstrate
-Filename: debs/roothide/com.sorenning.trollstore-zh_1.1.0-author-Soren-Ning_iphoneos-arm64e.deb
-Size: 16604
-MD5sum: e4f8a5cd00a12d541550d7cf390c27c1
-SHA1: 247293e4bf089dd91781dc0095b0e5565a2a2f6a
-SHA256: dc678b162f676266559261fbd2224c923e228117b035e8cc9c9ee9bfac960e4c
+Filename: debs/roothide/com.sorenning.trollstore_1.1.0_iphoneos-arm64e.deb
+Size: 16616
+MD5sum: e0d7c1d800fd4b8da054ae7558f1dec6
+SHA1: 07d03dd9635433c8cb8d2f47cf7d2eb529266232
+SHA256: d2201e5d3c3951e829de02a144bc55dc2adf71c5a3832efb0faa0b5b60075648
 Section: Tweaks
 Description: Simplified Chinese UI localization layer for TrollStore 2.1.1
 Author: Soren Ning
-Name: TrollStore Chinese Localization
+Name: trollstore 简体中文包
 
 Package: com.yzdmm.wxkbtoolbar10
 Version: 1.5.0
