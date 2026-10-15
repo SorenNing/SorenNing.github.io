@@ -1,3 +1,21 @@
+Package: com.minis.liquidasscc
+Version: 0.1
+Architecture: iphoneos-arm64e
+Maintainer: dylv
+Installed-Size: 844
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0), firmware (<< 26.0), preferenceloader
+Conflicts: com.minis.liquidglasscc
+Replaces: com.minis.liquidglasscc
+Filename: debs/roothide/com.minis.liquidasscc_0.1_iphoneos-arm64e.deb
+Size: 113490
+MD5sum: 286f0482876b9594522469dc97c2702c
+SHA1: e8448b9ab2167cce03782afc74244d429ab98e8c
+SHA256: 8e0cb07103110d0437cc04b1a2ec959cc16b323a25e916e42ff810dd2b4bb9a0
+Section: Tweaks
+Description: 控制中心玻璃效果
+Author: dylv&Ning
+Name: Liquid (Gl)ass — 控制中心
+
 Package: com.sorenning.trollstore
 Version: 1.1.0
 Architecture: iphoneos-arm64e
