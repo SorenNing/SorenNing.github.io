@@ -1,4 +1,4 @@
-Package: com.minis.liquidasscc
+Package: com.SorenNing.liquidasscc
 Version: 0.1
 Architecture: iphoneos-arm64e
 Maintainer: dylv
@@ -13,13 +13,13 @@ SHA1: e8448b9ab2167cce03782afc74244d429ab98e8c
 SHA256: 8e0cb07103110d0437cc04b1a2ec959cc16b323a25e916e42ff810dd2b4bb9a0
 Section: Tweaks
 Description: 控制中心玻璃效果
-Author: dylv&Ning
+Author: dylv&Soren
 Name: Liquid (Gl)ass — 控制中心
 
-Package: com.sorenning.trollstore
-Version: 1.1.0
+Package: com.sorening.TrollStore
+Version: 2.1.1
 Architecture: iphoneos-arm64e
-Maintainer: Minis
+Maintainer: Soren
 Depends: mobilesubstrate
 Filename: debs/roothide/com.sorenning.trollstore_1.1.0_iphoneos-arm64e.deb
 Size: 16616
@@ -27,9 +27,9 @@ MD5sum: e0d7c1d800fd4b8da054ae7558f1dec6
 SHA1: 07d03dd9635433c8cb8d2f47cf7d2eb529266232
 SHA256: d2201e5d3c3951e829de02a144bc55dc2adf71c5a3832efb0faa0b5b60075648
 Section: Tweaks
-Description: Simplified Chinese UI localization layer for TrollStore 2.1.1
-Author: Soren Ning
-Name: trollstore 简体中文包
+Description: TrollStore 2.1.1 简体中文包
+Author: Soren 
+Name: TrollStore 简体中文包
 
 Package: com.yzdmm.wxkbtoolbar10
 Version: 1.5.0
@@ -45,6 +45,6 @@ SHA1: b4470c8311a5fc0b801f84188141a9678d91600f
 SHA256: e49fb647f2fdcc91481920117a6eda254412d39d47ff0afe82e91ce68a137d53
 Section: Tweaks
 Description: 微信输入法界面增强：背景、按键配色、字母渐变与圆角；基于实测可用1.5.0裁剪版精简功能设置入口
-Author: yzdmm
+Author: yzdmm&Soren
 Name: WxkbToolbar10
 
