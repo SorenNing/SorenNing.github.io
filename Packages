@@ -1,4 +1,19 @@
-Package: com.SorenNing.liquidasscc
+Package: com.floating-view
+Version: 1.6.0-6
+Architecture: iphoneos-arm64
+Installed-Size: 2700
+Depends: dev.theos.orion (>= 1.0.0), firmware (>= 12.2)
+Filename: debs/roothide/com.floating-view_1.6.0-6_iphoneos-arm64.deb
+Size: 652204
+MD5sum: 448cb1dee8dc5318e6095c26acd1230f
+SHA1: 1b8d9b71d35d330c5825a5d3188d38cadeacc0eb
+SHA256: 0daece9880079fc4b73c2af68ec2f54bd426cc5709d4dbaa14a11e5a706c224c
+Section: 分屏插件
+Description: 分屏
+Author: be-huge
+Name: Fv分屏破解版
+
+Package: com.minis.liquidasscc
 Version: 0.1
 Architecture: iphoneos-arm64e
 Maintainer: dylv
@@ -13,13 +28,13 @@ SHA1: e8448b9ab2167cce03782afc74244d429ab98e8c
 SHA256: 8e0cb07103110d0437cc04b1a2ec959cc16b323a25e916e42ff810dd2b4bb9a0
 Section: Tweaks
 Description: 控制中心玻璃效果
-Author: dylv&Soren
+Author: dylv&Ning
 Name: Liquid (Gl)ass — 控制中心
 
-Package: com.SorenNing.TrollStore
-Version: 2.1.1
+Package: com.sorenning.trollstore
+Version: 1.1.0
 Architecture: iphoneos-arm64e
-Maintainer: Soren
+Maintainer: Minis
 Depends: mobilesubstrate
 Filename: debs/roothide/com.sorenning.trollstore_1.1.0_iphoneos-arm64e.deb
 Size: 16616
@@ -27,9 +42,9 @@ MD5sum: e0d7c1d800fd4b8da054ae7558f1dec6
 SHA1: 07d03dd9635433c8cb8d2f47cf7d2eb529266232
 SHA256: d2201e5d3c3951e829de02a144bc55dc2adf71c5a3832efb0faa0b5b60075648
 Section: Tweaks
-Description: TrollStore 2.1.1 简体中文包
-Author: Soren 
-Name: TrollStore 简体中文包
+Description: Simplified Chinese UI localization layer for TrollStore 2.1.1
+Author: Soren Ning
+Name: trollstore 简体中文包
 
 Package: com.yzdmm.wxkbtoolbar10
 Version: 1.5.0
@@ -45,6 +60,6 @@ SHA1: b4470c8311a5fc0b801f84188141a9678d91600f
 SHA256: e49fb647f2fdcc91481920117a6eda254412d39d47ff0afe82e91ce68a137d53
 Section: Tweaks
 Description: 微信输入法界面增强：背景、按键配色、字母渐变与圆角；基于实测可用1.5.0裁剪版精简功能设置入口
-Author: yzdmm&Soren
+Author: yzdmm
 Name: WxkbToolbar10
 
