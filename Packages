@@ -16,7 +16,7 @@ Description: 控制中心玻璃效果
 Author: dylv&Soren
 Name: Liquid (Gl)ass — 控制中心
 
-Package: com.sorening.TrollStore
+Package: com.SorenNing.TrollStore
 Version: 2.1.1
 Architecture: iphoneos-arm64e
 Maintainer: Soren
