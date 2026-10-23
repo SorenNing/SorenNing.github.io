@@ -63,3 +63,24 @@ Description: 微信输入法界面增强：背景、按键配色、字母渐变�
 Author: yzdmm
 Name: WxkbToolbar10
 
+Package: wiki.qaq.duostatusring
+Version: 1.0.1-1
+Architecture: iphoneos-arm64e
+Maintainer: OwnGoal Studio <not-gonna-reply@owngoal.dev>
+Installed-Size: 168
+Depends: firmware (>= 16.0), mobilesubstrate
+Filename: debs/roothide/wiki.qaq.duostatusring_1.0.1-1_iphoneos-arm64e(1).deb
+Size: 44314
+MD5sum: b4e4de2067e4a5459f1b1ac5c69ee576
+SHA1: d27ab1f6529f8949ff99ee8f742853d8860da0de
+SHA256: d576e60519cde53d98e746308e401653618ad1ff566d937f256f3a8e6d32b7d0
+Section: Tweaks
+Priority: optional
+Description: Fold the status bar into a ring when the Dynamic Island splits.
+ When the Dynamic Island shows two activities side by side, the signal, Wi-Fi and battery icons fold into a ring beside the bubble, and unfold when the island becomes one again. No settings.
+Author: OwnGoal Studio <https://github.com/owngoal-dev/DuoStatusRing>
+Depiction: https://owngoal-dev.github.io/DuoStatusRing/
+Icon: https://owngoal-dev.github.io/DuoStatusRing/icon.png
+Name: DuoStatusRing
+Sileodepiction: https://owngoal-dev.github.io/DuoStatusRing/depiction.json
+
