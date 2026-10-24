@@ -85,15 +85,15 @@ Name: DuoStatusRing
 Sileodepiction: https://owngoal-dev.github.io/DuoStatusRing/depiction.json
 
 Package: com.ning.duobar
-Version: 0.6
+Version: 0.8
 Architecture: iphoneos-arm64e
 Installed-Size: 1490
 Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
-Filename: debs/roothide/com.ning.duobar_0.6_iphoneos-arm64e.deb
-Size: 262492
-MD5sum: 9b65ecefa58f631ee9b5605295bc59a0
-SHA1: 92a21b8f796451a3b30fe622f4f977331f288997
-SHA256: 69b1292d4a8651a4a2274f99b7dbae73df5aa28bb6fea8280ffb501e43b54e9f
+Filename: debs/roothide/com.ning.duobar_0.8_iphoneos-arm64e.deb
+Size: 262952
+MD5sum: 8865dcbd1f2f80cc32f754d9d8a1d79e
+SHA1: 2eb74bef94b8307d888c174f465640a6d9b549f5
+SHA256: 09d17230f8d20a9a37e3b6e4b981358ac79cf0e835cc3231b03fe906c3d733b9
 Section: Tweaks
 Priority: optional
 Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
