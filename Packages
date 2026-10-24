@@ -1,94 +1,109 @@
-Package: com.floating-view
-Version: 1.6.0-6
-Architecture: iphoneos-arm64
-Installed-Size: 2700
-Depends: dev.theos.orion (>= 1.0.0), firmware (>= 12.2)
-Filename: debs/roothide/com.floating-view_1.6.0-6_iphoneos-arm64.deb
-Size: 652204
-MD5sum: 448cb1dee8dc5318e6095c26acd1230f
-SHA1: 1b8d9b71d35d330c5825a5d3188d38cadeacc0eb
-SHA256: 0daece9880079fc4b73c2af68ec2f54bd426cc5709d4dbaa14a11e5a706c224c
-Section: 分屏插件
-Description: 分屏
-Author: be-huge
-Name: Fv分屏破解版
-
 Package: com.minis.liquidasscc
+Name: Liquid (Gl)ass — 控制中心
 Version: 0.1
 Architecture: iphoneos-arm64e
-Maintainer: dylv
-Installed-Size: 844
+Installed-Size: 822
 Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0), firmware (<< 26.0), preferenceloader
-Conflicts: com.minis.liquidglasscc
-Replaces: com.minis.liquidglasscc
 Filename: debs/roothide/com.minis.liquidasscc_0.1_iphoneos-arm64e.deb
 Size: 113490
 MD5sum: 286f0482876b9594522469dc97c2702c
 SHA1: e8448b9ab2167cce03782afc74244d429ab98e8c
 SHA256: 8e0cb07103110d0437cc04b1a2ec959cc16b323a25e916e42ff810dd2b4bb9a0
 Section: Tweaks
-Description: 控制中心玻璃效果
+Priority: optional
 Author: dylv&Ning
-Name: Liquid (Gl)ass — 控制中心
+Maintainer: dylv
+Description: 控制中心玻璃效果
 
-Package: com.sorenning.trollstore
-Version: 1.1.0
+Package: com.ning.duobar
+Name: DuoBar
+Version: 0.6
 Architecture: iphoneos-arm64e
-Maintainer: Minis
-Depends: mobilesubstrate
-Filename: debs/roothide/com.sorenning.trollstore_1.1.0_iphoneos-arm64e.deb
-Size: 16616
-MD5sum: e0d7c1d800fd4b8da054ae7558f1dec6
-SHA1: 07d03dd9635433c8cb8d2f47cf7d2eb529266232
-SHA256: d2201e5d3c3951e829de02a144bc55dc2adf71c5a3832efb0faa0b5b60075648
-Section: Tweaks
-Description: Simplified Chinese UI localization layer for TrollStore 2.1.1
-Author: Soren Ning
-Name: trollstore 简体中文包
-
-Package: com.yzdmm.wxkbtoolbar10
-Version: 1.5.0
-Architecture: iphoneos-arm64e
-Maintainer: yzdmm
-Installed-Size: 476
-Pre-Depends: rootless-compat(>= 0.9)
-Depends: mobilesubstrate, preferenceloader
-Filename: debs/roothide/com.yzdmm.wxkbtoolbar10_1.5.0_iphoneos-arm64e.deb
-Size: 80442
-MD5sum: 87c10de34033f4ec0e507f34a06d948c
-SHA1: b4470c8311a5fc0b801f84188141a9678d91600f
-SHA256: e49fb647f2fdcc91481920117a6eda254412d39d47ff0afe82e91ce68a137d53
-Section: Tweaks
-Description: 微信输入法界面增强：背景、按键配色、字母渐变与圆角；基于实测可用1.5.0裁剪版精简功能设置入口
-Author: yzdmm
-Name: WxkbToolbar10
-
-Package: wiki.qaq.duostatusring
-Version: 1.0.1-1
-Architecture: iphoneos-arm64e
-Maintainer: OwnGoal Studio <not-gonna-reply@owngoal.dev>
-Installed-Size: 168
-Depends: firmware (>= 16.0), mobilesubstrate
-Filename: debs/roothide/wiki.qaq.duostatusring_1.0.1-1_iphoneos-arm64e(1).deb
-Size: 44314
-MD5sum: b4e4de2067e4a5459f1b1ac5c69ee576
-SHA1: d27ab1f6529f8949ff99ee8f742853d8860da0de
-SHA256: d576e60519cde53d98e746308e401653618ad1ff566d937f256f3a8e6d32b7d0
+Installed-Size: 1490
+Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
+Filename: debs/roothide/com.ning.duobar_0.6_iphoneos-arm64e.deb
+Size: 262492
+MD5sum: 9b65ecefa58f631ee9b5605295bc59a0
+SHA1: 92a21b8f796451a3b30fe622f4f977331f288997
+SHA256: 69b1292d4a8651a4a2274f99b7dbae73df5aa28bb6fea8280ffb501e43b54e9f
 Section: Tweaks
 Priority: optional
-Description: Fold the status bar into a ring when the Dynamic Island splits.
- When the Dynamic Island shows two activities side by side, the signal, Wi-Fi and battery icons fold into a ring beside the bubble, and unfold when the island becomes one again. No settings.
-Author: OwnGoal Studio <https://github.com/owngoal-dev/DuoStatusRing>
-Depiction: https://owngoal-dev.github.io/DuoStatusRing/
-Icon: https://sorenning.github.io/debs/icons/duobar-1.0-final.png
-Name: DuoStatusRing
-Sileodepiction: https://owngoal-dev.github.io/DuoStatusRing/depiction.json
+Author: Ning
+Maintainer: Ning
+Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
+
+Package: com.ning.duobar
+Name: DuoBar
+Version: 0.8
+Architecture: iphoneos-arm64e
+Installed-Size: 1490
+Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
+Filename: debs/roothide/com.ning.duobar_0.8_iphoneos-arm64e.deb
+Size: 262952
+MD5sum: 8865dcbd1f2f80cc32f754d9d8a1d79e
+SHA1: 2eb74bef94b8307d888c174f465640a6d9b549f5
+SHA256: 09d17230f8d20a9a37e3b6e4b981358ac79cf0e835cc3231b03fe906c3d733b9
+Section: Tweaks
+Priority: optional
+Author: Ning
+Maintainer: Ning
+Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
+
+Package: com.ning.duobar
+Name: DuoBar
+Version: 0.9
+Architecture: iphoneos-arm64e
+Installed-Size: 1480
+Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
+Filename: debs/roothide/com.ning.duobar_0.9_iphoneos-arm64e.deb
+Size: 259824
+MD5sum: c3f76924860081abe48e97bb24d6cdfe
+SHA1: ce4cebf71a015ff1840098adf2bf1d9aa90cf884
+SHA256: d73f060192545ad01416c99c638a4b510eaf59ef7e6958bbebe77b6c6c09b58c
+Section: Tweaks
+Priority: optional
+Author: Ning
+Maintainer: Ning
+Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
+
+Package: com.ning.duobar
+Name: DuoBar
+Version: 1.0.1
+Architecture: iphoneos-arm64e
+Installed-Size: 1500
+Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
+Filename: debs/roothide/com.ning.duobar_1.0.1_iphoneos-arm64e.deb
+Size: 266668
+MD5sum: addfca7b67e49d418bee1bf76df44cab
+SHA1: 616235d73e6dd336d2588c713838cbf5a49a2b37
+SHA256: cf6159316dc57de4b460038218c4912b9774b92511979fb3c7f6c1d29f4403c6
+Section: Tweaks
+Priority: optional
+Author: Ning
+Maintainer: Ning
+Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
+
+Package: com.ning.duobar
+Name: DuoBar
+Version: 1.0
+Architecture: iphoneos-arm64e
+Installed-Size: 1500
+Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
+Filename: debs/roothide/com.ning.duobar_1.0_iphoneos-arm64e.deb
+Size: 266676
+MD5sum: 2b6c33f3cff0a2f2fbaa10c335f48490
+SHA1: 20f54ba0bfd4ad2a7a52a5649f6ba6c474754073
+SHA256: 3cecfcde162dd86594b95d5c1bcf1ddf4263fa35c87a0c093318c48ec70d56bc
+Section: Tweaks
+Priority: optional
+Author: Ning
+Maintainer: Ning
+Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
 
 Package: com.ning.duobar
 Name: DuoBar
 Version: 1.1
 Architecture: iphoneos-arm64e
-Icon: https://sorenning.github.io/debs/icons/duobar-1.0-final.png
 Installed-Size: 1570
 Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
 Filename: debs/roothide/com.ning.duobar_1.1_iphoneos-arm64e.deb
@@ -99,4 +114,93 @@ SHA256: e918509a405ff0c6382f42907803d2ae2268121075a0cb8557e4ef45eefb2e7f
 Section: Tweaks
 Priority: optional
 Author: Ning
+Maintainer: Ning
 Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
+
+Package: com.ning.duobar
+Name: DuoBar
+Version: 1.2
+Architecture: iphoneos-arm64e
+Installed-Size: 1990
+Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
+Filename: debs/roothide/com.ning.duobar_1.2_iphoneos-arm64e.deb
+Size: 338196
+MD5sum: c2e5e39357a9d3392506d3a2bbef4db5
+SHA1: 54a56aa70698fe9ecbe47e0045a625cca9ea37fa
+SHA256: ae8d26129ebc29e4309e2d90c8ce54a0cd1f057335ef1d4a789342529233ab82
+Section: Tweaks
+Priority: optional
+Author: Ning
+Maintainer: Ning
+Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
+
+Package: com.sorenning.trollstore
+Name: trollstore 简体中文包
+Version: 1.1.0
+Architecture: iphoneos-arm64e
+Installed-Size: 120
+Depends: mobilesubstrate
+Filename: debs/roothide/com.sorenning.trollstore_1.1.0_iphoneos-arm64e.deb
+Size: 16616
+MD5sum: e0d7c1d800fd4b8da054ae7558f1dec6
+SHA1: 07d03dd9635433c8cb8d2f47cf7d2eb529266232
+SHA256: d2201e5d3c3951e829de02a144bc55dc2adf71c5a3832efb0faa0b5b60075648
+Section: Tweaks
+Priority: optional
+Author: Soren Ning
+Maintainer: Minis
+Description: Simplified Chinese UI localization layer for TrollStore 2.1.1
+
+Package: com.yzdmm.wxkbtoolbar10
+Name: WxkbToolbar10
+Version: 1.5.0
+Architecture: iphoneos-arm64e
+Installed-Size: 940
+Depends: mobilesubstrate, preferenceloader
+Filename: debs/roothide/com.yzdmm.wxkbtoolbar10_1.5.0_iphoneos-arm64e.deb
+Size: 80442
+MD5sum: 87c10de34033f4ec0e507f34a06d948c
+SHA1: b4470c8311a5fc0b801f84188141a9678d91600f
+SHA256: e49fb647f2fdcc91481920117a6eda254412d39d47ff0afe82e91ce68a137d53
+Section: Tweaks
+Priority: optional
+Author: yzdmm
+Maintainer: yzdmm
+Description: 微信输入法界面增强：背景、按键配色、字母渐变与圆角；基于实测可用1.5.0裁剪版精简功能设置入口
+
+Package: com.be-huge.floating-view
+Name: floatingView
+Version: 1.6.0-6
+Architecture: iphoneos-arm64e
+Installed-Size: 6700
+Depends: dev.theos.orion (>= 1.0.0), firmware (>= 12.2)
+Filename: debs/roothide/floatingView-1.6.0-6-iphoneos-arm64e.deb
+Size: 1771916
+MD5sum: 3bf0931839721cdf0a57e710ac19f07e
+SHA1: 3e59a5af613221264077546eba35ed7c45bf74c8
+SHA256: c8a8723deffd4d2ad2e70a67dd2bb53c74cbace6a0b6e99c77d5b4adb11ca334
+Section: Tweaks
+Priority: optional
+Author: be-huge
+Maintainer: be-huge
+Description: 分屏，不必太复杂，一切从简即可。（无验证免费了）
+Icon: https://s1.imagehub.cc/images/2025/01/11/a6ee9b7d3555d062c59b68c2c71c7406.png
+
+Package: wiki.qaq.duostatusring
+Name: DuoStatusRing
+Version: 1.0.1-1
+Architecture: iphoneos-arm64e
+Installed-Size: 170
+Depends: firmware (>= 16.0), mobilesubstrate
+Filename: debs/roothide/wiki.qaq.duostatusring_1.0.1-1_iphoneos-arm64e(1).deb
+Size: 44314
+MD5sum: b4e4de2067e4a5459f1b1ac5c69ee576
+SHA1: d27ab1f6529f8949ff99ee8f742853d8860da0de
+SHA256: d576e60519cde53d98e746308e401653618ad1ff566d937f256f3a8e6d32b7d0
+Section: Tweaks
+Priority: optional
+Author: OwnGoal Studio <https://github.com/owngoal-dev/DuoStatusRing>
+Maintainer: OwnGoal Studio <not-gonna-reply@owngoal.dev>
+Description: Fold the status bar into a ring when the Dynamic Island splits.
+ When the Dynamic Island shows two activities side by side, the signal, Wi-Fi and battery icons fold into a ring beside the bubble, and unfold when the island becomes one again. No settings.
+Icon: https://owngoal-dev.github.io/DuoStatusRing/icon.png
