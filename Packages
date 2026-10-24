@@ -1,3 +1,21 @@
+Package: com.be-huge.floating-view
+Name: floatingView
+Version: 1.6.0-6
+Architecture: iphoneos-arm64e
+Installed-Size: 6700
+Depends: dev.theos.orion (>= 1.0.0), firmware (>= 12.2)
+Filename: debs/roothide/floatingView-1.6.0-6-iphoneos-arm64e.deb
+Size: 1771916
+MD5sum: 3bf0931839721cdf0a57e710ac19f07e
+SHA1: 3e59a5af613221264077546eba35ed7c45bf74c8
+SHA256: c8a8723deffd4d2ad2e70a67dd2bb53c74cbace6a0b6e99c77d5b4adb11ca334
+Section: Tweaks
+Priority: optional
+Author: be-huge
+Maintainer: be-huge
+Description: 分屏，不必太复杂，一切从简即可。（无验证免费了）
+Icon: https://s1.imagehub.cc/images/2025/01/11/a6ee9b7d3555d062c59b68c2c71c7406.png
+
 Package: com.minis.liquidasscc
 Name: Liquid (Gl)ass — 控制中心
 Version: 0.1
@@ -14,91 +32,6 @@ Priority: optional
 Author: dylv&Ning
 Maintainer: dylv
 Description: 控制中心玻璃效果
-
-Package: com.ning.duobar
-Name: DuoBar
-Version: 0.6
-Architecture: iphoneos-arm64e
-Installed-Size: 1490
-Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
-Filename: debs/roothide/com.ning.duobar_0.6_iphoneos-arm64e.deb
-Size: 262492
-MD5sum: 9b65ecefa58f631ee9b5605295bc59a0
-SHA1: 92a21b8f796451a3b30fe622f4f977331f288997
-SHA256: 69b1292d4a8651a4a2274f99b7dbae73df5aa28bb6fea8280ffb501e43b54e9f
-Section: Tweaks
-Priority: optional
-Author: Ning
-Maintainer: Ning
-Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
-
-Package: com.ning.duobar
-Name: DuoBar
-Version: 0.8
-Architecture: iphoneos-arm64e
-Installed-Size: 1490
-Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
-Filename: debs/roothide/com.ning.duobar_0.8_iphoneos-arm64e.deb
-Size: 262952
-MD5sum: 8865dcbd1f2f80cc32f754d9d8a1d79e
-SHA1: 2eb74bef94b8307d888c174f465640a6d9b549f5
-SHA256: 09d17230f8d20a9a37e3b6e4b981358ac79cf0e835cc3231b03fe906c3d733b9
-Section: Tweaks
-Priority: optional
-Author: Ning
-Maintainer: Ning
-Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
-
-Package: com.ning.duobar
-Name: DuoBar
-Version: 0.9
-Architecture: iphoneos-arm64e
-Installed-Size: 1480
-Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
-Filename: debs/roothide/com.ning.duobar_0.9_iphoneos-arm64e.deb
-Size: 259824
-MD5sum: c3f76924860081abe48e97bb24d6cdfe
-SHA1: ce4cebf71a015ff1840098adf2bf1d9aa90cf884
-SHA256: d73f060192545ad01416c99c638a4b510eaf59ef7e6958bbebe77b6c6c09b58c
-Section: Tweaks
-Priority: optional
-Author: Ning
-Maintainer: Ning
-Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
-
-Package: com.ning.duobar
-Name: DuoBar
-Version: 1.0.1
-Architecture: iphoneos-arm64e
-Installed-Size: 1500
-Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
-Filename: debs/roothide/com.ning.duobar_1.0.1_iphoneos-arm64e.deb
-Size: 266668
-MD5sum: addfca7b67e49d418bee1bf76df44cab
-SHA1: 616235d73e6dd336d2588c713838cbf5a49a2b37
-SHA256: cf6159316dc57de4b460038218c4912b9774b92511979fb3c7f6c1d29f4403c6
-Section: Tweaks
-Priority: optional
-Author: Ning
-Maintainer: Ning
-Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
-
-Package: com.ning.duobar
-Name: DuoBar
-Version: 1.0
-Architecture: iphoneos-arm64e
-Installed-Size: 1500
-Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
-Filename: debs/roothide/com.ning.duobar_1.0_iphoneos-arm64e.deb
-Size: 266676
-MD5sum: 2b6c33f3cff0a2f2fbaa10c335f48490
-SHA1: 20f54ba0bfd4ad2a7a52a5649f6ba6c474754073
-SHA256: 3cecfcde162dd86594b95d5c1bcf1ddf4263fa35c87a0c093318c48ec70d56bc
-Section: Tweaks
-Priority: optional
-Author: Ning
-Maintainer: Ning
-Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
 
 Package: com.ning.duobar
 Name: DuoBar
@@ -150,24 +83,6 @@ Priority: optional
 Author: yzdmm
 Maintainer: yzdmm
 Description: 微信输入法界面增强：背景、按键配色、字母渐变与圆角；基于实测可用1.5.0裁剪版精简功能设置入口
-
-Package: com.be-huge.floating-view
-Name: floatingView
-Version: 1.6.0-6
-Architecture: iphoneos-arm64e
-Installed-Size: 6700
-Depends: dev.theos.orion (>= 1.0.0), firmware (>= 12.2)
-Filename: debs/roothide/floatingView-1.6.0-6-iphoneos-arm64e.deb
-Size: 1771916
-MD5sum: 3bf0931839721cdf0a57e710ac19f07e
-SHA1: 3e59a5af613221264077546eba35ed7c45bf74c8
-SHA256: c8a8723deffd4d2ad2e70a67dd2bb53c74cbace6a0b6e99c77d5b4adb11ca334
-Section: Tweaks
-Priority: optional
-Author: be-huge
-Maintainer: be-huge
-Description: 分屏，不必太复杂，一切从简即可。（无验证免费了）
-Icon: https://s1.imagehub.cc/images/2025/01/11/a6ee9b7d3555d062c59b68c2c71c7406.png
 
 Package: wiki.qaq.duostatusring
 Name: DuoStatusRing
