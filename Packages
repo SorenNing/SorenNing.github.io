@@ -49,6 +49,7 @@ Priority: optional
 Author: Ning
 Maintainer: Ning
 Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
+Icon: https://sorenning.github.io/debs/icons/duobar-1.0-final.png
 
 Package: com.sorenning.trollstore
 Name: trollstore 简体中文包
