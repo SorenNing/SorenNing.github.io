@@ -86,16 +86,16 @@ Sileodepiction: https://owngoal-dev.github.io/DuoStatusRing/depiction.json
 
 Package: com.ning.duobar
 Name: DuoBar
-Version: 1.0.1
+Version: 1.1
 Architecture: iphoneos-arm64e
 Icon: https://sorenning.github.io/debs/icons/duobar-1.0-final.png
-Installed-Size: 1500
+Installed-Size: 1570
 Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
-Filename: debs/roothide/com.ning.duobar_1.0.1_iphoneos-arm64e.deb
-Size: 266668
-MD5sum: addfca7b67e49d418bee1bf76df44cab
-SHA1: 616235d73e6dd336d2588c713838cbf5a49a2b37
-SHA256: cf6159316dc57de4b460038218c4912b9774b92511979fb3c7f6c1d29f4403c6
+Filename: debs/roothide/com.ning.duobar_1.1_iphoneos-arm64e.deb
+Size: 272372
+MD5sum: 1ae325f5865eff1279fcc0ab7a5abb57
+SHA1: 83dd40017afe781d81e2a347470e6661336d2e30
+SHA256: e918509a405ff0c6382f42907803d2ae2268121075a0cb8557e4ef45eefb2e7f
 Section: Tweaks
 Priority: optional
 Author: Ning
