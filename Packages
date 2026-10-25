@@ -313,6 +313,24 @@ Icon: file:///Applications/Cydia.app/Sections/Tweaks.png
 Name: BetterCCBrightness亮度增强
 Sponsor: Ant 蚂蚁源™ <https://apt.cydia.pro/>
 
+Package: com.dao.ccless
+Version: 2.1.0.1
+Architecture: iphoneos-arm64e
+Maintainer: 妖刀
+Pre-Depends: rootless-compat(>= 0.9)
+Depends: firmware (>= 15.0), mobilesubstrate, com.opa334.ccsupport
+Conflicts: com.skypain.cclocation, com.skypain.ccsettrings, com.skypain.ccrespring, com.sop.cpumagicrootless, netskao.ccbadgeclear-rootless, com.mtac.uptime, netskao.alipayscan-rootless, netskao.wechatscan-rootless, com.skypain.ccvpn, netskao.ccswitchdata-rootless, netskao.ccsim-rootless, netskao.tinyccmodules-rootless, netskao.cccellularrate-rootless, netskao.quantumultxlauncher-rootless, com.p2kdev.snapper2cc, com.skypain.ccautobrightness, com.skypain.ccscreenshot, com.skypain.cclockscreen, xyz.cypwn.safeccmodules, com.zqbb.ccpay, com.zqbb.qszqb, com.netskao.ccbadgeclear, com.kingpuffdaddi.control-center.ccvpn, com.netskao.cclifttowake, com.kdt.caperfhudmodule, com.kingpuffdaddi.control-center.ccvibration, com.hk.roothide.cc, com.hk.rootless.cc
+Filename: debs/roothide/CCLess++(roothide)-2.1.0.1-iphoneos-arm64e.deb
+Size: 499128
+MD5sum: 75db2705236a5d23f7746ce952a81ca8
+SHA1: 11a9d011f1dcff669a659d5b4e83f74fdd37cb44
+SHA256: f56f380b78daf1edd926717488d2b5baf06efa5c121d15b9e2f3555ca75d4fca
+Section: Tweaks
+Description: 📱控制中心模块集合：定位、注销、设置、VPN、自动亮度、截屏、锁屏、一键清角标、微信扫码、支付宝扫码、双卡切换、蜂窝切换、迷你音量-亮度、启动 QX/推特/油管/Filza/Sileo/Tg 等、静音、实时 CPU 使用率、系统运行时间、Snapper2、微信/支付宝付款码等。
+Author: 妖刀
+Icon: https://huayuarc.github.io/icon/CCLess.jpg
+Name: CCLess++(roothide)
+
 Package: com.dao.choicy
 Version: 1.5.4-3
 Architecture: iphoneos-arm64e
