@@ -633,6 +633,23 @@ Icon: https://invalidunit.github.io/sileodepiction/default/image_fix.png
 Name: FilzaScript deb -r
 Sileodepiction: https://invalidunit.github.io/sileodepiction/com.nan.deb/js_r.json
 
+Package: com.ning.ccsuite
+Version: 1.0
+Architecture: iphoneos-arm64e
+Maintainer: Ning
+Depends: firmware (>= 15.0), mobilesubstrate, com.opa334.ccsupport
+Conflicts: com.wkk.ccswitchdata, com.wkk.ccsim, com.sini.ccrespring
+Replaces: com.wkk.ccswitchdata, com.wkk.ccsim, com.sini.ccrespring
+Filename: debs/roothide/com.ning.ccsuite_1.0_iphoneos-arm64e.deb
+Size: 80294
+MD5sum: a86759d1f3bda9ebf1b7b04dcfe66f1a
+SHA1: 326cfa14a45f606a88db1de73f51bd5f4c742197
+SHA256: b0331112174dc10491a5ef3335591b5f0cab3bf26a64a54cb6b8099a0d4c54e7
+Section: Tweaks
+Description: 控制中心三合一模块：双卡流量切换、SIM 卡开关、注销（长按更多电源选项）。
+Author: Netskao, Mr.Zhang
+Name: CCSuite 三合一
+
 Package: com.ning.duobar
 Version: 0.6
 Architecture: iphoneos-arm64e
