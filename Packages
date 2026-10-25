@@ -1,8 +1,47 @@
+Package: aweme.x
+Version: 2.6.2
+Architecture: iphoneos-arm64e
+Maintainer: 𝙓
+Installed-Size: 11908
+Pre-Depends: rootless-compat (>= 0.9)
+Depends: mobilesubstrate (>= 0.9.5000)
+Conflicts: com.xx.dyhook
+Replaces: com.xx.dyhook
+Filename: debs/roothide/aweme.x_2.6.2_iphoneos-arm64e.deb
+Size: 6554470
+MD5sum: c94298b2cdba2d5dc0377835d974259f
+SHA1: 5eddf68fca3dc9157bdef6930fd47221eb3d5de2
+SHA256: 6d1efed018cb957fcf171c601bbe2b4066c25b646cf470badd0eb8a3e926afef
+Section: Tweaks
+Description: 自用
+Author: 𝙓
+Name: 抖音图层
+
+Package: cn.llld.appfix
+Version: 1.2.21
+Architecture: iphoneos-arm64e
+Maintainer: 来了老弟
+Installed-Size: 1940
+Pre-Depends: rootless-compat (>= 0.9)
+Depends: firmware (>= 14.0), ellekit | mobilesubstrate
+Filename: debs/roothide/cn.llld.appfix_1.2.21_iphoneos-arm64e.deb
+Size: 1041592
+MD5sum: deff05bdfded612487534061c918adb4
+SHA1: adc7d76c4c910c7a6e40fd4307a4db9e08e3ec7f
+SHA256: 778871f7278b33532c1a573dc7119e361e10315b380a243a1f686fd5d9f03cf3
+Section: Development
+Description: appfix 应用修改器 ———  系统应用，用户应用，越狱应用的调整工具（Flex3 思路重写增强，1.0版本之后支持导入Flex3配置），支持自定义脚本代码，配置导出导入，一键开关，视图层级可视化 等等，不收费。
+Tag: purpose::uikit, compatible::ios14
+Author: 来了老弟
+Icon: file:///var/jb/Applications/appfix.app/AppIcon60@3x.png
+Name: 应用修改器
+
 Package: com.be-huge.floating-view
-Name: floatingView
 Version: 1.6.0-6
 Architecture: iphoneos-arm64e
-Installed-Size: 6700
+Maintainer: be-huge
+Installed-Size: 3360
+Pre-Depends: rootless-compat(>= 0.9)
 Depends: dev.theos.orion (>= 1.0.0), firmware (>= 12.2)
 Filename: debs/roothide/floatingView-1.6.0-6-iphoneos-arm64e.deb
 Size: 1771916
@@ -10,34 +49,169 @@ MD5sum: 3bf0931839721cdf0a57e710ac19f07e
 SHA1: 3e59a5af613221264077546eba35ed7c45bf74c8
 SHA256: c8a8723deffd4d2ad2e70a67dd2bb53c74cbace6a0b6e99c77d5b4adb11ca334
 Section: Tweaks
-Priority: optional
-Author: be-huge
-Maintainer: be-huge
 Description: 分屏，不必太复杂，一切从简即可。（无验证免费了）
+Author: be-huge
 Icon: https://s1.imagehub.cc/images/2025/01/11/a6ee9b7d3555d062c59b68c2c71c7406.png
+Name: floatingView
+
+Package: com.cydia.love.betterccbrightness-rootless
+Version: 1.0.2
+Architecture: iphoneos-arm64e
+Maintainer: Ant 蚂蚁源™ <admin@cydia.pro>
+Installed-Size: 304
+Pre-Depends: rootless-compat (>= 0.9)
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 13.0)
+Filename: debs/roothide/com.cydia.love.betterccbrightness-rootless_1.0.2_iphoneos-arm64e.deb
+Size: 89288
+MD5sum: a9dba4efaa6344e6c39583e660c99bd5
+SHA1: 5b3ac3f75819c39162306854927fd1e33d27f475
+SHA256: 5844329bbf2b774e3558dec54e6f62e11dc681f1b2fbac629e4a571f205c0998
+Section: 应用插件
+Description: 为控制中心亮度模块，拓展出很多功能，插件无设置项，安装注销即生效！长按控制中心亮度模块出来界面！
+Tag: 1
+Author: level3tjg
+Icon: file:///Applications/Cydia.app/Sections/Tweaks.png
+Name: BetterCCBrightness亮度增强
+Sponsor: Ant 蚂蚁源™ <https://apt.cydia.pro/>
+
+Package: com.flex2areo.apptools15roothide
+Version: 2.9.1
+Architecture: iphoneos-arm64e
+Maintainer: aReo
+Installed-Size: 5520
+Depends: mobilesubstrate
+Filename: debs/roothide/com.flex2areo.apptools15roothide_2.9.1_iphoneos-arm64e.deb
+Size: 3660314
+MD5sum: e8c528bc636ff05976e128fe458e354d
+SHA1: a3355b0346b63280e843740d9e8b0643df2b0c8c
+SHA256: d9fe52f51ec4499e792de7e3c83edee22b07290d7dc4266c35aebb19c8278c62
+Section: Tweaks
+Description: AppTools for iOS15-17 Roothide
+Author: aReo
+Name: AppTools15-17(Roothide)
 
 Package: com.minis.liquidasscc
-Name: Liquid (Gl)ass — 控制中心
 Version: 0.1
 Architecture: iphoneos-arm64e
-Installed-Size: 822
+Maintainer: dylv
+Installed-Size: 844
 Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0), firmware (<< 26.0), preferenceloader
+Conflicts: com.minis.liquidglasscc
+Replaces: com.minis.liquidglasscc
 Filename: debs/roothide/com.minis.liquidasscc_0.1_iphoneos-arm64e.deb
 Size: 113490
 MD5sum: 286f0482876b9594522469dc97c2702c
 SHA1: e8448b9ab2167cce03782afc74244d429ab98e8c
 SHA256: 8e0cb07103110d0437cc04b1a2ec959cc16b323a25e916e42ff810dd2b4bb9a0
 Section: Tweaks
-Priority: optional
-Author: dylv&Ning
-Maintainer: dylv
 Description: 控制中心玻璃效果
+Author: dylv&Ning
+Name: Liquid (Gl)ass — 控制中心
+
+Package: com.nan.deb-filza-script-b-gzip
+Version: 0.1.0
+Architecture: iphoneos-arm64e
+Maintainer: zhaonan
+Pre-Depends: com.tigisoftware.filza64bit | com.tigisoftware.filza
+Depends: com.nan.deb
+Conflicts: com.nan.deb-filza-script-b, com.nan.deb-filza-script-b-xz
+Provides: com.nan.deb-filza-script-b
+Filename: debs/roothide/com.nan.deb-filza-script-b-gzip_0.1.0_iphoneos-arm64e.deb
+Size: 1088
+MD5sum: cf60230d280b18d9ffeef3f711f684c8
+SHA1: c0895e7475ff95927e94d2aab4712b9fc58206ba
+SHA256: 906551156905372a6824c3b3c85056165b190703a3a22645bdc2ae8c7e311b10
+Section: Addons
+Description: deb 扩展，Filza 脚本，打包 deb，打包有 deb 的目录
+Author: zhaonan
+Icon: https://invalidunit.github.io/sileodepiction/default/image_fix.png
+Name: FilzaScript deb -b gzip
+Sileodepiction: https://invalidunit.github.io/sileodepiction/com.nan.deb/js_b.json
 
 Package: com.ning.duobar
+Version: 0.6
+Architecture: iphoneos-arm64e
+Maintainer: Ning
+Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
+Filename: debs/roothide/com.ning.duobar_0.6_iphoneos-arm64e.deb
+Size: 262492
+MD5sum: 9b65ecefa58f631ee9b5605295bc59a0
+SHA1: 92a21b8f796451a3b30fe622f4f977331f288997
+SHA256: 69b1292d4a8651a4a2274f99b7dbae73df5aa28bb6fea8280ffb501e43b54e9f
+Section: Tweaks
+Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
+Tag: role::tweak
+Author: Ning
 Name: DuoBar
+
+Package: com.ning.duobar
+Version: 0.8
+Architecture: iphoneos-arm64e
+Maintainer: Ning
+Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
+Filename: debs/roothide/com.ning.duobar_0.8_iphoneos-arm64e.deb
+Size: 262952
+MD5sum: 8865dcbd1f2f80cc32f754d9d8a1d79e
+SHA1: 2eb74bef94b8307d888c174f465640a6d9b549f5
+SHA256: 09d17230f8d20a9a37e3b6e4b981358ac79cf0e835cc3231b03fe906c3d733b9
+Section: Tweaks
+Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
+Tag: role::tweak
+Author: Ning
+Name: DuoBar
+
+Package: com.ning.duobar
+Version: 0.9
+Architecture: iphoneos-arm64e
+Maintainer: Ning
+Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
+Filename: debs/roothide/com.ning.duobar_0.9_iphoneos-arm64e.deb
+Size: 259824
+MD5sum: c3f76924860081abe48e97bb24d6cdfe
+SHA1: ce4cebf71a015ff1840098adf2bf1d9aa90cf884
+SHA256: d73f060192545ad01416c99c638a4b510eaf59ef7e6958bbebe77b6c6c09b58c
+Section: Tweaks
+Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
+Tag: role::tweak
+Author: Ning
+Name: DuoBar
+
+Package: com.ning.duobar
+Version: 1.0
+Architecture: iphoneos-arm64e
+Maintainer: Ning
+Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
+Filename: debs/roothide/com.ning.duobar_1.0_iphoneos-arm64e.deb
+Size: 266676
+MD5sum: 2b6c33f3cff0a2f2fbaa10c335f48490
+SHA1: 20f54ba0bfd4ad2a7a52a5649f6ba6c474754073
+SHA256: 3cecfcde162dd86594b95d5c1bcf1ddf4263fa35c87a0c093318c48ec70d56bc
+Section: Tweaks
+Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
+Tag: role::tweak
+Author: Ning
+Name: DuoBar
+
+Package: com.ning.duobar
+Version: 1.0.1
+Architecture: iphoneos-arm64e
+Maintainer: Ning
+Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
+Filename: debs/roothide/com.ning.duobar_1.0.1_iphoneos-arm64e.deb
+Size: 266668
+MD5sum: addfca7b67e49d418bee1bf76df44cab
+SHA1: 616235d73e6dd336d2588c713838cbf5a49a2b37
+SHA256: cf6159316dc57de4b460038218c4912b9774b92511979fb3c7f6c1d29f4403c6
+Section: Tweaks
+Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
+Tag: role::tweak
+Author: Ning
+Name: DuoBar
+
+Package: com.ning.duobar
 Version: 1.1
 Architecture: iphoneos-arm64e
-Installed-Size: 1570
+Maintainer: Ning
 Depends: firmware (>= 15.1), firmware (<< 27.0), mobilesubstrate, preferenceloader
 Filename: debs/roothide/com.ning.duobar_1.1_iphoneos-arm64e.deb
 Size: 272372
@@ -45,17 +219,32 @@ MD5sum: 1ae325f5865eff1279fcc0ab7a5abb57
 SHA1: 83dd40017afe781d81e2a347470e6661336d2e30
 SHA256: e918509a405ff0c6382f42907803d2ae2268121075a0cb8557e4ef45eefb2e7f
 Section: Tweaks
-Priority: optional
-Author: Ning
-Maintainer: Ning
 Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
+Tag: role::tweak
+Author: Ning
+Name: DuoBar
 Icon: https://sorenning.github.io/debs/icons/duobar-1.0-final.png
 
+Package: com.opa334.libundirect
+Version: 1.1.6
+Architecture: iphoneos-arm64e
+Maintainer: opa334
+Installed-Size: 168
+Filename: debs/roothide/com.opa334.libundirect_1.1.6_iphoneos-arm64e.deb
+Size: 14636
+MD5sum: ed66773b7552f61ce2f2b4ddcf85045c
+SHA1: c260041b7a3db39c82ee83a10537b656f11542e3
+SHA256: e034fa00969f7cda9d464120d90915c11ee4959907494e3ef93bf2e2fc64bf9c
+Section: System
+Description: Patchfinder and rebinder for objc_direct methods
+Tag: role::developer
+Author: opa334
+Name: libundirect
+
 Package: com.sorenning.trollstore
-Name: trollstore 简体中文包
 Version: 1.1.0
 Architecture: iphoneos-arm64e
-Installed-Size: 120
+Maintainer: Minis
 Depends: mobilesubstrate
 Filename: debs/roothide/com.sorenning.trollstore_1.1.0_iphoneos-arm64e.deb
 Size: 16616
@@ -63,16 +252,71 @@ MD5sum: e0d7c1d800fd4b8da054ae7558f1dec6
 SHA1: 07d03dd9635433c8cb8d2f47cf7d2eb529266232
 SHA256: d2201e5d3c3951e829de02a144bc55dc2adf71c5a3832efb0faa0b5b60075648
 Section: Tweaks
-Priority: optional
-Author: Soren Ning
-Maintainer: Minis
 Description: Simplified Chinese UI localization layer for TrollStore 2.1.1
+Author: Soren Ning
+Name: trollstore 简体中文包
+
+Package: com.tencent.themebox
+Version: 3.0.7
+Architecture: iphoneos-arm64e
+Maintainer: admin@25mao.com
+Depends: mobilesubstrate (>= 0.9.5000)
+Filename: debs/roothide/com.tencent.themebox_3.0.7_iphoneos-arm64e.deb
+Size: 16228110
+MD5sum: 1dba90510c9e599f39a12ee94ca62388
+SHA1: e4bc885a37ab0938adb93741eaf406771b55e5d9
+SHA256: 77089fe3a70e6601f44bd2aaa2d0c0cdcf25c880ab6455ca420591c889b319fc
+Section: Tweaks
+Description: 微信主题盒子
+Author: Mao
+Name: 主题盒子
+
+Package: com.wkk.filzacarplugins
+Version: 1.0.0
+Architecture: iphoneos-arm64e
+Maintainer: iosdump
+Installed-Size: 10644
+Pre-Depends: rootless-compat (>= 0.9)
+Conflicts: com.iosdump.filzacarplugin
+Filename: debs/roothide/com.wkk.filzacarplugins_1.0.0_iphoneos-arm64e.deb
+Size: 11233906
+MD5sum: 159d508a8a65ce41db3fb7a283fb7813
+SHA1: e1754d0a3d8ab775bdaf07ff2971a584795c98c9
+SHA256: f618865ec6c9d379556dcf0935c6da7e7094fc662101c7744403b786d014edaf
+Section: Tweaks
+Description: Filza 增强插件
+ * 提取与修改 Assets.car 资源文件
+ * 使用：长按 .car 文件，菜单中点击“打开方式”
+Author: iosdump
+Icon: https://TrollStoreX.Github.io/sileodepiction/FilzaCarPlugin/icon.png
+Name: FilzaCarPlugin
+
+Package: com.xybp888.perfectdynamiclsland17.roothide
+Version: 1.1.0
+Architecture: iphoneos-arm64e
+Maintainer: xybp888
+Depends: firmware (>= 17.0), preferenceloader, com.opa334.libsandy
+Filename: debs/roothide/com.xybp888.perfectdynamiclsland17.roothide_1.1.0_iphoneos-arm64e.deb
+Size: 1926036
+MD5sum: 3e91b2f1da1a89948135e04f1a362035
+SHA1: 3fcd3e23afe747ad2295e0f88373043513c301a7
+SHA256: c381b6560876a1a710b5fcd087b610dd7970a107be46d31aa6400e0f03c28cad
+Section: System
+Priority: optional
+Description: 电话助手激活用户专属免费插件
+ 完美的使用原生灵动岛展示系统通知等...
+ iOS17 的半越狱专用版本
+Author: xybp888
+Depiction: https://apt.htv123.com/view/1000
+Name: 灵动通知iOS17-正式版(Roothide)
+Sileodepiction: https://apt.htv123.com/sileo/1000
 
 Package: com.yzdmm.wxkbtoolbar10
-Name: WxkbToolbar10
 Version: 1.5.0
 Architecture: iphoneos-arm64e
-Installed-Size: 940
+Maintainer: yzdmm
+Installed-Size: 476
+Pre-Depends: rootless-compat(>= 0.9)
 Depends: mobilesubstrate, preferenceloader
 Filename: debs/roothide/com.yzdmm.wxkbtoolbar10_1.5.0_iphoneos-arm64e.deb
 Size: 80442
@@ -80,16 +324,146 @@ MD5sum: 87c10de34033f4ec0e507f34a06d948c
 SHA1: b4470c8311a5fc0b801f84188141a9678d91600f
 SHA256: e49fb647f2fdcc91481920117a6eda254412d39d47ff0afe82e91ce68a137d53
 Section: Tweaks
-Priority: optional
-Author: yzdmm
-Maintainer: yzdmm
 Description: 微信输入法界面增强：背景、按键配色、字母渐变与圆角；基于实测可用1.5.0裁剪版精简功能设置入口
+Author: yzdmm
+Name: WxkbToolbar10
+
+Package: fakeroot
+Version: 1.31-1
+Architecture: iphoneos-arm64e
+Maintainer: RootHide <RootHideDev@twitter>
+Installed-Size: 352
+Depends: roothide (>= 0.0.6), libiosexec1 (>= 1.3.1), sh
+Filename: debs/roothide/fakeroot_1.31-1_iphoneos-arm64e.deb
+Size: 131568
+MD5sum: cbd61af22ac916c347b537f6e9d6cbee
+SHA1: 3e7dfaa27c840566757b3752a21f3fe446d7a4c3
+SHA256: 2a0585bd3e95e2843448f825c10a4d7ea1a0b236820ac459ea6c78b5573f58e8
+Section: Development
+Priority: important
+Description: tool for simulating superuser privileges
+
+Package: libc-ares2
+Version: 1.19.0
+Architecture: iphoneos-arm64e
+Maintainer: RootHide <RootHideDev@twitter>
+Installed-Size: 132
+Depends: roothide (>= 0.0.6), libiosexec1 (>= 1.3.1)
+Filename: debs/roothide/libc-ares2_1.19.0_iphoneos-arm64e.deb
+Size: 44680
+MD5sum: 13a81218150c29ce29f699ce069ee004
+SHA1: e83ff61cab20013e7f6babbfb2ed26b32559c296
+SHA256: a626c1ee26b3cae0e89fc28aef9d7ff885c2d3b7106fd0376852a07dea75da24
+Section: Development
+Priority: optional
+Homepage: https://c-ares.haxx.se/
+Description: Shared libraries for the c-ares asynchronous name resolver library.
+
+Package: libflex
+Version: 4.7.1
+Architecture: iphoneos-arm64e
+Maintainer: Tanner Bennett <tannerbennett@me.com>
+Installed-Size: 5412
+Pre-Depends: firmware (>= 9.0)
+Filename: debs/roothide/libflex_4.7.1_iphoneos-arm64e.deb
+Size: 2966304
+MD5sum: 222ff8ea17c75c99f80696ad5af4cb80
+SHA1: 99883db8a9c1dd1068d946356b8d7dfb50a654b4
+SHA256: e490f63de1311c6a3304e1f4430bbe1d8b0f1b979c96473f901fc5632dd2136c
+Section: 依赖插件
+Description: 隐根越狱依赖插件。
+Author: Tanner Bennett <tannerbennett@me.com>
+Depiction: https://nscake.github.io/package.html?package=libflex
+Name: libFLEX
+Sileodepiction: https://nscake.github.io/depictions/libflex.sileo.json
+
+Package: librtmp1
+Version: 2.4+20151223.gitfa8646d.1
+Architecture: iphoneos-arm64e
+Maintainer: RootHide <RootHideDev@twitter>
+Installed-Size: 200
+Depends: roothide (>= 0.0.6), libiosexec1 (>= 1.3.1), libgnutls30, libhogweed6, libnettle8, libgmp10
+Filename: debs/roothide/librtmp1_2.4_2B20151223.gitfa8646d.1_iphoneos-arm64e.deb
+Size: 93272
+MD5sum: 7e3abfd77c300c74fc37082fa3b51736
+SHA1: accae5663e8981a27aa559c9f070139201b2685d
+SHA256: eb0b2740553dc5c72b92668aaaff32dcfdfcea32917479464c5861a5aab158f9
+Section: Libraries
+Priority: standard
+Description: toolkit for RTMP streams (shared library)
+ A small dumper for media content streamed over the RTMP protocol (like BBC's
+ iPlayer high quality streams). Supplying an RTMP URL will result in a dumped
+ flv file, which can be played/transcoded with standard tools.
+ .
+ This package contains the shared libraries, header files needed by
+ programs that want to use librtmp.
+
+Package: make
+Version: 4.4.1
+Architecture: iphoneos-arm64e
+Maintainer: RootHide <RootHideDev@twitter>
+Installed-Size: 1644
+Depends: roothide (>= 0.0.6), libiosexec1 (>= 1.3.1), libintl8
+Filename: debs/roothide/make_4.4.1_iphoneos-arm64e.deb
+Size: 867784
+MD5sum: bbf532b827283001b2c128820e10557c
+SHA1: 4b8cc64c5bdd3861cab31ab16625f70c8321d03a
+SHA256: 4afbec39bb4ce37b1d3c94ebd65ee03e38af9c50b0bf976d4e1c225a531d1125
+Section: Development
+Priority: important
+Description: utility for directing compilation
+ GNU Make is a utility which controls the generation of executables
+ and other target files of a program from the program's source
+ files. It determines automatically which pieces of a large program
+ need to be (re)created, and issues the commands to (re)create
+ them. Make can be used to organize any task in which targets (files)
+ are to be automatically updated based on input files whenever the
+ corresponding input is newer --- it is not limited to building
+ computer programs. Indeed, Make is a general purpose dependency
+ solver.
+
+Package: preferenceloader.top
+Version: 2.2.8-2
+Architecture: iphoneos-arm64e
+Maintainer: ProcursusTeam <support@procurs.us>
+Installed-Size: 340
+Depends: mobilesubstrate
+Conflicts: preferenceloader, preferenceloader.rootless, preferenceloader.rootless.top
+Replaces: preferenceloader, preferenceloader.rootless, preferenceloader.rootless.top
+Provides: preferenceloader (= 2.2.6)
+Filename: debs/roothide/preferenceloader.top_2.2.8-2_iphoneos-arm64e.deb
+Size: 39114
+MD5sum: fa92779c98859730e3573d360de07446
+SHA1: f7f988e7293b99860f1a69b9e87aa89696d6ccd4
+SHA256: 00575d439ed2e208627ec5190694437221acf0596371aa7d66a2577c43685878
+Section: System
+Description: load preferences in style
+Author: Dhinak G <dhinak@dhinak.net>
+Name: PreferenceLoader (Top)
+
+Package: swift
+Version: 5.7.2~RELEASE
+Architecture: iphoneos-arm64e
+Maintainer: RootHide <RootHideDev@twitter>
+Installed-Size: 8
+Depends: roothide (>= 0.0.6), swift-5.7.2
+Conflicts: com.kabiroberai.swift-toolchain
+Replaces: com.kabiroberai.swift-toolchain
+Filename: debs/roothide/swift_5.7.2_7ERELEASE_iphoneos-arm64e.deb
+Size: 6812
+MD5sum: 98735049ac9f232c431b4d9a1a7c9f26
+SHA1: 7c8ac1f25f91791284309591bb6beb1c644c88d5
+SHA256: 96aa1f46542e049b8acf3231a17a8307c9267b11f5b87e2b86c906003fdc4663
+Section: Development
+Priority: optional
+Homepage: https://swift.org/
+Description: Swift developer package
 
 Package: wiki.qaq.duostatusring
-Name: DuoStatusRing
 Version: 1.0.1-1
 Architecture: iphoneos-arm64e
-Installed-Size: 170
+Maintainer: OwnGoal Studio <not-gonna-reply@owngoal.dev>
+Installed-Size: 168
 Depends: firmware (>= 16.0), mobilesubstrate
 Filename: debs/roothide/wiki.qaq.duostatusring_1.0.1-1_iphoneos-arm64e(1).deb
 Size: 44314
@@ -98,8 +472,11 @@ SHA1: d27ab1f6529f8949ff99ee8f742853d8860da0de
 SHA256: d576e60519cde53d98e746308e401653618ad1ff566d937f256f3a8e6d32b7d0
 Section: Tweaks
 Priority: optional
-Author: OwnGoal Studio <https://github.com/owngoal-dev/DuoStatusRing>
-Maintainer: OwnGoal Studio <not-gonna-reply@owngoal.dev>
 Description: Fold the status bar into a ring when the Dynamic Island splits.
  When the Dynamic Island shows two activities side by side, the signal, Wi-Fi and battery icons fold into a ring beside the bubble, and unfold when the island becomes one again. No settings.
+Author: OwnGoal Studio <https://github.com/owngoal-dev/DuoStatusRing>
+Depiction: https://owngoal-dev.github.io/DuoStatusRing/
 Icon: https://owngoal-dev.github.io/DuoStatusRing/icon.png
+Name: DuoStatusRing
+Sileodepiction: https://owngoal-dev.github.io/DuoStatusRing/depiction.json
+
