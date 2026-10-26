@@ -400,18 +400,18 @@ Author: doimty
 Name: ProMotion 120Hz
 
 Package: com.evgeniy558.controlcenter18
-Version: 3.0-beta2
+Version: 3.0-beta3
 Architecture: iphoneos-arm64e
 Maintainer: evgeniy558
 Installed-Size: 22808
 Depends: mobilesubstrate, firmware (>= 16.0), firmware (<< 18.0), preferenceloader, com.opa334.ccsupport
 Conflicts: com.dao.ccless
 Replaces: com.dao.ccless
-Filename: debs/roothide/com.evgeniy558.controlcenter18_3.0-beta2_iphoneos-arm64e.deb
-Size: 8752796
-MD5sum: 38e992dd6b5b59b6292c6d8139a5ffca
-SHA1: de759a6c3f75ae9635f39174fbb8a58ea1b60f7c
-SHA256: 3a52a2ba9f2e88fa05cf848c9aa1cbeeff0a6fecfdcf5ee651b7290efbac3b2d
+Filename: debs/roothide/com.evgeniy558.controlcenter18_3.0-beta3_iphoneos-arm64e.deb
+Size: 8753522
+MD5sum: 7eda2c7b200037be7b45f73145ffbcf6
+SHA1: 6ae75918d6cf6f8bb6805370766881fae5941f16
+SHA256: a8714ab79a85bd970d33bde983004b377942305040fd79a91cce81ae2f11721d
 Section: Tweaks
 Description: The full iOS 18 Control Center for iOS 16 and 17 (iPhone only).
  ControlCenter18 brings the full iOS 18 Control Center to iOS 16 and 17. It's not a theme or a reskin: modules, pages and gestures work the same way they do on iOS 18.
