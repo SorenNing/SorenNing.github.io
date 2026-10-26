@@ -408,10 +408,10 @@ Depends: mobilesubstrate, firmware (>= 16.0), firmware (<< 18.0), preferenceload
 Conflicts: com.dao.ccless
 Replaces: com.dao.ccless
 Filename: debs/roothide/com.evgeniy558.controlcenter18_3.0-beta4_iphoneos-arm64e.deb
-Size: 8753924
-MD5sum: 9e4525d2608407406c9a31afac5eb906
-SHA1: 61f4c14ff60c3eb36ea12accd95d66f4c2310d3f
-SHA256: bfc1b2e9ea01b6340aa3dd53fc6e5a925954d1fbdcf65c6de1d90eb50af82158
+Size: 8753922
+MD5sum: f391e5d9250ea2ef7eb0a5a9c75f6606
+SHA1: a4ea6b5c5ea8b68ed89ca61d0f5ab103580cabda
+SHA256: e70f6422361b26563c9eff8f55baa6a3bc9fd84e07d76f317a77c08245e860ce
 Section: Tweaks
 Description: The full iOS 18 Control Center for iOS 16 and 17 (iPhone only).
  ControlCenter18 brings the full iOS 18 Control Center to iOS 16 and 17. It's not a theme or a reskin: modules, pages and gestures work the same way they do on iOS 18.
