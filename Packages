@@ -222,6 +222,22 @@ Author: Mao
 Name: 左滑返回-roothide
 Sponsor: admin@25mao.com
 
+Package: com.82flex.touchvis
+Version: 4.2
+Architecture: iphoneos-arm64e
+Maintainer: Lessica <82flex@gmail.com>
+Installed-Size: 3644
+Depends: firmware (>= 15.0), mobilesubstrate, preferenceloader
+Filename: debs/roothide/com.82flex.touchvis_4.2_iphoneos-arm64e.deb
+Size: 729794
+MD5sum: 61a99aed4ac50889348a90f5344973cf
+SHA1: 94eaf2fac2c57846354202bc9152eebd2f1bc78d
+SHA256: 1eafc4f1393d624ea7cd685fc749c7b7fd95dc81292433ac523f695e0ea78b44
+Section: Tweaks
+Description: Display your touch interactions!
+Author: Lessica <82flex@gmail.com>
+Name: Touch-Viz
+
 Package: com.82flex.unseen
 Version: 0.0.5
 Architecture: iphoneos-arm64e
