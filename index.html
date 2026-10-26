@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ning's Repo — SorenNing 软件源</title>
+<style>
+  :root { color-scheme: dark; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "SF Pro Text", "PingFang SC", "Helvetica Neue", sans-serif;
+    background: #0e0e12;
+    color: #f2f2f7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .card {
+    width: 100%;
+    max-width: 520px;
+    background: #1c1c22;
+    border-radius: 22px;
+    padding: 32px 28px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  }
+  .badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  h1 { font-size: 26px; font-weight: 800; margin: 10px 0 6px; }
+  .desc { color: #9c9ca8; font-size: 14px; line-height: 1.6; margin-bottom: 22px; }
+  .stats { display: flex; gap: 10px; margin-bottom: 22px; }
+  .stat {
+    flex: 1;
+    background: #26262e;
+    border-radius: 14px;
+    padding: 14px 10px;
+    text-align: center;
+  }
+  .stat b { display: block; font-size: 22px; font-weight: 800; }
+  .stat span { font-size: 12px; color: #9c9ca8; }
+  .urlrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #26262e;
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    font-size: 13px;
+    color: #c9c9d4;
+    word-break: break-all;
+  }
+  .copy { 
+    flex-shrink: 0;
+    background: transparent; border: 1px solid #484854; color: #f2f2f7;
+    border-radius: 9px; padding: 6px 14px; font-size: 13px; cursor: pointer;
+  }
+  .copy:active { opacity: .6; }
+  .sileo {
+    width: 100%;
+    background: linear-gradient(135deg, #36d1dc, #5b86e5);
+    color: #fff;
+    border: 0;
+    border-radius: 14px;
+    padding: 15px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: .5px;
+  }
+  .sileo:active { opacity: .75; }
+  .hint { text-align: center; color: #6f6f7a; font-size: 12px; margin-top: 12px; }
+  .cats { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+  .cat {
+    background: #26262e; color: #b9b9c6;
+    border-radius: 999px; padding: 5px 12px; font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="badge">SorenNing · Official Repo</div>
+  <h1>Ning's Repo</h1>
+  <div class="desc">Tweaks, 控制中心模块与实用工具（iPhone / iPad · iOS 14 – 26 · RootHide）。<br>软件源地址：<b>https://sorenning.github.io</b></div>
+
+  <div class="stats">
+    <div class="stat"><b>129</b><span>packages</span></div>
+    <div class="stat"><b>24</b><span>categories</span></div>
+    <div class="stat"><b>14–26</b><span>iOS</span></div>
+  </div>
+
+  <div class="cats">
+    <span class="cat">Tweaks</span>
+    <span class="cat">Development</span>
+    <span class="cat">System</span>
+    <span class="cat">Libraries</span>
+    <span class="cat">Utilities</span>
+    <span class="cat">微信插件</span>
+    <span class="cat">Applications</span>
+    <span class="cat">Networking</span>
+    <span class="cat">Localizations</span>
+    <span class="cat">…共 24 类</span>
+  </div>
+
+  <div class="urlrow">
+    <span id="url">https://sorenning.github.io</span>
+    <button class="copy" onclick="copyURL()">Copy</button>
+  </div>
+
+  <button class="sileo" onclick="addRepo()">+ Add Repo (Sileo)</button>
+  <div class="hint">需要已安装 Sileo · 添加后下拉刷新即可</div>
+</div>
+
+<script>
+function copyURL() {
+  var url = 'https://sorenning.github.io';
+  if (navigator.clipboard) { navigator.clipboard.writeText(url); }
+  else {
+    var ta = document.createElement('textarea'); ta.value = url;
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+  }
+  var b = document.querySelector('.copy'); b.textContent = '已复制 ✓';
+  setTimeout(function(){ b.textContent = 'Copy'; }, 1500);
+}
+function addRepo() {
+  var enc = encodeURIComponent('https://sorenning.github.io');
+  window.location.href = 'sileo://source/' + enc;
+}
+</script>
+</body>
+</html>
