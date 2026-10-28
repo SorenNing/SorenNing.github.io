@@ -475,27 +475,6 @@ Icon: https://huayuarc.github.io/icon/controlcenter18.png
 Name: ControlCenter18
 Sileodepiction: file:///var/jb/Library/PreferenceBundles/ControlCenter18Prefs.bundle/Depiction/depiction.json
 
-Package: com.exile90.icleanerpro
-Version: 7.10.0
-Architecture: iphoneos-arm64e
-Maintainer: BarabaDev
-Pre-Depends: rootless-compat (>= 0.9)
-Depends: firmware (>= 17.0), findutils, apt, uikittools
-Conflicts: org.altervista.exilecom.icleaner
-Replaces: org.altervista.exilecom.icleaner
-Filename: debs/roothide/com.exile90.icleanerpro_7.10.0_iphoneos-arm64e.deb
-Size: 1707446
-MD5sum: 34cdb58f6148c546fe7672c7621f55cc
-SHA1: 6916735c6916abbe32cef6a932cedf2932ce7f09
-SHA256: 88f0c91dd785cac965fb74c0a5caaad5634d6b6a67f6edb68f1e127c58de3d0c
-Section: 应用
-Priority: optional
-Homepage: https://ib-soft.net/icleaner
-Description: iOS system cleanup and maintenance utility for rootless jailbreaks.
- Full iOS 17 rootless compatibility build using a Darwin/iOS ABI-correct recursive directory enumerator. No original cleanup path is intentionally skipped.
-Author: Ivano Bilenchi <support@ib-soft.net>
-Name: iCleaner Pro (Rootless)
-
 Package: com.flex2areo.apptools15roothide
 Version: 2.9.1
 Architecture: iphoneos-arm64e
@@ -585,7 +564,7 @@ Description: iOS 16+ 全局字体管理器，支持 conventional rootless 与 Ro
 Author: Ning&Hmmzzz
 Icon: https://sorenning.github.io/debs/icons/markfont.png
 Name: MarkFont
-SileoDepiction: https://sorenning.github.io/depictions/markfont.json
+SileoDepiction: https://sorenning.github.io/depictions/markfont.v2.json
 
 Package: com.huami.wcpulse
 Version: 1.7-6
@@ -2564,3 +2543,22 @@ Priority: important
 Multi-Arch: foreign
 Description: standard Windows compression tool
 
+
+Package: com.sini.icleanerpro
+Name: iCleaner Pro
+Version: 7.10.0-1
+Architecture: iphoneos-arm64e
+Maintainer: Rein
+Depends: firmware (>= 4.0), findutils, apt | apt7
+Pre-Depends: rootless-compat(>= 0.9)
+Filename: debs/roothide/com.sini.icleanerpro_7.10.0-1_iphoneos-arm64e.deb
+Size: 1089500
+MD5sum: d9d3b43e870be30af1f628a186d4d331
+SHA1: 1719b8eb7c957c4e41b053262505be11b2178822
+SHA256: 4741e052a1829c766e09451ef625197c5a30b43320b648ff7eb44ee9831dda02
+Section: 应用
+Description: 破解版iOS系统清理工具，默认简体中文。
+ iOS 17 适配版：移除「尚未官方支持 iOS 17」启动弹窗，版本支持上限提高到 iOS 17.x。
+ 其余文件与 7.10.0 原版完全一致（仅 iCleaner 主程序 1 字节改动 + CPU 页哈希重算）。
+Author: Ivano Bilenchi
+Icon: https://sorenning.github.io/debs/icons/icleanerpro.png
