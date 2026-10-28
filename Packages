@@ -579,6 +579,7 @@ Description: iOS 16+ 全局字体管理器，支持 conventional rootless 与 Ro
  自动恢复已启用的字体。两种环境需要安装各自对应的软件包，请勿混装。
 Author: Ning&Hmmzzz
 Icon: https://sorenning.github.io/debs/icons/markfont.png
+SileoDepiction: https://sorenning.github.io/depictions/markfont.json
 Name: MarkFont
 
 Package: com.huami.wcpulse
