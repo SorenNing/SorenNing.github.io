@@ -1,0 +1,47 @@
+{
+  "class": "DepictionStackView",
+  "minVersion": "0.1",
+  "headerImage": "https://sorenning.github.io/depictions/markfont/header.png",
+  "tintColor": "#D98A55",
+  "views": [
+    {
+      "class": "DepictionMarkdownView",
+      "useSpacing": true,
+      "markdown": "iOS 16+ 全局字体管理器，支持 conventional rootless 与 RootHide。可在 App 内导入 ZIP、TTF、TTC 和 OTF 字体，创建并切换多套字体方案，将字体安全应用到整个系统，也可以随时恢复系统默认字体。\n\nMarkFont 使用只读字体镜像，不直接修改系统字体文件，并支持重新越狱后自动恢复已启用的字体。两种环境需要安装各自对应的软件包，请勿混装。"
+    },
+    {
+      "class": "DepictionHeaderView",
+      "title": "截图"
+    },
+    {
+      "class": "DepictionSeparatorView"
+    },
+    {
+      "class": "DepictionScreenshotsView",
+      "itemCornerRadius": 12,
+      "itemSize": "{180, 390}",
+      "screenshots": [
+        {
+          "url": "https://sorenning.github.io/depictions/markfont/1.jpg",
+          "accessibilityText": "字体：浅色",
+          "video": false
+        },
+        {
+          "url": "https://sorenning.github.io/depictions/markfont/2.jpg",
+          "accessibilityText": "挂载：浅色",
+          "video": false
+        },
+        {
+          "url": "https://sorenning.github.io/depictions/markfont/3.jpg",
+          "accessibilityText": "字体：深色",
+          "video": false
+        },
+        {
+          "url": "https://sorenning.github.io/depictions/markfont/4.jpg",
+          "accessibilityText": "挂载：深色",
+          "video": false
+        }
+      ]
+    }
+  ]
+}
