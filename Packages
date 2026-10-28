@@ -565,10 +565,10 @@ Installed-Size: 1524
 Depends: firmware (>= 16.0), uikittools
 Conflicts: com.nan.bindfs, cn.zqbb.hello.mnt
 Filename: debs/roothide/com.hmmzzz.fontmanager_0.3.9_iphoneos-arm64e.deb
-Size: 402438
-MD5sum: bc22f653a3f68ace4f2a899920b30721
-SHA1: f6e31a1ef6e3549fd70c3f15d70c9b4c10436f72
-SHA256: 8945951869760ae2dc7f9e0f2f674cc93cc4ba32bb635eab29c0d1da565c57b3
+Size: 402604
+MD5sum: a02ed047d3b093fb9cd3a58cc286b88d
+SHA1: 0215cf130215125120bdde2c20bdda533e7a9e28
+SHA256: c3bba0dcb6ef513fe4271f7f8ebad75a375e75a29ce78a4ccb118127d0726d8b
 Section: Utilities
 Homepage: https://hmmzzz.github.io/repo/
 Description: iOS 16+ 全局字体管理器，支持 conventional rootless 与 RootHide。
