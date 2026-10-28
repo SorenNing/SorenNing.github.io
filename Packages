@@ -2543,7 +2543,6 @@ Priority: important
 Multi-Arch: foreign
 Description: standard Windows compression tool
 
-
 Package: com.sini.icleanerpro
 Name: iCleaner Pro
 Version: 7.10.0-1
@@ -2562,3 +2561,20 @@ Description: 破解版iOS系统清理工具，默认简体中文。
  其余文件与 7.10.0 原版完全一致（仅 iCleaner 主程序 1 字节改动 + CPU 页哈希重算）。
 Author: Ivano Bilenchi
 Icon: https://sorenning.github.io/debs/icons/icleanerpro.png
+
+
+Package: com.82flex.cranepkdserverfix
+Name: Crane PKDServer Fix
+Version: 0.0.1
+Architecture: iphoneos-arm64e
+Maintainer: 82flex
+Installed-Size: 72
+Depends: firmware (>= 17.0), mobilesubstrate, com.opa334.crane
+Filename: debs/roothide/com.82flex.cranepkdserverfix_0.0.1_iphoneos-arm64e.deb
+Size: 2698
+MD5sum: c52b61b377d7a42d480bbef54648b4e1
+SHA1: 1d92775235cd5052dc258f6b8cb79e5750b47000
+SHA256: c23dffee05bfe6e3e2b847efe3a5ce71f20d359539658352cef0bfd99f3ecdd7
+Section: 插件
+Description: Repairs Crane PKDServer discovery on iOS 17.
+Author: 82flex
