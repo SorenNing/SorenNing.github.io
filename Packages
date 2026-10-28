@@ -565,15 +565,15 @@ Name: 乌贼手势 iOS 17 补丁
 Package: com.hmmzzz.fontmanager
 Version: 0.3.9
 Architecture: iphoneos-arm64e
-Maintainer: Ning
+Maintainer: Ning&Hmmzzz
 Installed-Size: 1524
 Depends: firmware (>= 16.0), uikittools
 Conflicts: com.nan.bindfs, cn.zqbb.hello.mnt
 Filename: debs/roothide/com.hmmzzz.fontmanager_0.3.9_iphoneos-arm64e.deb
-Size: 402234
-MD5sum: b80675354aa63e71443c0de87b2437b1
-SHA1: 13cf9a3513cf431ad044e890d044f9b2442aa836
-SHA256: 8061693f048a500db13959659e8880e7bfb1764393370c980a0e8e117951879a
+Size: 402286
+MD5sum: 7ab068588d30c64b00f14afefde398c1
+SHA1: 6928528e69289150ec939d43ec93f114d13afa4d
+SHA256: 95796b5ad2099b0b7dd200cabe7576de3abc9e2e0b00ecc5b62cbf46449cc79a
 Section: Utilities
 Homepage: https://hmmzzz.github.io/repo/
 Description: iOS 16+ 全局字体管理器，支持 conventional rootless 与 RootHide。
@@ -582,7 +582,7 @@ Description: iOS 16+ 全局字体管理器，支持 conventional rootless 与 Ro
  .
  MarkFont 使用只读字体镜像，不直接修改系统字体文件，并支持重新越狱后
  自动恢复已启用的字体。两种环境需要安装各自对应的软件包，请勿混装。
-Author: Ning
+Author: Ning&Hmmzzz
 Icon: https://sorenning.github.io/debs/icons/markfont.png
 Name: MarkFont
 
