@@ -38,13 +38,13 @@ Icon: data:image/png;base64,
  p39x7lOG+OiNtcEHszxORFXunMi7Mc0gYruarr9/pn1hfv/Urz578ugf68ZN+w+vIrXNswHLUAAA
  AABJRU5ErkJggg==
 Architecture: iphoneos-arm64e
-Version: 0.21
+Version: 0.22
 Installed-Size: 296
-Filename: debs/com.soren.glassicons_0.21_iphoneos-arm64e.deb
-Size: 35106
-MD5sum: 1f5bb65e84ed18c0ec669d5388c38055
+Filename: debs/com.soren.glassicons_0.22_iphoneos-arm64e.deb
+Size: 37838
+MD5sum: 93c48d25a02fa8659d3e78a8ce81ccfc
 SHA1: 
-SHA256: 0c929926aec62026a294fc22e37988dd2aeed6b338ceb41a0b41c5e3c4b0f0c8
+SHA256: 75f71a330c7c54ba27c993b757911c44653b13a1a2151e9826c61d59ae130f04
 
 Package: com.dao.ccless
 Name: CCLess++(roothide)
