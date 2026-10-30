@@ -12,7 +12,7 @@ Size: 6554458
 MD5sum: 3527714473be8bf2c6a12a49eaff9a14
 SHA1: cc11dfd8cc119b7728dace9828dac71df23856c2
 SHA256: 9daaad48c30f922aa3978f2e85d6e446f002b6571b3424b5ea09db6f2dde09b6
-Section: 插件
+Section: 应用增强
 Description: 自用
 Author: 𝙓
 Name: 抖音图层
@@ -28,7 +28,7 @@ Size: 34963250
 MD5sum: 2a4cc379d0367fafef42cec907ecb64c
 SHA1: f27b6f9cf27b303aef26a4d5ef269375f01ca94d
 SHA256: 113514f03701ac24df54933319d0ce3c9819e5450e39dd36cee6efd4ef9b12fc
-Section: 开发
+Section: 开发环境
 Priority: optional
 Description: Contains an SDK for your platform.
 
@@ -60,7 +60,7 @@ Size: 6598
 MD5sum: 8d5bcc2c8f67316c1e36a3202dfb93cc
 SHA1: e22b6cffe22bae0b0e6522000e6552f4ea6e9af1
 SHA256: 7d9aa81f255c27ef266f5bfa1d62cac72cc792fd3f92f305f92617fd0cf58662
-Section: 开发
+Section: 开发环境
 Priority: optional
 Homepage: https://www.llvm.org/
 Description: C, C++ and Objective-C compiler
@@ -76,7 +76,7 @@ Size: 105416
 MD5sum: b214f3c9eebd04446357712630f87a15
 SHA1: 1f991c1b1f992dea8ae540678ae529834e774f1b
 SHA256: 9debdbdff7c2f10c811c297120a849cd83e78e8afd159f8e9bf3a577c4ff1795
-Section: 开发
+Section: 开发环境
 Priority: optional
 Homepage: https://www.llvm.org/
 Description: C, C++ and Objective-C compiler
@@ -93,7 +93,7 @@ Size: 1041606
 MD5sum: fa63ad99068cfea66384d402703a9e83
 SHA1: 04528f03045274698462fcde8462516e6b3ef2eb
 SHA256: 748c143a70c303ec4f58ef5296e9c297d1603af1de33ebabcecfcd38d899c6be
-Section: 应用
+Section: 应用增强
 Description: appfix 应用修改器 ———  系统应用，用户应用，越狱应用的调整工具（Flex3 思路重写增强，1.0版本之后支持导入Flex3配置），支持自定义脚本代码，配置导出导入，一键开关，视图层级可视化 等等，不收费。
 Tag: purpose::uikit, compatible::ios14
 Author: 来了老弟
@@ -112,7 +112,7 @@ Size: 1759870
 MD5sum: 1dbd6a161f86fc021d0aded4a4195f6b
 SHA1: 010f5b94010f6446bfe9936cbfe94dae34a23e17
 SHA256: fde860d9fabf7d130af38a79264a4fe447ac3458292a0f9409284a849c789b80
-Section: 应用
+Section: 应用增强
 Description: 百度/微信输入法皮肤可视化编辑器，系统配置预览或改图
 Tag: purpose::uikit, compatible::ios14
 Author: 来了老弟
@@ -131,7 +131,7 @@ Size: 4996956
 MD5sum: cd0e4d07cacd64fbbbe7a211cf49e3bc
 SHA1: 96bcf60696bc20891ab796531ab73387de6c33d1
 SHA256: 8e51348772959ee1dd5df3539c5de6051289a8168c17c1c2de26920f97ee9897
-Section: 插件
+Section: 系统增强
 Description: 激活码用户或需要激活码的用户安装这个，非激活码用户不要安装！！Do not install if you do not have an activation code!!! Extend your keyboard to be more POWERFULL!
 Author: SquidForce, Backup
 Name: SquidExtender(激活码版)
@@ -149,7 +149,7 @@ Size: 3694214
 MD5sum: 9f726b3e2c119b339bb77f9ec043662e
 SHA1: 3addddba3adda19f38fab6e838fa720b6d4ca7dd
 SHA256: 3d8535a0fa0b6a3d4e489a6290d8e214dd0bdb2fe943b5701579a766c3b389d3
-Section: 插件
+Section: 系统增强
 Description: Gestures，激活码用户或需要激活码的用户安装此包，非激活码用户不要装!
 Author: SquidForce, Backup
 Name: SquidGesturePro(激活码)
@@ -184,7 +184,7 @@ Size: 468574
 MD5sum: 6f70c59946692e38b7fd1508f6f0291a
 SHA1: 83168b2c831679c968853de96885228bdb24f167
 SHA256: 6669eb65f19363a629aadbb799cc0697adc89a519dfb2bbdc22c155bd4269b3d
-Section: 插件
+Section: 应用增强
 Description: Safari浏览器增强。
 Author: 0xkuj
 Icon: https://sini921.github.io/repo/sileodepiction/icon/safarix.png
@@ -217,7 +217,7 @@ Size: 60720
 MD5sum: 823546d475fdc27adfb4edd28a76cee4
 SHA1: 2d89be2a2d89d7a71852f1791852831a0203417b
 SHA256: f373d5bf934a85bafeae22661af97c87114035141c2e94afbe27a84556f3d2fc
-Section: 插件
+Section: 系统增强
 Author: Mao
 Name: 左滑返回-roothide
 Sponsor: admin@25mao.com
@@ -233,7 +233,7 @@ Size: 2698
 MD5sum: c52b61b377d7a42d480bbef54648b4e1
 SHA1: 1d9277521d925052dc258f6bdc259e5750b47000
 SHA256: c23dffee05bfe6e3e2b847efe3a5ce71f20d359539658352cef0bfd99f3ecdd7
-Section: 依赖
+Section: 依赖库
 Description: Repairs Crane PKDServer discovery on iOS 17.
 Author: 82flex
 Name: Crane PKDServer Fix
@@ -249,7 +249,7 @@ Size: 729794
 MD5sum: 61a99aed4ac50889348a90f5344973cf
 SHA1: 94eaf2fa94ea7846354202bc3542eebd2f1bc78d
 SHA256: 1eafc4f1393d624ea7cd685fc749c7b7fd95dc81292433ac523f695e0ea78b44
-Section: 插件
+Section: 系统增强
 Description: Display your touch interactions!
 Author: Lessica <82flex@gmail.com>
 Name: Touch-Viz
@@ -265,7 +265,7 @@ Size: 105708
 MD5sum: 8d12c3cf7290ea6ee18bae9f7c9903c8
 SHA1: dc99154ddc99525637c9059837c915409f5dad77
 SHA256: 1d263a9c6fe2d7e72ee38adaca59c93503428fbeed384cbdfd2d8ec615441366
-Section: 插件
+Section: 系统增强
 Description: Neutralizes CALayer disableUpdateMask in the render server
 Author: 82flex
 Name: Unseen
@@ -284,7 +284,7 @@ Size: 2378104
 MD5sum: a2eeffbcaf8726ac3d9767690d35138c
 SHA1: 7fecceb47feca9bceeea8744eeeadab756890143
 SHA256: c98b0b0c5db56426c11a48adbae080e874a9afc76ca728461c27ebea2d60bc68
-Section: 插件
+Section: 应用增强
 Description: Flex 4 Beta：越狱环境下的 UIKit 视图层级过滤与开屏倒计时辅助工具。
 Tag: role::enduser
 Author: ColorBlack
@@ -303,7 +303,7 @@ Size: 1771916
 MD5sum: 3bf0931839721cdf0a57e710ac19f07e
 SHA1: 3e59a5af3e5921264077546e4077ed7c45bf74c8
 SHA256: c8a8723deffd4d2ad2e70a67dd2bb53c74cbace6a0b6e99c77d5b4adb11ca334
-Section: 插件
+Section: 系统增强
 Description: 分屏，不必太复杂，一切从简即可。（无验证免费了）
 Author: be-huge
 Icon: https://s1.imagehub.cc/images/2025/01/11/a6ee9b7d3555d062c59b68c2c71c7406.png
@@ -320,7 +320,7 @@ Size: 125750
 MD5sum: 3551d8add077f2bd2922aef1e3292d44
 SHA1: 34dc9e4d34dc1705e4d8900ae4d8c2011eba67d8
 SHA256: b08ff75f6bf9823b724dd4eb38d4615b5ca5893b8ef1b77210e149cb93d156d8
-Section: 插件
+Section: 系统增强
 Description: 解除温控，一切从简即可。支持命令行切换模式：ins off（原生温控）/ ins low（低功耗）/ ins max（全性能）/ ins status（查看当前模式）
 Author: be-huge & doimty
 Name: insulation
@@ -337,7 +337,7 @@ Size: 89282
 MD5sum: fb1ad976882b99e0a12e56c1731748f8
 SHA1: b2c8fe07b2c8deab625454176254ed25c6d9c405
 SHA256: 5ad9bae88c5a464c0b0564db1f5fb8dcbf9c83cfc6bbb5e4605d9b9add41c522
-Section: 插件
+Section: 状态栏与控制中心
 Description: 为控制中心亮度模块，拓展出很多功能，插件无设置项，安装注销即生效！长按控制中心亮度模块出来界面！
 Tag: 1
 Author: level3tjg
@@ -357,7 +357,7 @@ Size: 499128
 MD5sum: 75db2705236a5d23f7746ce952a81ca8
 SHA1: 11a9d01111a9ff669a659d5b9a65f74fdd37cb44
 SHA256: f56f380b78daf1edd926717488d2b5baf06efa5c121d15b9e2f3555ca75d4fca
-Section: 插件
+Section: 状态栏与控制中心
 Description: 📱控制中心模块集合：定位、注销、设置、VPN、自动亮度、截屏、锁屏、一键清角标、微信扫码、支付宝扫码、双卡切换、蜂窝切换、迷你音量-亮度、启动 QX/推特/油管/Filza/Sileo/Tg 等、静音、实时 CPU 使用率、系统运行时间、Snapper2、微信/支付宝付款码等。
 Author: 妖刀
 Icon: https://huayuarc.github.io/icon/CCLess.jpg
@@ -375,7 +375,7 @@ Size: 357980
 MD5sum: 7c414823fff2cb488db7b36ef972d87f
 SHA1: e95891aae9586d7d2f4d49812f4d7532d9db937e
 SHA256: d826d8fa65974aa39f4ec7be3b1228209e49818d12f4656fe84a6a5270d996fd
-Section: 插件
+Section: 应用增强
 Description: 高级插件注入管理工具，支持按进程及全局控制插件加载，并可通过快捷方式临时切换插件状态。
 Author: opa334 <opa334@protonmail.com>
 Name: Choicy(RootHide)
@@ -409,7 +409,7 @@ Size: 30512
 MD5sum: f922ead84482323e51a042018c9f1467
 SHA1: 9a184be09a189695be2cd3aabe2c71821efc43ed
 SHA256: e39a08ea932075d194568f70f4c60f54ad7bb119f6a6acd13847db4962a10c1b
-Section: 插件
+Section: 系统增强
 Description: High-refresh policy tweak for supported iPhone Pro models, with app and system refresh requests and a persistent SpringBoard keepalive.
 Tag: supports::roothide
 Author: doimty
@@ -428,7 +428,7 @@ Size: 8753922
 MD5sum: f391e5d9250ea2ef7eb0a5a9c75f6606
 SHA1: a4ea6b5ca4eab68ed89ca61dd89cb103580cabda
 SHA256: e70f6422361b26563c9eff8f55baa6a3bc9fd84e07d76f317a77c08245e860ce
-Section: 插件
+Section: 状态栏与控制中心
 Description: The full iOS 18 Control Center for iOS 16 and 17 (iPhone only).
  ControlCenter18 brings the full iOS 18 Control Center to iOS 16 and 17. It's not a theme or a reskin: modules, pages and gestures work the same way they do on iOS 18.
  .
@@ -502,7 +502,7 @@ Size: 3660314
 MD5sum: e8c528bc636ff05976e128fe458e354d
 SHA1: a3355b03a3353280e843740de8430643df2b0c8c
 SHA256: d9fe52f51ec4499e792de7e3c83edee22b07290d7dc4266c35aebb19c8278c62
-Section: 插件
+Section: 应用增强
 Description: AppTools for iOS15-17 Roothide
 Author: aReo
 Name: AppTools15-17(Roothide)
@@ -518,7 +518,7 @@ Size: 705850
 MD5sum: 4be749d1940c0b1073edf571a0480ddb
 SHA1: 3557235f3557de7fcc5b8696cc5bfcccaf99137e
 SHA256: 20ecde8dac0503827567bac10eeced38f93dcce2dfa03a2b0d7cd874b0073c8a
-Section: 插件
+Section: 应用增强
 Description: 抱自
 Author: 航
 Name: 抖音表盘侧栏
@@ -535,7 +535,7 @@ Size: 2738112
 MD5sum: 39f28193476983012e037db4ecd32240
 SHA1: 2174dbf5217456462f266a3c2f26992d604a5a34
 SHA256: fd9bfe9490b7b5b5aeb91499fb3650751b583813a01b8691c5563461816eb8aa
-Section: 插件
+Section: 桌面美化
 Description: 插件分类
 Author: 航
 Name: 航の插件分组
@@ -552,7 +552,7 @@ Size: 23268
 MD5sum: bd088900293240857d6becc39ee77789
 SHA1: 412b9dff412bfb0136e0086336e03aa0ed3955ae
 SHA256: 36d091a374f6d707b6bd9a3ce2e2474730fa91f63f826c6d34bfecc9579895fa
-Section: 插件
+Section: 系统增强
 Description: 修复 SquidGesturePro 在 iOS 17 状态栏不生效与启动快捷指令时导致的安全模式。
 Author: 航
 Name: 乌贼手势 iOS 17 补丁
@@ -609,7 +609,7 @@ Size: 9456
 MD5sum: deb624a7f8e4996fd6d3a69cb3c1b23f
 SHA1: e143d6bfe1434ea1fbe70a6cfbe7feecc3f5ba2d
 SHA256: fa2a1606096c757b101c5299fd6ce18be923c78bf55be13dab6b2e826ff06483
-Section: 插件
+Section: 系统增强
 Description: 去除录屏延迟
 Author: LaYii
 Icon: https://huayuarc.github.io/icon/luzhi.jpg
@@ -625,7 +625,7 @@ Size: 8958
 MD5sum: f5cdea2f168f23022933cfe3ea95cf5e
 SHA1: dc111ff3dc11015cd363ac0fd3631146c798cc87
 SHA256: ad891d5f297499b7dc4e8542c299e5cc300f51512d4015bcafee523d0e8d9284
-Section: 插件
+Section: 系统增强
 Description: enable screen recorder always work even on lock screen
 Author: Muirey03 & lclrc
 Name: RecordAnywhere
@@ -641,7 +641,7 @@ Size: 46796
 MD5sum: 85bfceef90402efc0bcb576955ed6b2f
 SHA1: 0a3817060a38ff877383ec7e7383ebd8c520c799
 SHA256: 188afde1fb03553b80f0e16018479b36188182e647d3a69a1e8273e9729ff2e1
-Section: 插件
+Section: 状态栏与控制中心
 Description: 模仿27系统状态栏 信号与Wi-Fi素材来源：Benja Guo  电池源码感谢yaowell提供
 Author: 半生年华&yaowell&Benja Guo
 Name: iOS27状态栏
@@ -659,7 +659,7 @@ Size: 113490
 MD5sum: 286f0482876b9594522469dc97c2702c
 SHA1: e8448b9ae8447cce03782afc03784d429ab98e8c
 SHA256: 8e0cb07103110d0437cc04b1a2ec959cc16b323a25e916e42ff810dd2b4bb9a0
-Section: 插件
+Section: 状态栏与控制中心
 Description: 控制中心玻璃效果
 Author: dylv&Ning
 Name: Liquid (Gl)ass — 控制中心
@@ -676,7 +676,7 @@ Size: 123498
 MD5sum: 4e84b0e61b20fc403f1374ae9492d639
 SHA1: 2910ae5b2910e9dfe8d6ed16e8d6431f5a53fa2a
 SHA256: 48c4ae419d4c118991a36fb56268ce26ad28be4ed27672220e63537f240da8bb
-Section: 依赖
+Section: 依赖库
 Description: 开发通用库，部分插件需要此依赖，转换支持roothide。
 Tag: role::developer
 Author: MrGcGamer
@@ -693,7 +693,7 @@ Size: 6148
 MD5sum: f969ad7dbdc029e312ee99f2bd3af7b3
 SHA1: 89c1c42289c1911433db04cd33db7b55c75b3a55
 SHA256: d034cedeef29b685abed32c633527269432557eba71c9af89534fb0f5f982c13
-Section: 工具
+Section: 命令行工具
 Description: deb 工具，普通解压，普通打包，批量解压，批量打包，提取已安装软件包，deb 信息查看
 Author: zhaonan
 Icon: https://invalidunit.github.io/sileodepiction/default/image_terminal.png
@@ -713,7 +713,7 @@ Size: 1088
 MD5sum: cf60230d280b18d9ffeef3f711f684c8
 SHA1: c0895e74c08995927e94d2aa7e942b9fc58206ba
 SHA256: 906551156905372a6824c3b3c85056165b190703a3a22645bdc2ae8c7e311b10
-Section: 工具
+Section: 命令行工具
 Description: deb 扩展，Filza 脚本，打包 deb，打包有 deb 的目录
 Author: zhaonan
 Icon: https://invalidunit.github.io/sileodepiction/default/image_fix.png
@@ -731,7 +731,7 @@ Size: 1066
 MD5sum: bad01e84c2e7b2071ef42b83da646f07
 SHA1: ff0c6d04ff0cae16fb9281d7fb926239efb5e1e6
 SHA256: 99730fcbe0345862f8ae954bdb2bc7e769272af2731273d1d44bf1871db3d0eb
-Section: 工具
+Section: 命令行工具
 Description: deb 扩展，Filza 脚本，可用于解决 Filza 无法解压无文件的 deb
 Author: zhaonan
 Icon: https://invalidunit.github.io/sileodepiction/default/image_fix.png
@@ -750,7 +750,7 @@ Size: 80294
 MD5sum: a86759d1f3bda9ebf1b7b04dcfe66f1a
 SHA1: 326cfa14326c606a88db1de788dbbd5f4c742197
 SHA256: b0331112174dc10491a5ef3335591b5f0cab3bf26a64a54cb6b8099a0d4c54e7
-Section: 插件
+Section: 状态栏与控制中心
 Description: 控制中心三合一模块：双卡流量切换、SIM 卡开关、注销（长按更多电源选项）。
 Author: Netskao, Mr.Zhang
 Name: CCSuite 三合一
@@ -765,7 +765,7 @@ Size: 272372
 MD5sum: 1ae325f5865eff1279fcc0ab7a5abb57
 SHA1: 83dd400183dd781d81e2a34781e26661336d2e30
 SHA256: e918509a405ff0c6382f42907803d2ae2268121075a0cb8557e4ef45eefb2e7f
-Section: 插件
+Section: 状态栏与控制中心
 Description: Duo 风格状态栏圆环：电量、Wi-Fi、蜂窝信号与 VPN 指示，解锁与控制中心返回时播放原生 reveal 动画。
 Tag: role::tweak
 Author: Ning
@@ -782,7 +782,7 @@ Size: 59320
 MD5sum: 136cc152869a6231240d3e13c485286b
 SHA1: 3d4554953d45c05ad0d26e84d0d22db81903a4aa
 SHA256: d41a579ef7ca9a7e96983525fa39ef01cf15c069de71e2e2571868957e2a0e93
-Section: 依赖
+Section: 依赖库
 Description: A modern AppList alternative
 Tag: role::developer
 Author: opa334
@@ -803,7 +803,7 @@ Size: 176844
 MD5sum: f70d218896d0ac0c2a0dd36dbbb003f4
 SHA1: ff666f51ff6674ccf2f91db5f2f994b5fb3e127d
 SHA256: b02bd8b4a8cafd2b23ee00c2995982ad851109f6dc3a37aa99f6523b6a669ac7
-Section: 插件
+Section: 依赖库
 Description: Support tweak for CC modules!
 Author: opa334
 Depiction: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=ccsupportDp
@@ -819,7 +819,7 @@ Size: 46004
 MD5sum: 8ea4b6e08ef10bd88df7544137b0cf2e
 SHA1: 5864955e58646dd1dbaba49edbabf66d17053c50
 SHA256: 1c1c0e1f2e8e00a0bb55dbbc1e00ebeb7bd569a07cdb11858822812cd5d184a1
-Section: 依赖
+Section: 依赖库
 Description: Securely extend the sandbox of system processes and user applications
 Tag: role::developer
 Author: opa334
@@ -836,7 +836,7 @@ Size: 14636
 MD5sum: ed66773b7552f61ce2f2b4ddcf85045c
 SHA1: c260041bc260b39c82ee83a182eeb656f11542e3
 SHA256: e034fa00969f7cda9d464120d90915c11ee4959907494e3ef93bf2e2fc64bf9c
-Section: 依赖
+Section: 依赖库
 Description: Patchfinder and rebinder for objc_direct methods
 Tag: role::developer
 Author: opa334
@@ -885,7 +885,7 @@ Size: 875624
 MD5sum: ce9a08bae9a29e65ba9fc3a568559539
 SHA1: eafb6625eafbb138d6beadbbd6be384489170030
 SHA256: bafdef40c9cb9f110371a90d582d05890579bb0440fb527a18725776e3f6b082
-Section: 系统
+Section: 越狱组件
 Description: Configuare RootHide's Features
 Author: roothide
 Depiction: https://github.com/roothide/RootHideManagerApp
@@ -903,7 +903,7 @@ Size: 1777114
 MD5sum: cfffc1874efc7c95de24cb17dcd63058
 SHA1: db96dcccdb960d2827d89c9727d858d877084f68
 SHA256: 61eceffeb6231b7d3abb1e2640109ca5a5a2503680445f230c33d215e7a2deb4
-Section: 工具
+Section: 命令行工具
 Description: 将无根插件包转换成隐根(Roothide)，但并不是所有无根插件包都能转换成功。
 Author: roothide
 Depiction: https://github.com/roothide/RootHidePatcher
@@ -940,7 +940,7 @@ Size: 35034
 MD5sum: ac8dc3e034f7891ad8b6573b18c0a5fb
 SHA1: ecc34ef8ecc3994070218e37702121cbb3867d93
 SHA256: 1228dafd1de7343af0c558057c1042f125d2a5eb64b21f01069f9abf4867389d
-Section: 插件
+Section: 桌面美化
 Priority: optional
 Description: Subtle glass rim and sheen for SpringBoard app icons (iOS 15-17, RootHide)
 Tag: pw::application
@@ -958,7 +958,7 @@ Size: 31264
 MD5sum: 891117fa70a3f1f9702ac3e18b829f16
 SHA1: 2f731f8976001337a13e2ba43eda947140b02eca
 SHA256: 28ee4cc3b830af67b25734dc6d67172b8be723b1f3277c3205bdd8f7f1fdf2e0
-Section: 插件
+Section: 桌面美化
 Priority: optional
 Description: Subtle glass rim and sheen for SpringBoard app icons (iOS 15-17, RootHide)
 Tag: pw::application
@@ -976,7 +976,7 @@ Size: 27740
 MD5sum: baba080236d14130782052ea8ae9a6ce
 SHA1: fc212ecafc2173e1203d9264203da6169935fc43
 SHA256: 82a8dfe854b733fd0b82fc11281db1ff6352d57bcd0fba09a6bec10e2e2b621b
-Section: 工具
+Section: 应用
 Description: Simplified Chinese UI localization layer for TrollStore 2.1.1
 Author: Soren Ning
 Name: trollstore 简体中文包
@@ -992,7 +992,7 @@ Size: 1178608
 MD5sum: 9bc756522b990f34869ef2e0713b0011
 SHA1: dc939265dc9354d6b5a0cc23b5a01a99cb101bd4
 SHA256: 6c68e4f0b2160734229bc42a9aab8c59e02b849570be4b2dbfb8a17e97bd202b
-Section: 插件
+Section: 系统增强
 Description: 分屏而已
 Author: SuSu
 Icon: https://repo.susubaby.cn/icons/ScreenCore.png
@@ -1012,7 +1012,7 @@ Size: 958556
 MD5sum: 1c58f9d6f06c3c85da901b44d5079ed4
 SHA1: 64ac387164acd1d0b61b33c6b61b1e1ac1d4a4e6
 SHA256: 6f7d57a36c52feb1346da5810763d855120221529539bf876e6983cab3bf9030
-Section: 插件
+Section: 系统增强
 Description: StayShot 独立的 iOS 截图工具，支持普通模式、冻结模式、区域截图、截图历史和屏幕浮窗。
 Author: SuSuDear
 Icon: https://repo.susubaby.cn/icons/StayShot.png
@@ -1030,7 +1030,7 @@ Size: 418282
 MD5sum: f74b63764a1eeaaa738abea7370a8b2e
 SHA1: 44ba537a44ba8ee8062abac4062a65a3e6f7cab2
 SHA256: c3e58173e047492241b14ac8583cdd163d1fcc88b21e81e3a9288955f2f694a0
-Section: 插件
+Section: 系统增强
 Description: Long screenshot action and capture controller for StayShot.
 Author: SuSuDear
 Icon: https://repo.susubaby.cn/icons/StayShot.png
@@ -1047,7 +1047,7 @@ Size: 1213580
 MD5sum: 265049b67e5ae5949f281a9ef372016b
 SHA1: 15cc12ba15ccb5bd50b4f50a50b4a91f40e3b2bb
 SHA256: 7ad8ec4e73aa9d21adfc9a832d7ea28f64d21819237a56e2d29cc8df1f1a3893
-Section: 插件
+Section: 系统增强
 Description: StayShot Edit 的冻结截图编辑扩展，支持箭头、涂鸦、高亮、马赛克和方框，并支持复制或保存编辑结果。
 Author: SuSuDear
 Icon: https://repo.susubaby.cn/icons/StayShot.png
@@ -1065,7 +1065,7 @@ Size: 738634
 MD5sum: 3447b8067290127cd23b18e98a29dbb0
 SHA1: 83f4f41583f4c3e8d77b54e9d77b2fc50b15d9a2
 SHA256: 244a62f4db0a9fa8c7cc1722440552c480540147f65df23ef09f8469ed1bdfdb
-Section: 插件
+Section: 系统增强
 Description: 内置百度 OCR、GLM 和 Qwen 流式普通翻译；保留自定义 OCR、百度翻译及 AI 截图处理。
 Author: SuSuDear
 Icon: https://repo.susubaby.cn/icons/susuocr.png
@@ -1081,7 +1081,7 @@ Size: 16228106
 MD5sum: 034e61a953f3218928050e839c6d9667
 SHA1: 3e96c66a3e96c16f128a2b6f128a5f88b3f7f201
 SHA256: 62861b0e4d4b69f9749b4e055da35381e56db6f6063fc41e6ba0e6d84101c2ca
-Section: 应用
+Section: 微信插件
 Description: 微信主题盒子
 Author: Mao
 Name: 主题盒子
@@ -1115,7 +1115,7 @@ Size: 1267682
 MD5sum: 4b6a5c31c0f6714ba4bcf1d1144ac7b4
 SHA1: a90ec86ca90eb1b5f29944abf2997d822334cf9d
 SHA256: 03d96896175af082a057be3b149acf90b5aa220e2c95993cb774b9e1fd8da574
-Section: 插件
+Section: 系统增强
 Priority: optional
 Description: 悬浮多任务窗口工具，基于 Pullover Pro 进行修改
 Author: Tsangbaby
@@ -1154,7 +1154,7 @@ Size: 11233902
 MD5sum: b4d8c861f42e902645b5f356cf2f2ac5
 SHA1: 4f37739e4f37c2b944c879be44c8601c35a7a605
 SHA256: 4faeb7db4232bad0ed80ab65700e031d8aa9b19be6990453fab1992c116b3fd4
-Section: 插件
+Section: 应用增强
 Description: Filza 增强插件
  * 提取与修改 Assets.car 资源文件
  * 使用：长按 .car 文件，菜单中点击“打开方式”
@@ -1174,7 +1174,7 @@ Size: 19118
 MD5sum: fdcebf5213296d5b35bdfb46752cb0fd
 SHA1: 577303295773bb7617c999d617c97b19ae4b5961
 SHA256: 90a1ec20b66b85cc3f534e40de24936d079399382951a69b4dd529ea98d469a3
-Section: 插件
+Section: 应用增强
 Description: Filza的滑动多选功能。
 Author: korboy <korboybeats@gmail.com>
 Icon: https://sini921.github.io/repo/sileodepiction/icon/filzaswipeselect.png
@@ -1191,7 +1191,7 @@ Size: 28144
 MD5sum: c8d6da0149ac626bf0b4f5d1c8a3e830
 SHA1: 72fcec6272fceae8fd0a60dbfd0a16ce0d522bee
 SHA256: 23f02a188dd617f6fee42e107ba21a4c9f2830e3dc6e151579239da97f5152e4
-Section: 插件
+Section: 应用增强
 Description: 为 Sileo 软件源页面增加源名称和网址模糊搜索，点击搜索结果可直接进入对应软件源；同时在软件源左滑菜单中增加置顶和取消置顶，按置顶先后顺序排列，最多可置顶 5 个软件源。
 Author: wkk
 Icon: https://s1.imagehub.cc/images/2025/12/26/29fda3e52ac78c6958ecf3b5dac18673.png
@@ -1209,7 +1209,7 @@ Size: 51268
 MD5sum: 692014b226f417fbba8032f1104a5ea0
 SHA1: ed9bd2c5ed9b34201ce200921ce26de9a241343f
 SHA256: 1e7ae8bee49d846cb90d5cae88e6639768b734ab3b7d630bab2e1cd3d608db9f
-Section: 插件
+Section: 应用增强
 Description: 桌面长按App Store进行切换账号。
 Author: subdiox & iosdump
 Icon: https://s1.imagehub.cc/images/2025/12/26/29fda3e52ac78c6958ecf3b5dac18673.png
@@ -1241,7 +1241,7 @@ Size: 7630396
 MD5sum: 36f2826ed2ac85c68e919cde51515245
 SHA1: a0542769a05423c892297200922955e28ce5daeb
 SHA256: c46e16306eec026fe243af8806054ac69190bdc54c925f5370b6b3fd5a4727e6
-Section: 插件
+Section: 系统增强
 Priority: optional
 Description: 电话助手授权版本,通话录音,通话记录合并,T9双卡选卡拨号键盘,短信双卡选卡,来去电归属地,黑名单,骚扰拦截,状态栏图标替换,时间格式修改,常用小功能等强大插件
 Author: xybp888
@@ -1259,7 +1259,7 @@ Size: 1926036
 MD5sum: 3e91b2f1da1a89948135e04f1a362035
 SHA1: 3fcd3e233fcd47ad2295e0f82295043513c301a7
 SHA256: c381b6560876a1a710b5fcd087b610dd7970a107be46d31aa6400e0f03c28cad
-Section: 插件
+Section: 状态栏与控制中心
 Priority: optional
 Description: 电话助手激活用户专属免费插件
  完美的使用原生灵动岛展示系统通知等...
@@ -1297,7 +1297,7 @@ Size: 220524
 MD5sum: b18f6cc7ae5d239ddf82b4659faa3919
 SHA1: fe93f527fe93129af359527bf359b5fbc00ad214
 SHA256: 1a0a31a9ccd4369a928938df6ac7968823fafd5845f9b99e545bb9f903b4940b
-Section: 工具
+Section: 命令行工具
 Priority: standard
 Homepage: http://curl.haxx.se/
 Description: command line tool for transferring data with URL syntax
@@ -1317,7 +1317,7 @@ Size: 447998
 MD5sum: ac4192f2f475a93c690054082a55ab70
 SHA1: 88e6a22888e63300171bb585171bffa82f4ca46f
 SHA256: 178af181511a1b5d407d78516c0df933d40d0bc6301b048a7c29c876475495ec
-Section: 系统
+Section: 越狱组件
 Description: Runtime for tweaks built using Orion and Swift
 Tag: role::developer
 Author: Theos Team <theos@kabiroberai.com>
@@ -1334,7 +1334,7 @@ Size: 1172898
 MD5sum: a39f99cf1de6a9a23305d7ff8988cf7d
 SHA1: 53fe109453fe54a60290310e02900dcb620c3c96
 SHA256: b9d6686e128277b6b2654fceaf4d519a0e843cb23b3178409bffc058c47e78d2
-Section: 工具
+Section: 命令行工具
 Priority: optional
 Homepage: http://wiki.debian.org/Teams/Dpkg
 Description: Debian package development tools
@@ -1354,7 +1354,7 @@ Size: 354284
 MD5sum: 59920d0cc16835bf32146c59ff009e60
 SHA1: fb80e07dfb80d26560b4671460b42d0b2e9d6807
 SHA256: 0b1b3f6cdfe9d0bdbc0d3cdccc6af9fcc34ff2f09af893957914d55306c2abbf
-Section: 依赖
+Section: 越狱组件
 Priority: optional
 Description: ElleKit tweak injection libraries and loader
 Author: Evelyn
@@ -1372,7 +1372,7 @@ Size: 131564
 MD5sum: ef48bdb7ca934df88789a8d32df467ae
 SHA1: 0deb56a10deb777837479887374798569d70e826
 SHA256: a4b3a8d4c2d6430ec17f18c70d02e2f6e913e131048ba7337f20dff5161cc427
-Section: 开发
+Section: 开发环境
 Priority: important
 Description: tool for simulating superuser privileges
 
@@ -1387,7 +1387,7 @@ Size: 23346
 MD5sum: 4811d266f5cf7b5461ed6b638704c281
 SHA1: ca27ea81ca2745e9ceec0d53ceec3cc033107e0e
 SHA256: d5c9aae6fef9a7e2cd80165e224308a4384bf05c7f604ca6a1c098c10a744fba
-Section: 工具
+Section: 命令行工具
 Priority: important
 Description: Recognize the type of data in a file using "magic" numbers
  The file command is "a file type guesser", a command-line tool that
@@ -1407,7 +1407,7 @@ Size: 1274872
 MD5sum: 22ecbf9fbfac8f0f19a5010214c23f99
 SHA1: fc228f89fc22b6cd5625defc56257e960c943597
 SHA256: 61742b10ef7b6fd042a22536c275a21347653b15b9c80e8fd2b2fd4c238da729
-Section: 工具
+Section: 命令行工具
 Priority: important
 Multi-Arch: foreign
 Homepage: http://www.gnu.org/software/gawk/
@@ -1437,7 +1437,7 @@ Size: 770120
 MD5sum: 7b65f3724d2e84b5433bfc9d2e9066b4
 SHA1: 46bc99c346bcf33fbfdca6d3bfdc231cf066d5df
 SHA256: b0b021d4617395c41f691420d74621c93b49f3d2c9632c3ba12d6b47e0129159
-Section: 工具
+Section: 命令行工具
 Priority: important
 Description: Locale files necessary for command line tool translation.
 
@@ -1452,7 +1452,7 @@ Size: 17950372
 MD5sum: dbc269c6ae93bea8aae7af7e749b6949
 SHA1: 600473ab600461fc46215abe462184488b4c134f
 SHA256: b6cf817176c91d7a1a6833fc9c58892a89d08c5da3a4c799582f9cf704a83528
-Section: 工具
+Section: 命令行工具
 Priority: optional
 Description: fast, scalable, distributed revision control system
  Git is popular version control system designed to handle very large
@@ -1475,7 +1475,7 @@ Size: 135288
 MD5sum: 689beb82e5b2c14ee2760a92af7a9d6b
 SHA1: 35864acc3586353fa78dc4dba78d9acc1c231b87
 SHA256: 6a75dc0d74dfd9ddec1c67c9e46681d8881f5aecc010a8dfa4d2d6f88347d14b
-Section: 工具
+Section: 命令行工具
 Priority: standard
 Multi-Arch: foreign
 Homepage: http://www.gzip.org/
@@ -1519,7 +1519,7 @@ Size: 1604862
 MD5sum: 5650a63a776ddddd662a59352b7af03b
 SHA1: 7d1ef8687d1e6036cfb4ad7dcfb4c96c8b18b671
 SHA256: 20b588d0e48800a93c27024904437a84c00abfd9659052e8458f23fa8479e5d8
-Section: 开发
+Section: 开发环境
 Priority: optional
 Homepage: https://github.com/apple-oss-distributions/cctools/
 Description: 64-bit Apple linker
@@ -1537,7 +1537,7 @@ Size: 193494
 MD5sum: 74504bef985e127ed9c3fd959b8e0daf
 SHA1: a17ad608a17a4babc2db8578c2db2b491bc08708
 SHA256: 2b23920d5dc2121d8574afc809df9d2f32143fe0dd7b84052c015be6b126abe2
-Section: 工具
+Section: 命令行工具
 Priority: important
 Description: provides less information than more does
 
@@ -1552,7 +1552,7 @@ Size: 1264004
 MD5sum: cf028bca8b7e911c5034c3e92fcab1f6
 SHA1: fd983631fd98d57901d6778a01d640b938f43ad0
 SHA256: 828b9448d1dc4d29b4da77a2fcef30a5ebe767f9b508f8686c6f61841c1f2785
-Section: 开发
+Section: 开发环境
 Priority: optional
 Description: LLVM C++ Standard library (development files)
 
@@ -1567,7 +1567,7 @@ Size: 6378
 MD5sum: 95723fc56e6241ff788947f3b74bd4b9
 SHA1: b7e53c5eb7e5d88a9ad6fdc99ad690f8d84e4ea3
 SHA256: 0f2f098d5adc8aaaaad671172017cfbf76589486572a944fb510b3cf0eb75a98
-Section: 开发
+Section: 开发环境
 Priority: optional
 Description: LLVM C++ Standard library (development files)
 
@@ -1582,7 +1582,7 @@ Size: 44678
 MD5sum: f67e85f7c530cda7ce22d38fa4d42bc6
 SHA1: f3b21011f3b2a6cc052bb0f3052baceaca2605b8
 SHA256: ca46a066ea7c62c7304ae5e6026465afbc28ceffc0c1c8a5e1f5fe530485b45f
-Section: 开发
+Section: 依赖库
 Priority: optional
 Homepage: https://c-ares.haxx.se/
 Description: Shared libraries for the c-ares asynchronous name resolver library.
@@ -1598,7 +1598,7 @@ Size: 84835292
 MD5sum: 1d7b8d58d26b82c8ce7960ba9b4cb6b6
 SHA1: 31497f3d31493bb272506cd97250d52df84f860f
 SHA256: 96e88fc83228afe077dbb8afd4d87f9ec733ebd67748b99daef055e93debb1f2
-Section: 开发
+Section: 开发环境
 Priority: optional
 Description: Clang library - Common development package
 
@@ -1613,7 +1613,7 @@ Size: 24650852
 MD5sum: cc60ce0a68062122a3d62a96a0a1f0f6
 SHA1: 7391602773917508c6bbaf19c6bbf2efcf99e436
 SHA256: 736a9b66d74b8da3a16e72e3ce36f39a36fb8f5a2cd4fa29d4d65161f07d186e
-Section: 开发
+Section: 开发环境
 Priority: optional
 Description: Modular compiler and toolchain technologies, runtime library
 
@@ -1630,7 +1630,7 @@ Size: 329650
 MD5sum: 72c278fd19d1bf969ddfd31537bed330
 SHA1: 1bb3ee411bb3f3338cf1ad008cf1911797235a02
 SHA256: b7406a85b1fc0618a52d42ed72985ded8347fa21589f347735b77289fe398326
-Section: 依赖
+Section: 依赖库
 Priority: standard
 Homepage: http://curl.haxx.se/
 Description: easy-to-use client-side URL transfer library (OpenSSL flavour)
@@ -1656,7 +1656,7 @@ Size: 778320
 MD5sum: 1dba82b7f7a1b4a41f8e3f16c05817b1
 SHA1: e2193e30e219c923fd7f5f8afd7fda52944a84bf
 SHA256: a32677539d85e8d8f821b2cc9a298b09f881580dad213a3b250e40dd60422199
-Section: 工具
+Section: 命令行工具
 Priority: optional
 Homepage: http://wiki.debian.org/Teams/Dpkg
 Description: Dpkg perl modules
@@ -1720,7 +1720,7 @@ Size: 2966308
 MD5sum: 2aaf62a1b0bf3304c7ed378514667b8b
 SHA1: 4725c284472505c66ba9234b6ba9b694010c2b41
 SHA256: bb8e122f113278e8d72563c9cbf8120e9fddd55e99908767d2320b8943bd39c7
-Section: 依赖
+Section: 依赖库
 Description: 隐根越狱依赖插件。
 Author: Tanner Bennett <tannerbennett@me.com>
 Depiction: https://nscake.github.io/package.html?package=libflex
@@ -1738,7 +1738,7 @@ Size: 34011028
 MD5sum: fc2646295c2403cafcdbce17c795a9fe
 SHA1: b9585135b9587a688b0d86dc8b0d15907eb00f72
 SHA256: 836704c45d61d3e39c40108e3a37b451206fc0b6fda81956f427bef73eabc168
-Section: 开发
+Section: 开发环境
 Priority: optional
 Description: Modular compiler and toolchain technologies, runtime library
 
@@ -1755,7 +1755,7 @@ Size: 687534
 MD5sum: 89b1b985770a40b22b22cdd6afe1aed1
 SHA1: c694c873c69457ddebdea2daebde939b7fc5035d
 SHA256: 9781c2487ad502c9039ebb5cd994b2bf9b74898ad721c8c96996013eea6009d2
-Section: 依赖
+Section: 依赖库
 Priority: important
 Description: Recognize the type of data in a file using "magic" numbers - library
  This library can be used to classify files according to magic number
@@ -1772,7 +1772,7 @@ Size: 308426
 MD5sum: 10940e9ffdec3e06680bd5d37fc0b640
 SHA1: 5e4a2b055e4abe15355e1c4b355ec882789b6af9
 SHA256: d1449ed74ecb07cb7393334c17a9248a42391014cd71e4457e0afc29c0e3c396
-Section: 依赖
+Section: 依赖库
 Priority: optional
 Homepage: https://www.mpfr.org
 Description: multiple precision floating-point computation
@@ -1793,7 +1793,7 @@ Size: 87934
 MD5sum: 73a90d5372a1d4811c5c4286d5dab85a
 SHA1: d59fe658d59f3fc98956e647895654b8fff9df9e
 SHA256: 24ed262ab22296859e06ba0065eee415e83c26575dd93fa90c9f232030258d8a
-Section: 依赖
+Section: 依赖库
 Priority: standard
 Homepage: https://nghttp2.org/
 Description: library implementing HTTP/2 protocol (shared library)
@@ -1814,7 +1814,7 @@ Size: 57062
 MD5sum: 491257e89a7bff7a64254c7dd321a983
 SHA1: 3fc441493fc4c827635354476353a0cfd3558c5d
 SHA256: 5401a32b60560a70825fce7cfdb747120d179f476c5638d9499a1a2f458d33fb
-Section: 依赖
+Section: 依赖库
 Description: lib for parsing cmdline parameters
  Popt was heavily influenced by the getopt() and getopt_long() functions,
  but it allows more powerful argument expansion. It can parse arbitrary
@@ -1836,7 +1836,7 @@ Size: 93272
 MD5sum: 7e3abfd77c300c74fc37082fa3b51736
 SHA1: accae566acca81a27aa559c97aa5139201b2685d
 SHA256: eb0b2740553dc5c72b92668aaaff32dcfdfcea32917479464c5861a5aab158f9
-Section: 依赖
+Section: 依赖库
 Priority: standard
 Description: toolkit for RTMP streams (shared library)
  A small dumper for media content streamed over the RTMP protocol (like BBC's
@@ -1860,7 +1860,7 @@ Size: 190308
 MD5sum: d069761b52ca491eca6b993f32c37386
 SHA1: 0f9a4b9c0f9a22f90102d36c0102398d760080db
 SHA256: a8132a1791bd112c61e52b1e8233863ce7f8d988b541b14ca3f2595785a1a270
-Section: 依赖
+Section: 依赖库
 Priority: optional
 Homepage: https://www.libssh2.org/
 Description: SSH2 client-side library
@@ -1878,7 +1878,7 @@ Size: 210614
 MD5sum: 6713537f1dec9ffc1b51320322fd5c82
 SHA1: aa72ad1eaa72ab4ed8bad32ed8baa6a83cc82a56
 SHA256: ad0a3e0ca24c35a43b6158543f444fb5f102e0ac6fadfb6273ffcc9851b16448
-Section: 开发
+Section: 开发环境
 Priority: optional
 Description: Text-based Application Programming Interface (library)
 
@@ -1895,7 +1895,7 @@ Size: 28768
 MD5sum: 3c3e00fc10f9eaa800fe5a509c428cd1
 SHA1: d5408e36d54021260ac939c60ac97c09814380cf
 SHA256: 8071296bd0f289aa6f31052f61cb816f582933446bfbe0262b588eeb05c62d6e
-Section: 依赖
+Section: 依赖库
 Priority: important
 Description: Universally Unique ID library
  The libuuid library generates and parses 128-bit Universally Unique
@@ -1917,7 +1917,7 @@ Size: 52664
 MD5sum: cc2eb6a90f201f33f9912e31d0d34c1b
 SHA1: 6579769d657973a88b93444f8b93ffdf45a48cd4
 SHA256: e56baed269f461229baec7ca58d9b087e15cb00e955b8029fc5ac8d82404c71f
-Section: 依赖
+Section: 依赖库
 Priority: optional
 Homepage: https://mackyle.github.io/xar/
 Description: eXtensible ARchive format - dynamic library
@@ -1933,7 +1933,7 @@ Size: 23486288
 MD5sum: 3a8c3d2d7bf08c586cba49e23b275fc7
 SHA1: 05eeb9d805eee6388756ae368756f8416fab9d6e
 SHA256: f339b87c5270c071fa4d817e55c95edbb7cb44d5b50fef055e6af76dbdfeb938
-Section: 开发
+Section: 开发环境
 Priority: optional
 Homepage: https://www.llvm.org/
 Description: Modular compiler and toolchain technologies
@@ -1970,7 +1970,7 @@ Size: 2533598
 MD5sum: 9da5bcc279a8c4edc5ea0a3bbeb4f057
 SHA1: c2c484fec2c47c35796b5da2796b52fd1ab3f170
 SHA256: b14ca1e8b92dff61ca41c8dc37991115c0b21c9dfd98f68ca3ce1c04c2e2bc88
-Section: 开发
+Section: 开发环境
 Priority: optional
 Homepage: https://www.llvm.org/
 Description: Modular compiler and toolchain technologies
@@ -1991,7 +1991,7 @@ Size: 96012
 MD5sum: 98e72f6f0757328bb93ec498cc1fadc6
 SHA1: adc1c43fadc124eee67a33e2e67a36f5a580fbe2
 SHA256: 1b088db39a1ba0c2205c67c6d69a7e91581baae59c9eb1a07def4fad92668fb7
-Section: 开发
+Section: 开发环境
 Priority: optional
 Homepage: https://www.llvm.org/
 Description: Modular compiler and toolchain technologies, IR interpreter
@@ -2024,7 +2024,7 @@ Size: 6840
 MD5sum: 0c45836fc9f800111398689afd99383e
 SHA1: 99445ae5994466f1d38ba9bbd38bfa50d71bf7e0
 SHA256: 06cf5f0fc79fbc642955d844baea1011361343d00f291418dc22f3574f1ae7d5
-Section: 开发
+Section: 开发环境
 Priority: optional
 Homepage: https://www.llvm.org/
 Description: Low-Level Virtual Machine (LLVM), libraries and headers
@@ -2045,7 +2045,7 @@ Size: 867780
 MD5sum: 60ef0d9d460ecf64d751d0d0d1c6d024
 SHA1: 0cdfef420cdf78f4d2096968d2090763a9887c2d
 SHA256: 939440bc5593370cb8a3945cc72ee3ea579532bea7eaa5e6c64a0276e05fb7b0
-Section: 开发
+Section: 开发环境
 Priority: important
 Description: utility for directing compilation
  GNU Make is a utility which controls the generation of executables
@@ -2069,7 +2069,7 @@ Size: 2428196
 MD5sum: 2c2cf720a08dad4ff586600edfe1b89a
 SHA1: 39d7c49b39d7100c03909b8a0390c95aee27ee65
 SHA256: 2e75a88c947a98b3a4cabc9966df7095c268d223e5274f47c8b97cebe459fefb
-Section: 开发
+Section: 开发环境
 Priority: optional
 Homepage: https://github.com/tpoechtrager/cctools-port
 Description: linker and assembler for the iPhone
@@ -2085,7 +2085,7 @@ Size: 4832
 MD5sum: dfa1844bb67b654f0aad8bb209ccdc1e
 SHA1: 2a2afe532a2a94a2a571e806a5719d86680fe385
 SHA256: ceb2507ccd84f8bf2e431ab1c6e8d397cf16580dea2deab939146c97a8b65402
-Section: 依赖
+Section: 依赖库
 Description: 隐根越狱依赖。支持iOS15.0及以上版本中的旧版arm64e ABI。
 Author: Nightwind
 Name: Legacy arm64e Support
@@ -2101,7 +2101,7 @@ Size: 6041766
 MD5sum: 6121e653d3bed9e4d5f04d93ac8b7ce3
 SHA1: 7d0571267d05aae949bc472549bc38eec0d948ea
 SHA256: de687b164a5fe42390f8f805496b0951495f5c023e71fa92c3ac9b659fee3898
-Section: 工具
+Section: 命令行工具
 Priority: optional
 Multi-Arch: foreign
 Description: 7z and 7za file archivers with high compression ratio
@@ -2130,7 +2130,7 @@ Size: 19579406
 MD5sum: cda02598154ed2436764383cc6beafb8
 SHA1: 83c2a87383c25b82755d9789755d8294080004f6
 SHA256: f3944cdf8673ef91b091baf43c2df3dc350bd3d12240940ab9d39204ec566775
-Section: 工具
+Section: 命令行工具
 Priority: optional
 Homepage: http://dev.perl.org/perl5/
 Description: Larry Wall's Practical Extraction and Report Language
@@ -2159,7 +2159,7 @@ Size: 36030
 MD5sum: 027711cacf4537c5d11025db7e64aae4
 SHA1: 444658fd444645108cd4af428cd4037c6e78e6c2
 SHA256: 1094d8ab05a96e22ea4ab1471b44f6fee4e58957b90b3be2e8501799eb4e3235
-Section: 工具
+Section: 命令行工具
 Description: Utility for creating and editing Apple property list files.
 Author: Samuel Bingner
 
@@ -2177,7 +2177,7 @@ Size: 39112
 MD5sum: 9d349249491e74dea04e29127a98f0d4
 SHA1: aaf1664aaaf1efa61c2d3bd01c2d05a1d237f778
 SHA256: 3e188b2fe912662c9e8dd295205af265637d545491eb411c859c1951ff9bd905
-Section: 系统
+Section: 越狱组件
 Description: load preferences in style
 Author: Dhinak G <dhinak@dhinak.net>
 Name: PreferenceLoader (Top)
@@ -2194,7 +2194,7 @@ Size: 640096
 MD5sum: 034ca88e4eab0007e8fdbf41358f9dd8
 SHA1: 2177ec6a217742e7246c65d0246c0160f205f5b9
 SHA256: 559944d2793fa7ce20376832bca4b00023fe11544d9f06bcd593af3208db013f
-Section: 插件
+Section: 应用增强
 Description: 模块入口位于QQ内设置: NTQQ_AntiRecall
 Author: 𝙓
 Name: NTQQ_AntiRecall
@@ -2213,7 +2213,7 @@ Size: 78668
 MD5sum: 71b8fbd66c7cb874d07f554220ef5115
 SHA1: b543b483b5434af3e283fe3ae2838e37aa70e6db
 SHA256: 5a3bddd06c20bcc7cec480b4d840b2c1e0ec7a0ebf68bd0f80679c613ca9a9f1
-Section: 系统
+Section: 越狱组件
 Description: RootHide Dynamic Patches For Filza
 Author: roothide
 Name: Patches for Filza 64bit
@@ -2229,7 +2229,7 @@ Size: 97302
 MD5sum: 1cbb54c76db73645dbbf45a5cf713f1f
 SHA1: 30b3345c30b34ce54b1c451f4b1c806dae2e1ede
 SHA256: 357f5898768f36ecae39036c666a4547aa0c05250ef2dc1dd0c9c196015524bc
-Section: 系统
+Section: 越狱组件
 Description: Compat Layer for Rootless Tweaks
 Author: roothide
 Name: rootless-compat
@@ -2246,7 +2246,7 @@ Size: 414534
 MD5sum: 48099f09f0717da61874c18aaac203dd
 SHA1: 0f8dab390f8d2b9bf3076907f30735d12c5f4f55
 SHA256: 6a1af9a845d50dbf83435f8af41c8db399ce5610ec0c3e7960bddbef0e7a782c
-Section: 工具
+Section: 命令行工具
 Priority: important
 Homepage: http://rsync.samba.org/
 Description: fast, versatile, remote (and local) file-copying tool
@@ -2274,7 +2274,7 @@ Size: 6814
 MD5sum: 227af588da92df6685d67568c4e48177
 SHA1: 33494ad23349c59ac2ccfab6c2ccebf4ebc33bba
 SHA256: 1dcad1d7b385a13474051e5215f57214da8434ab12f41bcb81fea5b47bdb3940
-Section: 开发
+Section: 开发环境
 Priority: optional
 Homepage: https://swift.org/
 Description: Swift developer package
@@ -2294,7 +2294,7 @@ Size: 1008
 MD5sum: 36a91add7dcdb9377e937c9bbc80231c
 SHA1: e6239c00e6237fcaf1589bd0f1580f1d6350e142
 SHA256: 459275500f6212ee674c3c8bd99a8bc3707111b77701a9e9dc6961af1b346051
-Section: 开发
+Section: 开发环境
 Priority: optional
 Description: What Theos needs.
  This metapackage installs grep, rsync, unzip, git, perl, xz-utils, and the iOS Toolchain in one go.
@@ -2310,7 +2310,7 @@ Size: 246956
 MD5sum: eb36b653cf26bb9ee556ad177fe4be03
 SHA1: 35c60e9e35c687b2d4184536d4182f28fc9fd6af
 SHA256: 8acc0d0ca590d5ef345a26c51d3de92cc76bf6b4890fb41802cda1086817cb1d
-Section: 工具
+Section: 命令行工具
 Priority: optional
 Multi-Arch: foreign
 Homepage: http://www.rarlab.com/rar_add.htm
@@ -2329,7 +2329,7 @@ Size: 287456
 MD5sum: d6ea88c9ebea15369d4ebcffbcc4424e
 SHA1: 875e78b2875e3c8a2ce13bce2ce134eef925b274
 SHA256: c975c2028ce47dc20d3cc31771afec66fc0ecbd729f7363ea4d0f9cff604f344
-Section: 工具
+Section: 命令行工具
 Priority: important
 Description: de-compesses files in zip format
 
@@ -2344,7 +2344,7 @@ Size: 44314
 MD5sum: b4e4de2067e4a5459f1b1ac5c69ee576
 SHA1: d27ab1f6d27a8949ff99ee8fff9953d8860da0de
 SHA256: d576e60519cde53d98e746308e401653618ad1ff566d937f256f3a8e6d32b7d0
-Section: 插件
+Section: 状态栏与控制中心
 Priority: optional
 Description: Fold the status bar into a ring when the Dynamic Island splits.
  When the Dynamic Island shows two activities side by side, the signal, Wi-Fi and battery icons fold into a ring beside the bubble, and unfold when the island becomes one again. No settings.
@@ -2381,7 +2381,7 @@ Size: 831584
 MD5sum: f006103207f96dde9cb2164f22b2059b
 SHA1: 731134527311a1ee507fed71507f3b9aa64e0c75
 SHA256: 292108d68d34c1d03fc20688b6c03a1b8bbb983cf5b13e0c8564f74e4c3d8161
-Section: 依赖
+Section: 依赖库
 Description: Support library for tweaks
 Tag: role::developer, compatible_min::ios15.0
 Author: HASHBANG Productions <support@hbang.ws>
@@ -2427,7 +2427,7 @@ Size: 416838
 MD5sum: 20a1674e222ae98855c71a826f69cd7e
 SHA1: 01bd87c501bdab3222d1691b22d1a88a291a9f1d
 SHA256: 9106a0be4bf07f6c4213390b06dcc9c4a040bd7ae5170b2b77bb186f861c7a48
-Section: 工具
+Section: 命令行工具
 Priority: standard
 Homepage: https://tukaani.org/xz/
 Description: XZ-format compression utilities
@@ -2461,7 +2461,7 @@ Size: 238966
 MD5sum: d53b9908e2d551d31866b19a710b5139
 SHA1: 503cd275503c68db218e7c7e218e22e2b6cb801b
 SHA256: a6bb88aa8ec4a7fde5119a4fe1aa9085f4e6f3b68641f5ad2ed3c38d78e55e8e
-Section: 工具
+Section: 命令行工具
 Priority: important
 Multi-Arch: foreign
 Description: standard Windows compression tool
