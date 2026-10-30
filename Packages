@@ -598,22 +598,22 @@ Author: huami
 Name: WCPulse(微信插件)-Roothide
 
 Package: com.layii.ccrnd
-Version: 0.0.1-27+debug
+Version: 0.1.0-2
 Architecture: iphoneos-arm64e
 Maintainer: LaYii
-Installed-Size: 168
+Installed-Size: 172
 Pre-Depends: rootless-compat (>= 0.9)
 Depends: firmware (>= 14.0)
-Filename: debs/roothide/com.layii.ccrnd_0.0.1-27_2Bdebug_iphoneos-arm64e.deb
-Size: 9456
-MD5sum: deb624a7f8e4996fd6d3a69cb3c1b23f
-SHA1: e143d6bfe1434ea1fbe70a6cfbe7feecc3f5ba2d
-SHA256: fa2a1606096c757b101c5299fd6ce18be923c78bf55be13dab6b2e826ff06483
+Filename: debs/roothide/com.layii.ccrnd_0.1.0-2_iphoneos-arm64e.deb
+Size: 4900
+MD5sum: 9210cd9de85470b4092c86eb55fc5439
+SHA1: b7e0b6106f181268fcdee8bf77722355f140baa1
+SHA256: f4ac77318858c11998f3f0ef65b28bd280079f32c5ecbecf8a0be9c01df06d3e
 Section: 系统增强
 Description: 去除录屏延迟
 Author: LaYii
 Icon: https://huayuarc.github.io/icon/luzhi.jpg
-Name: 去除录屏三秒倒计时
+Name: 去除录屏延迟
 
 Package: com.lclrc.recordanywhere
 Version: 1.1.0-1
