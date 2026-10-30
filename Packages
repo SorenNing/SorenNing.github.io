@@ -1222,23 +1222,6 @@ Description: 解锁微信的未知可能
 Author: WeTweak
 Name: We·X
 
-Package: com.wkk.copylogx
-Version: 1.2-3
-Architecture: iphoneos-arm64e
-Maintainer: wkk
-Installed-Size: 1732
-Depends: firmware (>= 15.0), firmware (<< 18.0), mobilesubstrate, preferenceloader
-Filename: debs/roothide/com.wkk.copylogx_1.2-3_iphoneos-arm64e.deb
-Size: 658304
-MD5sum: 51ee75df8526737c206bf71156d8d7e5
-SHA1: d81032d7d810531526d2a7a926d26e641482e51e
-SHA256: 80cc638ca7f5d3da125729c57ccaa070fd5baaa6da2c96435b96f862332e7dbb
-Section: Tweaks
-Description: cool！
-Author: wkk
-Icon: https://s1.imagehub.cc/images/2025/12/26/29fda3e52ac78c6958ecf3b5dac18673.png
-Name: CopylogX
-
 Package: com.wkk.filzacarplugins
 Version: 1.0.0
 Architecture: iphoneos-arm64e
@@ -1277,39 +1260,6 @@ Author: korboy <korboybeats@gmail.com>
 Icon: https://sini921.github.io/repo/sileodepiction/icon/filzaswipeselect.png
 Name: FilzaSwipeSelect
 
-Package: com.wkk.glasssuitex
-Version: 1.1-0
-Architecture: iphoneos-arm64e
-Maintainer: wkk
-Installed-Size: 1992
-Depends: firmware (>= 15.0), firmware (<< 18.0), mobilesubstrate, preferenceloader, com.opa334.altlist
-Filename: debs/roothide/com.wkk.glasssuitex_1.1-0_iphoneos-arm64e.deb
-Size: 970234
-MD5sum: ca1916ba6159a95f7b5d2e5bfa73041d
-SHA1: fd6d1662fd6d481113b5943713b54ba4e2ac8d7c
-SHA256: ca3ff6b5bf912130ebf3f04e15dfd7391a3d2a01b8fabe601daa7a7f33fb1c2f
-Section: Tweaks
-Description: cool
-Author: wkk
-Name: GlassSuiteX
-
-Package: com.wkk.keyboardx
-Version: 1.2-2
-Architecture: iphoneos-arm64e
-Maintainer: wkk
-Installed-Size: 568
-Depends: mobilesubstrate (>= 0.9.5000), preferenceloader
-Filename: debs/roothide/com.wkk.keyboardx_1.2-2_iphoneos-arm64e.deb
-Size: 177212
-MD5sum: 1cd3499c04cec4d6fcef098def9f9d0e
-SHA1: 410e5dbd410e7e2d7d693ec37d693863142948ab
-SHA256: cdcc922a72489cf9ce349ca77c7e21586d7e9bece83712a0d117462ddef09760
-Section: Tweaks
-Description: 键盘调整。
-Author: wkk
-Icon: https://s1.imagehub.cc/images/2025/12/26/29fda3e52ac78c6958ecf3b5dac18673.png
-Name: KeyboardX
-
 Package: com.wkk.sileosourcesearch
 Version: 1.0-2
 Architecture: iphoneos-arm64e
@@ -1344,57 +1294,6 @@ Description: 桌面长按App Store进行切换账号。
 Author: subdiox & iosdump
 Icon: https://s1.imagehub.cc/images/2025/12/26/29fda3e52ac78c6958ecf3b5dac18673.png
 Name: StoreSwitcher
-
-Package: com.wkk.systembox
-Version: 1.5-8
-Architecture: iphoneos-arm64e
-Maintainer: wkk
-Installed-Size: 2792
-Depends: mobilesubstrate, preferenceloader
-Conflicts: com.wkk.clockglass
-Filename: debs/roothide/com.wkk.systembox_1.5-8_iphoneos-arm64e.deb
-Size: 1329880
-MD5sum: 30047e7539ff59bb9b54c396d177c5a7
-SHA1: 5ca510ba5ca5727c7586bf3975862b10ef2f6709
-SHA256: 3dbe540054eba4e9b52dcf4a4b90aa371c22e9d1015f6c56d9301dfcad8bf736
-Section: Tweaks
-Description: cool
-Author: wkk
-Icon: https://s1.imagehub.cc/images/2025/12/26/29fda3e52ac78c6958ecf3b5dac18673.png
-Name: SystemX
-
-Package: com.wkk.wechatmecorners
-Version: 1.0-6
-Architecture: iphoneos-arm64e
-Maintainer: wkk
-Installed-Size: 3216
-Depends: mobilesubstrate (>= 0.9.5000)
-Filename: debs/roothide/com.wkk.wechatmecorners_1.0-6_iphoneos-arm64e.deb
-Size: 1928712
-MD5sum: 00ab61b77ed85ddd45e83b7c8a78bb77
-SHA1: 56eb8c9156ebe9be311a6b46311aaae7f3871471
-SHA256: 7ee49072a674507410489eb7aa86c883469bde5693e5cd45b6de5963567705de
-Section: 微信插件
-Description: cool
-Author: wkk
-Name: 微信圆角
-
-Package: com.wkk.wechatx
-Version: 2.4-1
-Architecture: iphoneos-arm64e
-Maintainer: wkk
-Installed-Size: 9796
-Depends: mobilesubstrate (>= 0.9.5000)
-Filename: debs/roothide/com.wkk.wechatx_2.4-1_iphoneos-arm64e.deb
-Size: 6398158
-MD5sum: 16342d6dddb8246eee80d425e2a2d73e
-SHA1: f23c85fcf23cd0979fd06ee59fd065d4ef351d3b
-SHA256: de3601a64462bd14c606ca973deebf59e73fe9c7f32b2a54b9d948c9ddaa544c
-Section: 微信插件
-Description: 一个新生代的插件，主打自由定义与实用为主，更多功能由群友集思广益，功能180+，自定义程度拉满的WeChat 插件，实用功能直接拉满占比百分之95，任何功能都可以提/定制皆可，单独授权50，进付费群依然可用。如果你想实现自己想要的功能，有更好的想法，欢迎来我的付费群玩。wx号：chn137
-Author: wkk
-Icon: https://s1.imagehub.cc/images/2025/01/01/95a2f7dd7e6f2a540e2f53f95ae214d4.png
-Name: WeChatX
 
 Package: com.xhwy.cellcorner
 Version: 1.2.10
