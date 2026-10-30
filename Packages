@@ -416,18 +416,13 @@ Author: doimty
 Name: ProMotion 120Hz
 
 Package: com.evgeniy558.controlcenter18
-Version: 3.0-beta4
 Architecture: iphoneos-arm64e
+Version: 3.0-beta5
 Maintainer: evgeniy558
 Installed-Size: 22808
 Depends: mobilesubstrate, firmware (>= 16.0), firmware (<< 18.0), preferenceloader, com.opa334.ccsupport
 Conflicts: com.dao.ccless
 Replaces: com.dao.ccless
-Filename: debs/roothide/com.evgeniy558.controlcenter18_3.0-beta4_iphoneos-arm64e.deb
-Size: 8753922
-MD5sum: f391e5d9250ea2ef7eb0a5a9c75f6606
-SHA1: a4ea6b5ca4eab68ed89ca61dd89cb103580cabda
-SHA256: e70f6422361b26563c9eff8f55baa6a3bc9fd84e07d76f317a77c08245e860ce
 Section: Tweaks
 Description: The full iOS 18 Control Center for iOS 16 and 17 (iPhone only).
  ControlCenter18 brings the full iOS 18 Control Center to iOS 16 and 17. It's not a theme or a reskin: modules, pages and gestures work the same way they do on iOS 18.
@@ -490,6 +485,11 @@ Author: evgeniy558
 Icon: https://huayuarc.github.io/icon/controlcenter18.png
 Name: ControlCenter18
 Sileodepiction: file:///var/jb/Library/PreferenceBundles/ControlCenter18Prefs.bundle/Depiction/depiction.json
+Filename: ./debs/roothide/com.evgeniy558.controlcenter18_3.0-beta5_iphoneos-arm64e.deb
+Size: 8776576
+MD5sum: 467a2faed8d934d17282bb6cc1337647
+SHA1: bfd415fb46382446fcbd71631f8319993bb30a10
+SHA256: f39266ac476ea0b4e79282757cdf42ffcc1cdd58fb207116baa433bc6cdbb28b
 
 Package: com.flex2areo.apptools15roothide
 Version: 2.9.1
