@@ -637,10 +637,10 @@ Maintainer: 半生年华&yaowell&Benja Guo
 Installed-Size: 204
 Depends: mobilesubstrate
 Filename: debs/roothide/com.local.ios27statusbar_1.2-1_iphoneos-arm64e.deb
-Size: 45886
-MD5sum: 13e22c9bf1759216416bc6f419429c4a
-SHA1: bd97f06543e829819f058944b7ac70032b3897fd
-SHA256: 75b8a13db4cd69ed89c48a514a469bdfefd8edc0ae35b0774f87ad7e8d799ab2
+Size: 46114
+MD5sum: 347a612cb70cea1eec697efa65f1406d
+SHA1: 94d4647e69f48df47e231addfa78c3dbb6abddc2
+SHA256: 4433e5c1883dfe00715b44459f9dc53476f843e1502f5a140c609f19632f1b9d
 Section: 状态栏与控制中心
 Description: 模仿27系统状态栏 信号与Wi-Fi素材来源：Benja Guo  电池源码感谢yaowell提供
 Author: 半生年华&yaowell&Benja Guo
