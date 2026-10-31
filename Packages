@@ -631,19 +631,20 @@ Author: Muirey03 & lclrc
 Name: RecordAnywhere
 
 Package: com.local.ios27statusbar
-Version: 1.2
+Version: 1.2-1
 Architecture: iphoneos-arm64e
 Maintainer: 半生年华&yaowell&Benja Guo
 Installed-Size: 204
 Depends: mobilesubstrate
-Filename: debs/roothide/com.local.ios27statusbar_1.2_iphoneos-arm64e.deb
-Size: 46796
-MD5sum: 85bfceef90402efc0bcb576955ed6b2f
-SHA1: 0a3817060a38ff877383ec7e7383ebd8c520c799
-SHA256: 188afde1fb03553b80f0e16018479b36188182e647d3a69a1e8273e9729ff2e1
+Filename: debs/roothide/com.local.ios27statusbar_1.2-1_iphoneos-arm64e.deb
+Size: 36926
+MD5sum: 292279a153ebbc48aa2cc23133f936af
+SHA1: fb2bc7431c6a003b67e6cb929d18fe547fb7d63a
+SHA256: 56ddcca7aafb49ab65828997883510ab57cbf5e40019d8bdf8b29e13459fd42d
 Section: 状态栏与控制中心
-Description: 模仿27系统状态栏 信号与Wi-Fi素材来源：Benja Guo  电池源码感谢yaowell提供
+Description: 模仿27系统状态栏 信号与Wi-Fi素材来源：Benja Guo  电池源码感谢yaowell提供（已改为只注入 SpringBoard，注销一次即可生效）
 Author: 半生年华&yaowell&Benja Guo
+Icon: https://sorenning.github.io/debs/icons/ios27statusbar.png
 Name: iOS27状态栏
 
 Package: com.minis.liquidasscc
