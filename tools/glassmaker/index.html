@@ -48,7 +48,7 @@
 </head>
 <body>
   <div class="top">
-    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v3.1</span></div>
+    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v3.2</span></div>
     <div class="tag" id="tag">实时预览</div>
   </div>
 
@@ -794,7 +794,10 @@ window.addEventListener('paste',e=>{ for(const it of (e.clipboardData||{}).items
 cv.style.cursor='pointer';
 cv.addEventListener('click',()=>{
   if(!img) return;
-  img=null;
+  img=null; lastOut=null;
+  pending=false;
+  document.querySelectorAll('#grid img').forEach(n=>URL.revokeObjectURL(n.src));
+  results=[]; $('grid').innerHTML=''; $('batch').hidden=true; $('count').textContent='';
   ctx.clearRect(0,0,cv.width,cv.height);
   $('tag').textContent='实时预览';
   $('hint').textContent='已移除当前图片，可重新选择';
