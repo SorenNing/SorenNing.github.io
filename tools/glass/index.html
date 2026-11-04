@@ -48,7 +48,7 @@
 </head>
 <body>
   <div class="top">
-    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v2.9</span></div>
+    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v3.0</span></div>
     <div class="tag" id="tag">实时预览</div>
   </div>
 
@@ -515,6 +515,15 @@ function process(S){
     oR[i]=r; oG[i]=g; oB[i]=b;
   }
 
+  /* 形状：跟随原图 / 强制 */
+  const shapeSel=$('shape').value;
+  let radRatio=(+$('radius').value)/100;
+  if(shapeSel!=='round'){
+    const sh=detectShape(img,box);
+    if(shapeSel==='auto') radRatio = sh.rounded ? sh.radius : 0;
+    else radRatio = 0;                       // 强制方形
+  }
+  const Rad=S*radRatio, half=S/2, edge=half-Rad;
   if(mode==='crop'){
     for(let y=0;y<S;y++){
       const ay=Math.abs(y+0.5-half), dy=ay-edge;
@@ -535,15 +544,6 @@ function process(S){
     return oc0;
   }
 
-  /* 形状：跟随原图 / 强制 */
-  const shapeSel=$('shape').value;
-  let radRatio=(+$('radius').value)/100;
-  if(shapeSel!=='round'){
-    const sh=detectShape(img,box);
-    if(shapeSel==='auto') radRatio = sh.rounded ? sh.radius : 0;
-    else radRatio = 0;                       // 强制方形
-  }
-  const Rad=S*radRatio, half=S/2, edge=half-Rad;
   const rimAmp=+$('rim').value, rimW=+$('rimW').value;
   const P1=Math.max(1.2,rimW*0.9), P2=Math.max(P1+2,rimW*3.3), PS=P1+rimW*5.3;
   for(let y=0;y<S;y++){
