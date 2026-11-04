@@ -51,7 +51,7 @@
 </head>
 <body>
   <div class="top">
-    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v4.2</span></div>
+    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v4.5</span></div>
     <div class="tag" id="tag">实时预览</div>
   </div>
 
@@ -459,6 +459,22 @@ function detectShape(im, box){
   return {rounded:true, radius:rho};
 }
 
+function applyModePreset(){
+  const m=$('mode').value;
+  if(m==='crop'){
+    $('frost').value=0; $('dim').value=1; $('sRim').value=0; $('sShadow').value=0; $('sVol').value=0;
+    $('rim').value=0;
+  } else if(m==='round'){
+    $('frost').value=0; $('dim').value=1; $('sRim').value=0; $('sShadow').value=0; $('sVol').value=0;
+    if(+$('rim').value===0) $('rim').value=0.80;
+  } else {
+    $('frost').value=0.86; $('dim').value=0.92;
+    $('sRim').value=0.76; $('sShadow').value=0.36; $('sVol').value=0.26;
+    if(+$('rim').value===0) $('rim').value=0.80;
+  }
+}
+function syncEnabled(){}
+
 function dirWeight(x,y,S){
   const m=$('dirMode')?$('dirMode').value:'diag';
   let t;
@@ -528,11 +544,8 @@ function process(S){
   const bandS=C.bandS, protect=C.protect, frR=C.frR, frG=C.frG, frB=C.frB, low=C.low, vmax=C.vmax;
 
   const mode=$('mode').value;
-  const sRim=mode==='full'?+$('sRim').value:0;
-  const sSh =mode==='full'?+$('sShadow').value:0;
-  const sVol=mode==='full'?+$('sVol').value:0;
-  const frost=mode==='full'?+$('frost').value:0;
-  const dim  =mode==='full'?+$('dim').value:1;
+  const sRim=+$('sRim').value, sSh=+$('sShadow').value, sVol=+$('sVol').value;
+  const frost=+$('frost').value, dim=+$('dim').value;
 
   const oR=new Float32Array(n), oG=new Float32Array(n), oB=new Float32Array(n);
   for(let y=0;y<S;y++)for(let x=0;x<S;x++){
@@ -565,7 +578,7 @@ function process(S){
     else radRatio = 0;                       // 强制方形
   }
   const Rad=S*radRatio, half=S/2, edge=half-Rad;
-  if(mode==='crop'){
+  if(mode==='crop' && sRim===0 && sSh===0 && sVol===0 && frost===0 && +$('rim').value===0){
     for(let y=0;y<S;y++){
       const ay=Math.abs(y+0.5-half), dy=ay-edge;
       for(let x=0;x<S;x++){
@@ -806,6 +819,8 @@ function syncManual(){
   $('manual').hidden=!on;
 }
 $('autocrop').addEventListener('change',()=>{syncManual();schedule();});
+$('mode').addEventListener('change',()=>{applyModePreset();labels();schedule();});
+$('shape').addEventListener('change',syncEnabled);
 
 /* ---------- 载入 ---------- */
 function loadFile(f){
@@ -858,17 +873,34 @@ $('save').onclick=()=>{
       if(!ov){
         ov=document.createElement('div'); ov.id='ov';
         ov.style.cssText='position:fixed;inset:0;background:#000000ee;z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:18px';
-        const t=document.createElement('div'); t.textContent='长按图片 → 存储到照片';
-        t.style.cssText='color:#cfcfd8;font-size:14px';
+          const t=document.createElement('div'); t.textContent='长按图片保存，或改好文件名点下载';
+        t.style.cssText='color:#33465a;font-size:13px';
+        const nameRow=document.createElement('div');
+        nameRow.style.cssText='display:flex;align-items:center;gap:6px;background:#fff;border-radius:10px;padding:8px 10px;width:min(88vw,420px)';
+        const nameIn=document.createElement('input');
+        nameIn.id='ovname'; nameIn.type='text';
+        nameIn.value=(imgName||'icon')+'_玻璃图标';
+        nameIn.style.cssText='flex:1;border:0;outline:0;font-size:15px;background:transparent;color:#17202a;min-width:0';
+        const ext=document.createElement('span'); ext.textContent='.png';
+        ext.style.cssText='color:#7b8b9a;font-size:14px';
+        nameRow.append(nameIn,ext);
         const im=document.createElement('img'); im.id='ovimg';
         im.style.cssText='max-width:88vw;max-height:66vh;border-radius:16px;background:#c9d4e0;box-shadow:0 10px 40px rgba(40,70,100,.35)';
         const col=document.createElement('div'); col.style.cssText='display:flex;gap:10px';
         const a=document.createElement('a'); a.id='ovdl'; a.textContent='下载'; a.style.cssText='background:#0a84ff;color:#fff;padding:11px 18px;border-radius:12px;font-weight:600;text-decoration:none';
         const c=document.createElement('button'); c.textContent='关闭'; c.style.cssText='border:0;border-radius:12px;padding:11px 18px;background:#2c2c34;color:#eaeaf0;font-weight:600'; c.onclick=()=>ov.remove();
-        col.append(a,c); ov.append(t,im,col); document.body.append(ov);
+        col.append(a,c); ov.append(t,nameRow,im,col); document.body.append(ov);
       }
-      document.getElementById('ovimg').src=url;
-      const a=document.getElementById('ovdl'); a.href=url; a.download=imgName+'_玻璃图标.png';
+      const ovimg=document.getElementById('ovimg');
+      const a=document.getElementById('ovdl');
+      const nameIn=document.getElementById('ovname');
+      const applyName=()=>{
+        const base=(nameIn.value||'icon').replace(/[\\/:*?"<>|]/g,'').trim()||'icon';
+        a.download=base+'.png';
+      };
+      nameIn.addEventListener('input',applyName);
+      applyName();
+      ovimg.src=url; a.href=url;
       $('tag').textContent='实时预览';
       setTimeout(()=>URL.revokeObjectURL(url),120000);
     },'image/png');
@@ -881,6 +913,7 @@ $('reset').onclick=()=>{
   schedule();
 };
 syncManual();
+syncEnabled();
 labels();
 </script>
 </body>
