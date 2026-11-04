@@ -48,7 +48,7 @@
 </head>
 <body>
   <div class="top">
-    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v3.0</span></div>
+    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v3.1</span></div>
     <div class="tag" id="tag">实时预览</div>
   </div>
 
@@ -361,33 +361,37 @@ function autoBox(im){
 /* ---------- 把裁切框收成正方形：多余部分从更"平"的一侧切掉 ---------- */
 function squareize(im, box){
   if(!box) return box;
-  const mx=Math.max(box.w,box.h), mn=Math.min(box.w,box.h);
-  if(mx-mn < mx*0.03) {           // 已经接近正方形，微调居中
-    if(box.w>box.h) return {x:box.x+(box.w-box.h)/2, y:box.y, w:box.h, h:box.h};
-    return {x:box.x, y:box.y+(box.h-box.w)/2, w:box.w, h:box.w};
-  }
   const T=72;
   const c=document.createElement('canvas'); c.width=c.height=T;
   const x=c.getContext('2d',{willReadFrequently:true});
   x.drawImage(im,box.x,box.y,box.w,box.h,0,0,T,T);
   const d=x.getImageData(0,0,T,T).data;
-  const rowVar=(y0,y1)=>{let s=0,n=0;
-    for(let y=y0;y<y1;y++)for(let a=0;a<T;a++){const p=(y*T+a)*4;
-      const g=0.299*d[p]+0.587*d[p+1]+0.114*d[p+2]; s+=g*g; n++;}
-    return n?s/n:0;};
-  const colVar=(x0,x1)=>{let s=0,n=0;
-    for(let a=x0;a<x1;a++)for(let y=0;y<T;y++){const p=(y*T+a)*4;
-      const g=0.299*d[p]+0.587*d[p+1]+0.114*d[p+2]; s+=g*g; n++;}
-    return n?s/n:0;};
-  let out={...box};
-  if(box.h>box.w){
-    const top=rowVar(0,6), bot=rowVar(T-6,T);
-    if(top<=bot) out={x:box.x, y:box.y, w:box.w, h:box.w};          // 上面更平 → 保留下方？(取更"平"的一侧为多余)
-    else out={x:box.x, y:box.y+box.h-box.w, w:box.w, h:box.w};
-  } else {
-    const lef=colVar(0,6), rig=colVar(T-6,T);
-    if(lef<=rig) out={x:box.x+box.w-box.h, y:box.y, w:box.h, h:box.h};
-    else out={x:box.x, y:box.y, w:box.h, h:box.h};
+  const px=(a,b)=>{const i=(b*T+a)*4;return [d[i],d[i+1],d[i+2]];};
+  const rowStat=(y)=>{ // 该行的均色与离散度
+    let r=0,g=0,b=0,n=0,sd=0;const arr=[];
+    for(let a=0;a<T;a++){const p=px(a,y);r+=p[0];g+=p[1];b+=p[2];n++;arr.push(p);}
+    const m=[r/n,g/n,b/n];
+    for(const p of arr) sd+=Math.hypot(p[0]-m[0],p[1]-m[1],p[2]-m[2]);
+    return {m, sd:sd/n};
+  };
+  const dist=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1],a[2]-b[2]);
+  let top=0,bot=0;
+  for(let i=0;i<14;i++){
+    const rb=rowStat(T-1-bot);
+    const ref=rowStat(Math.min(T-1, T-1-bot-Math.round(T*0.12)));
+    if(rb.sd<16 && dist(rb.m,ref.m)>22){ bot++; continue; }   // 底部是纯色条
+    const rt=rowStat(top);
+    const reft=rowStat(Math.min(T-1, top+Math.round(T*0.12)));
+    if(rt.sd<16 && dist(rt.m,reft.m)>22){ top++; continue; }   // 顶部纯色条
+    break;
+  }
+  const fx=v=>box.x+box.w*(v/T), fy=v=>box.y+box.h*(v/T);
+  let out={x:fx(0), y:fy(top), w:fx(T)-fx(0), h:fy(T-bot)-fy(top)};
+  // 居中收成正方形
+  const mx=Math.max(out.w,out.h), mn=Math.min(out.w,out.h);
+  if(mx-mn>2){
+    if(out.w>out.h) out={x:out.x+(out.w-out.h)/2, y:out.y, w:out.h, h:out.h};
+    else out={x:out.x, y:out.y+(out.h-out.w)/2, w:out.w, h:out.w};
   }
   return out;
 }
