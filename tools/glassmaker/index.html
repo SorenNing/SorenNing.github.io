@@ -48,7 +48,7 @@
 </head>
 <body>
   <div class="top">
-    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v3.2</span></div>
+    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v3.4</span></div>
     <div class="tag" id="tag">实时预览</div>
   </div>
 
@@ -75,7 +75,14 @@
     <div class="row"><label>处理</label><select id="mode"><option value="crop">只裁切（原图）</option><option value="full">完整玻璃效果</option><option value="round">只加圆角+亮边</option></select><span class="v"></span></div>
     <div class="row"><label>形状</label><select id="shape"><option value="square">方形（不圆角）</option><option value="auto">跟随原图</option><option value="round">圆角（用上面滑块）</option></select><span class="v"></span></div>
     <div class="row"><label>尺寸</label><select id="size"><option>1024</option><option>2048</option><option>512</option></select><span class="v"></span></div>
-    <div class="row"><label>自动裁边</label><select id="autocrop"><option value="3">自动（推荐）</option><option value="1">只认黑白底</option><option value="2">只认彩色图标</option><option value="0">关</option></select><span class="v"></span></div>
+    <div class="row"><label>自动裁边</label><select id="autocrop"><option value="3">自动（推荐）</option><option value="1">只认黑白底</option><option value="2">只认彩色图标</option><option value="4">手动裁切</option><option value="0">关</option></select><span class="v"></span></div>
+
+    <div id="manual" hidden>
+      <div class="row"><label>上边</label><input id="cT" type="range" min="0" max="40" step="0.5" value="0"><span class="v" id="cTV"></span></div>
+      <div class="row"><label>下边</label><input id="cB" type="range" min="0" max="40" step="0.5" value="0"><span class="v" id="cBV"></span></div>
+      <div class="row"><label>左边</label><input id="cL" type="range" min="0" max="40" step="0.5" value="0"><span class="v" id="cLV"></span></div>
+      <div class="row"><label>右边</label><input id="cR" type="range" min="0" max="40" step="0.5" value="0"><span class="v" id="cRV"></span></div>
+    </div>
 
     <div class="drop" id="drop">点这里选照片（可多选），或拖入图片 / ZIP<br><span style="font-size:12px;color:#6d6d79">（在本机处理，不上传）</span></div>
     <div class="hint" id="hint">选好照片后可回到上面调参数，预览始终可见</div>
@@ -137,6 +144,7 @@ function pct(arr,p){
 
 /* ---------- 参数 ---------- */
 function labels(){
+  ['cT','cB','cL','cR'].forEach(k=>{const el=$(k); if(el&&$(k+'V')) $(k+'V').textContent=(+el.value).toFixed(1)+'%';});
   $('radiusV').textContent=(+$('radius').value).toFixed(1)+'%';
   $('rimV').textContent=(+$('rim').value).toFixed(2);
   $('rimWV').textContent=(+$('rimW').value).toFixed(1);
@@ -361,33 +369,29 @@ function autoBox(im){
 /* ---------- 把裁切框收成正方形：多余部分从更"平"的一侧切掉 ---------- */
 function squareize(im, box){
   if(!box) return box;
-  const T=72;
+  const T=80;
   const c=document.createElement('canvas'); c.width=c.height=T;
   const x=c.getContext('2d',{willReadFrequently:true});
   x.drawImage(im,box.x,box.y,box.w,box.h,0,0,T,T);
   const d=x.getImageData(0,0,T,T).data;
   const px=(a,b)=>{const i=(b*T+a)*4;return [d[i],d[i+1],d[i+2]];};
-  const rowStat=(y)=>{ // 该行的均色与离散度
-    let r=0,g=0,b=0,n=0,sd=0;const arr=[];
-    for(let a=0;a<T;a++){const p=px(a,y);r+=p[0];g+=p[1];b+=p[2];n++;arr.push(p);}
-    const m=[r/n,g/n,b/n];
-    for(const p of arr) sd+=Math.hypot(p[0]-m[0],p[1]-m[1],p[2]-m[2]);
-    return {m, sd:sd/n};
-  };
   const dist=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1],a[2]-b[2]);
+  const rowMean=(y)=>{let r=0,g=0,b=0;for(let a=0;a<T;a++){const p=px(a,y);r+=p[0];g+=p[1];b+=p[2];}
+    return [r/T,g/T,b/T];};
+
+  // 参考色：中央 40% 区域的众数近似（取中心若干行的均值）
+  const cands=[];
+  for(let y=Math.floor(T*0.35);y<T*0.65;y+=3) cands.push(rowMean(y));
+  cands.sort((m,n)=>(m[0]+m[1]+m[2])-(n[0]+n[1]+n[2]));
+  const ref=cands[cands.length>>1];
+
   let top=0,bot=0;
-  for(let i=0;i<14;i++){
-    const rb=rowStat(T-1-bot);
-    const ref=rowStat(Math.min(T-1, T-1-bot-Math.round(T*0.12)));
-    if(rb.sd<16 && dist(rb.m,ref.m)>22){ bot++; continue; }   // 底部是纯色条
-    const rt=rowStat(top);
-    const reft=rowStat(Math.min(T-1, top+Math.round(T*0.12)));
-    if(rt.sd<16 && dist(rt.m,reft.m)>22){ top++; continue; }   // 顶部纯色条
-    break;
-  }
+  const maxTrim=Math.floor(T*0.35);
+  while(bot<maxTrim && dist(rowMean(T-1-bot),ref)>42) bot++;
+  while(top<maxTrim && dist(rowMean(top),ref)>42) top++;
+
   const fx=v=>box.x+box.w*(v/T), fy=v=>box.y+box.h*(v/T);
   let out={x:fx(0), y:fy(top), w:fx(T)-fx(0), h:fy(T-bot)-fy(top)};
-  // 居中收成正方形
   const mx=Math.max(out.w,out.h), mn=Math.min(out.w,out.h);
   if(mx-mn>2){
     if(out.w>out.h) out={x:out.x+(out.w-out.h)/2, y:out.y, w:out.h, h:out.h};
@@ -451,7 +455,12 @@ function process(S){
   let src=img, box=null;
   const ac=$('autocrop').value;
   try{
+    if(ac==='4'){
+      const t=+$('cT').value/100, b=+$('cB').value/100, l=+$('cL').value/100, r=+$('cR').value/100;
+      box={x:img.width*l, y:img.height*t, w:Math.max(8,img.width*(1-l-r)), h:Math.max(8,img.height*(1-t-b))};
+    }
     if(ac==='3') box=autoBox(img);
+    else if(ac==='4'){ /* 已处理 */ }
     else if(ac==='1') box=(autoCropBox(img)||dominantBox(img)||null);
     else if(ac==='2') box=anyBgBox(img);
     if(box) box=refineBox(img,box);
@@ -764,6 +773,12 @@ $('zipAll').onclick=async()=>{
   $('tag').textContent='已打包';
 };
 
+function syncManual(){
+  const on=$('autocrop').value==='4';
+  $('manual').hidden=!on;
+}
+$('autocrop').addEventListener('change',()=>{syncManual();schedule();});
+
 /* ---------- 载入 ---------- */
 function loadFile(f){
   if(!f||!f.type.startsWith('image/')) return;
@@ -784,7 +799,7 @@ $('file').onchange=e=>{ if(e.target.files[0]) loadFile(e.target.files[0]); };
 $('drop').addEventListener('drop',e=>{ const f=e.dataTransfer.files[0]; if(f) loadFile(f); });
 window.addEventListener('paste',e=>{ for(const it of (e.clipboardData||{}).items||[]) if(it.type.startsWith('image/')) loadFile(it.getAsFile()); });
 
-['radius','rim','rimW','frost','dim','sRim','sShadow','sVol','size','mode','autocrop','shape'].forEach(id=>{
+['radius','rim','rimW','frost','dim','sRim','sShadow','sVol','size','mode','autocrop','shape','cT','cB','cL','cR'].forEach(id=>{
   $(id).addEventListener('input',schedule);
   $(id).addEventListener('change',schedule);
 });
@@ -837,6 +852,7 @@ $('reset').onclick=()=>{
   $('sRim').value=0.75; $('sShadow').value=0.35; $('sVol').value=0.25; $('size').value='1024';
   schedule();
 };
+syncManual();
 labels();
 </script>
 </body>
