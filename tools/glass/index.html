@@ -48,7 +48,7 @@
 </head>
 <body>
   <div class="top">
-    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v2.7</span></div>
+    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v2.9</span></div>
     <div class="tag" id="tag">实时预览</div>
   </div>
 
@@ -72,7 +72,8 @@
     <div class="row"><label>主体体积</label><input id="sVol" type="range" min="0" max="0.6" step="0.02" value="0.25"><span class="v" id="sVolV"></span></div>
 
     <h2>输出</h2>
-    <div class="row"><label>处理</label><select id="mode"><option value="full">完整玻璃效果</option><option value="round">只加圆角+亮边</option><option value="crop">只裁切（原图）</option></select><span class="v"></span></div>
+    <div class="row"><label>处理</label><select id="mode"><option value="crop">只裁切（原图）</option><option value="full">完整玻璃效果</option><option value="round">只加圆角+亮边</option></select><span class="v"></span></div>
+    <div class="row"><label>形状</label><select id="shape"><option value="square">方形（不圆角）</option><option value="auto">跟随原图</option><option value="round">圆角（用上面滑块）</option></select><span class="v"></span></div>
     <div class="row"><label>尺寸</label><select id="size"><option>1024</option><option>2048</option><option>512</option></select><span class="v"></span></div>
     <div class="row"><label>自动裁边</label><select id="autocrop"><option value="3">自动（推荐）</option><option value="1">只认黑白底</option><option value="2">只认彩色图标</option><option value="0">关</option></select><span class="v"></span></div>
 
@@ -354,7 +355,87 @@ function autoBox(im){
     const score=squareScore*ratioScore;
     if(score>bestScore){bestScore=score;best=b;}
   }
-  return best;
+  return best?squareize(im,best):null;
+}
+
+/* ---------- 把裁切框收成正方形：多余部分从更"平"的一侧切掉 ---------- */
+function squareize(im, box){
+  if(!box) return box;
+  const mx=Math.max(box.w,box.h), mn=Math.min(box.w,box.h);
+  if(mx-mn < mx*0.03) {           // 已经接近正方形，微调居中
+    if(box.w>box.h) return {x:box.x+(box.w-box.h)/2, y:box.y, w:box.h, h:box.h};
+    return {x:box.x, y:box.y+(box.h-box.w)/2, w:box.w, h:box.w};
+  }
+  const T=72;
+  const c=document.createElement('canvas'); c.width=c.height=T;
+  const x=c.getContext('2d',{willReadFrequently:true});
+  x.drawImage(im,box.x,box.y,box.w,box.h,0,0,T,T);
+  const d=x.getImageData(0,0,T,T).data;
+  const rowVar=(y0,y1)=>{let s=0,n=0;
+    for(let y=y0;y<y1;y++)for(let a=0;a<T;a++){const p=(y*T+a)*4;
+      const g=0.299*d[p]+0.587*d[p+1]+0.114*d[p+2]; s+=g*g; n++;}
+    return n?s/n:0;};
+  const colVar=(x0,x1)=>{let s=0,n=0;
+    for(let a=x0;a<x1;a++)for(let y=0;y<T;y++){const p=(y*T+a)*4;
+      const g=0.299*d[p]+0.587*d[p+1]+0.114*d[p+2]; s+=g*g; n++;}
+    return n?s/n:0;};
+  let out={...box};
+  if(box.h>box.w){
+    const top=rowVar(0,6), bot=rowVar(T-6,T);
+    if(top<=bot) out={x:box.x, y:box.y, w:box.w, h:box.w};          // 上面更平 → 保留下方？(取更"平"的一侧为多余)
+    else out={x:box.x, y:box.y+box.h-box.w, w:box.w, h:box.w};
+  } else {
+    const lef=colVar(0,6), rig=colVar(T-6,T);
+    if(lef<=rig) out={x:box.x+box.w-box.h, y:box.y, w:box.h, h:box.h};
+    else out={x:box.x, y:box.y, w:box.h, h:box.h};
+  }
+  return out;
+}
+
+/* ---------- 识别原图自身是方形还是圆角 ---------- */
+function detectShape(im, box){
+  const T=96;
+  const c=document.createElement('canvas'); c.width=c.height=T;
+  const x=c.getContext('2d',{willReadFrequently:true});
+  if(box){ x.drawImage(im,box.x,box.y,box.w,box.h,0,0,T,T); }
+  else {
+    const k=Math.max(T/im.width,T/im.height);
+    const dw=im.width*k, dh=im.height*k;
+    x.drawImage(im,(T-dw)/2,(T-dh)/2,dw,dh);
+  }
+  const d=x.getImageData(0,0,T,T).data;
+  const px=(a,b)=>{const i=(b*T+a)*4;return [d[i],d[i+1],d[i+2]];};
+  const dist=(p,q)=>Math.hypot(p[0]-q[0],p[1]-q[1],p[2]-q[2]);
+  const med3=(a,b)=>{const arr=[];for(let i=0;i<3;i++)for(let j=0;j<3;j++)arr.push(px(Math.min(T-1,a+i),Math.min(T-1,b+j)));
+    return [0,1,2].map(c2=>{const v=arr.map(p=>p[c2]).sort((m,n)=>m-n);return v[v.length>>1];});};
+
+  const inset=Math.round(T*0.10);
+  const corners=[[0,0,1,1],[T-3,0,-1,1],[0,T-3,1,-1],[T-3,T-3,-1,-1]];
+  let bgCount=0, runs=[];
+  for(const [cx,cy,sx,sy] of corners){
+    const cc=med3(cx,cy);
+    // 与该边中点（一定是图标本体）比较
+    const a=med3(sx>0?2:T-5, Math.floor(T*0.5));
+    const b=med3(Math.floor(T*0.5), sy>0?2:T-5);
+    const isBg = dist(cc,a)>26 && dist(cc,b)>26;
+    if(!isBg) continue;
+    bgCount++;
+    // 沿对角线走，量背景有多深
+    let run=0;
+    for(let t=0;t<T*0.45;t++){
+      const xx=Math.max(0,Math.min(T-1,cx+sx*t)), yy=Math.max(0,Math.min(T-1,cy+sy*t));
+      if(dist(px(xx,yy),cc)>30) break;
+      run=t;
+    }
+    runs.push(run);
+  }
+  if(bgCount<2) return {rounded:false, radius:0};
+  runs.sort((m,n)=>m-n);
+  const run=runs[runs.length>>1];
+  // 圆角圆心到角点的距离 = r*(sqrt2-1) → r = run/0.414
+  let rho=(run/0.414)/T;
+  rho=Math.min(0.33,Math.max(0.05,rho));
+  return {rounded:true, radius:rho};
 }
 
 /* ---------- 主处理 ---------- */
@@ -435,20 +516,34 @@ function process(S){
   }
 
   if(mode==='crop'){
-    for(let i=0;i<n;i++){
-      const p=i*4;
-      d[p]  =Math.min(255,oR[i]);
-      d[p+1]=Math.min(255,oG[i]);
-      d[p+2]=Math.min(255,oB[i]);
-      d[p+3]=255;
+    for(let y=0;y<S;y++){
+      const ay=Math.abs(y+0.5-half), dy=ay-edge;
+      for(let x=0;x<S;x++){
+        const i=y*S+x, p=i*4;
+        const ax=Math.abs(x+0.5-half), dx=ax-edge;
+        const pdx=Math.max(dx,0), pdy=Math.max(dy,0);
+        const dist=Math.hypot(pdx,pdy)+Math.min(Math.max(dx,dy),0)-Rad;
+        let a=(Rad<=0)?1:Math.min(1,Math.max(0,(-dist)+0.5));
+        d[p]  =Math.min(255,oR[i]);
+        d[p+1]=Math.min(255,oG[i]);
+        d[p+2]=Math.min(255,oB[i]);
+        d[p+3]=a*255;
+      }
     }
     const oc0=document.createElement('canvas'); oc0.width=oc0.height=S;
     oc0.getContext('2d').putImageData(id,0,0);
     return oc0;
   }
 
-  /* 外框圆角 + 明亮玻璃边 */
-  const Rad=S*(+$('radius').value)/100, half=S/2, edge=half-Rad;
+  /* 形状：跟随原图 / 强制 */
+  const shapeSel=$('shape').value;
+  let radRatio=(+$('radius').value)/100;
+  if(shapeSel!=='round'){
+    const sh=detectShape(img,box);
+    if(shapeSel==='auto') radRatio = sh.rounded ? sh.radius : 0;
+    else radRatio = 0;                       // 强制方形
+  }
+  const Rad=S*radRatio, half=S/2, edge=half-Rad;
   const rimAmp=+$('rim').value, rimW=+$('rimW').value;
   const P1=Math.max(1.2,rimW*0.9), P2=Math.max(P1+2,rimW*3.3), PS=P1+rimW*5.3;
   for(let y=0;y<S;y++){
@@ -685,7 +780,7 @@ $('file').onchange=e=>{ if(e.target.files[0]) loadFile(e.target.files[0]); };
 $('drop').addEventListener('drop',e=>{ const f=e.dataTransfer.files[0]; if(f) loadFile(f); });
 window.addEventListener('paste',e=>{ for(const it of (e.clipboardData||{}).items||[]) if(it.type.startsWith('image/')) loadFile(it.getAsFile()); });
 
-['radius','rim','rimW','frost','dim','sRim','sShadow','sVol','size','mode','autocrop'].forEach(id=>{
+['radius','rim','rimW','frost','dim','sRim','sShadow','sVol','size','mode','autocrop','shape'].forEach(id=>{
   $(id).addEventListener('input',schedule);
   $(id).addEventListener('change',schedule);
 });
