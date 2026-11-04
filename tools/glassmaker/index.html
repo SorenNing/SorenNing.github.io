@@ -51,7 +51,7 @@
 </head>
 <body>
   <div class="top">
-    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v4.1</span></div>
+    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v4.2</span></div>
     <div class="tag" id="tag">实时预览</div>
   </div>
 
@@ -81,6 +81,7 @@
     <div class="row"><label>形状</label><select id="shape"><option value="square">方形</option><option value="auto">跟随原图</option><option value="round">圆角</option></select><span class="v"></span></div>
     <div class="row"><label>尺寸</label><select id="size"><option>1024</option><option>2048</option><option>512</option></select><span class="v"></span></div>
     <div class="row"><label>自动裁边</label><select id="autocrop"><option value="3">自动</option><option value="1">只认黑白底</option><option value="2">只认彩色图标</option><option value="4">手动</option><option value="0">关</option></select><span class="v"></span></div>
+    <div class="row"><label>亮边方向</label><select id="dirMode"><option value="diag">对角</option><option value="tb">上下两边</option><option value="lr">左右两边</option></select><span class="v"></span></div>
 
       </div>
       <div class="impcol">
@@ -458,6 +459,15 @@ function detectShape(im, box){
   return {rounded:true, radius:rho};
 }
 
+function dirWeight(x,y,S){
+  const m=$('dirMode')?$('dirMode').value:'diag';
+  let t;
+  if(m==='tb') t=y/S;              // 上亮下暗
+  else if(m==='lr') t=x/S;         // 左亮右暗
+  else t=(x+y)/(2*S);              // 对角：左上亮
+  return 0.75+0.30*(1-t);
+}
+
 /* ---------- 主处理 ---------- */
 function process(S){
   if(!img) return null;
@@ -531,7 +541,7 @@ function process(S){
     let r=R[i]*(1-fw)+frR[i]*fw, g=G[i]*(1-fw)+frG[i]*fw, b=B[i]*(1-fw)+frB[i]*fw;
     r*=dim; g*=dim; b*=dim;
 
-    const dir=0.75+0.30*(1-(x+y)/(2*S));
+    const dir=dirWeight(x,y,S);
     const br=Math.min(0.95, bandS[i]*sRim*dir);
     const si=(y-6>=0&&x-4>=0)?(y-6)*S+(x-4):-1;
     let sh=si>=0?Math.max(0,bandS[si]-bandS[i]*0.9):0;
@@ -587,8 +597,8 @@ function process(S){
       const depth=-dist;
       let a=depth+0.5; a=a<0?0:(a>1?1:a);
       if(a===0){ d[p+3]=0; continue; }
-      const dir=0.80+0.20*(1-(x+y)/(2*S));
-      let b2=dir*(rimAmp*Math.exp(-Math.pow((depth-P1)/rimW,2))+0.23*Math.exp(-Math.pow((depth-P2)/(rimW*2.4),2)));
+      const dn=dirWeight(x,y,S);
+      let b2=dn*(rimAmp*Math.exp(-Math.pow((depth-P1)/rimW,2))+0.23*Math.exp(-Math.pow((depth-P2)/(rimW*2.4),2)));
       if(b2>0.92) b2=0.92;
       const sh2=0.065*Math.exp(-Math.pow((depth-PS)/(rimW*2.1),2));
       const k=(1-sh2)*(1-b2), add=255*b2;
@@ -817,7 +827,7 @@ $('file').onchange=e=>{ if(e.target.files[0]) loadFile(e.target.files[0]); };
 $('drop').addEventListener('drop',e=>{ const f=e.dataTransfer.files[0]; if(f) loadFile(f); });
 window.addEventListener('paste',e=>{ for(const it of (e.clipboardData||{}).items||[]) if(it.type.startsWith('image/')) loadFile(it.getAsFile()); });
 
-['radius','rim','rimW','frost','dim','sRim','sShadow','sVol','size','mode','autocrop','shape','cT','cB','cL','cR'].forEach(id=>{
+['radius','rim','rimW','frost','dim','sRim','sShadow','sVol','size','mode','autocrop','shape','cT','cB','cL','cR','dirMode'].forEach(id=>{
   $(id).addEventListener('input',schedule);
   $(id).addEventListener('change',schedule);
 });
