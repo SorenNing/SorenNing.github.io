@@ -48,7 +48,7 @@
 </head>
 <body>
   <div class="top">
-    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v2.5</span></div>
+    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v2.6</span></div>
     <div class="tag" id="tag">实时预览</div>
   </div>
 
@@ -73,7 +73,7 @@
 
     <h2>输出</h2>
     <div class="row"><label>尺寸</label><select id="size"><option>1024</option><option>2048</option><option>512</option></select><span class="v"></span></div>
-    <div class="row"><label>自动裁边</label><select id="autocrop"><option value="1">纯色底（黑/白）</option><option value="2">任意背景（照片/渐变）</option><option value="0">关</option></select><span class="v"></span></div>
+    <div class="row"><label>自动裁边</label><select id="autocrop"><option value="3">自动（推荐）</option><option value="1">只认黑白底</option><option value="2">只认彩色图标</option><option value="0">关</option></select><span class="v"></span></div>
 
     <div class="drop" id="drop">点这里选照片（可多选），或拖入图片 / ZIP<br><span style="font-size:12px;color:#6d6d79">（在本机处理，不上传）</span></div>
     <div class="hint" id="hint">选好照片后可回到上面调参数，预览始终可见</div>
@@ -305,6 +305,57 @@ function anyBgBox(im){
   return {x:fx(best.minX-1), y:fy(best.minY-1), w:fx(best.maxX+2)-fx(best.minX-1), h:fy(best.maxY+2)-fy(best.minY-1)};
 }
 
+/* ---------- 修掉裁切后残留的边条 ---------- */
+function refineBox(im, box){
+  const T=220;
+  const c=document.createElement('canvas'); c.width=c.height=T;
+  const x=c.getContext('2d',{willReadFrequently:true});
+  x.drawImage(im,box.x,box.y,box.w,box.h,0,0,T,T);
+  const d=x.getImageData(0,0,T,T).data;
+  const band=Math.max(2,Math.round(T*0.02));
+  const rowMean=(y0,y1)=>{let r=0,g=0,b=0,n=0;
+    for(let y=y0;y<y1;y++)for(let a=0;a<T;a++){const p=(y*T+a)*4;r+=d[p];g+=d[p+1];b+=d[p+2];n++;}
+    return n?[r/n,g/n,b/n]:[0,0,0];};
+  const colMean=(x0,x1)=>{let r=0,g=0,b=0,n=0;
+    for(let a=x0;a<x1;a++)for(let y=0;y<T;y++){const p=(y*T+a)*4;r+=d[p];g+=d[p+1];b+=d[p+2];n++;}
+    return n?[r/n,g/n,b/n]:[0,0,0];};
+  const dist=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1],a[2]-b[2]);
+  let top=0,bot=0,left=0,right=0;
+  for(let pass=0;pass<10;pass++){
+    // 底部：最外一条 vs 往里一条
+    if(T-bot-2*band>0 && dist(rowMean(T-bot-band,T-bot), rowMean(T-bot-2*band,T-bot-band))>18){ bot+=band; continue; }
+    if(top+2*band<T && dist(rowMean(top,top+band), rowMean(top+band,top+2*band))>18){ top+=band; continue; }
+    if(T-right-2*band>0 && dist(colMean(T-right-band,T-right), colMean(T-right-2*band,T-right-band))>18){ right+=band; continue; }
+    if(left+2*band<T && dist(colMean(left,left+band), colMean(left+band,left+2*band))>18){ left+=band; continue; }
+    break;
+  }
+  const inset=Math.round(T*0.006);
+  left+=inset; top+=inset; right+=inset; bot+=inset;
+  const fx=v=>box.x + box.w*(v/T), fy=v=>box.y + box.h*(v/T);
+  return {x:fx(left), y:fy(top), w:Math.max(8,fx(T-right)-fx(left)), h:Math.max(8,fy(T-bot)-fy(top))};
+}
+
+/* ---------- 自动：三种候选里挑最合适的 ---------- */
+function autoBox(im){
+  const cands=[];
+  try{ const b=autoCropBox(im); if(b) cands.push(b); }catch(e){}
+  try{ const b=dominantBox(im); if(b) cands.push(b); }catch(e){}
+  try{ const b=anyBgBox(im); if(b) cands.push(b); }catch(e){}
+  if(!cands.length) return null;
+  let best=null,bestScore=-1;
+  for(let b of cands){
+    b=refineBox(im,b);
+    if(b.w<12||b.h<12) continue;
+    const sq=b.w/b.h;
+    const squareScore=1/(1+Math.abs(Math.log(sq)));
+    const ratio=(b.w*b.h)/(im.width*im.height);
+    const ratioScore=ratio>0.25&&ratio<0.9?1:0.4;
+    const score=squareScore*ratioScore;
+    if(score>bestScore){bestScore=score;best=b;}
+  }
+  return best;
+}
+
 /* ---------- 主处理 ---------- */
 function process(S){
   if(!img) return null;
@@ -313,8 +364,12 @@ function process(S){
   // 可选：先自动裁掉外围纯色
   let src=img, box=null;
   const ac=$('autocrop').value;
-  if(ac==='1'){ try{ box=autoCropBox(img)||dominantBox(img); }catch(e){ box=null; } }
-  else if(ac==='2'){ try{ box=anyBgBox(img); }catch(e){ box=null; } }
+  try{
+    if(ac==='3') box=autoBox(img);
+    else if(ac==='1') box=(autoCropBox(img)||dominantBox(img)||null);
+    else if(ac==='2') box=anyBgBox(img);
+    if(box) box=refineBox(img,box);
+  }catch(e){ box=null; }
   const sw=box?box.w:img.width, sh=box?box.h:img.height;
   const k=Math.max(S/sw,S/sh);
   const dw=sw*k, dh=sh*k;
