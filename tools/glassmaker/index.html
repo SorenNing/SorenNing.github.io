@@ -19,9 +19,8 @@
   .tag{font-size:11px;color:#0a6fd0;background:#ffffffaa;border:1px solid #bcd9f0;border-radius:999px;padding:2px 8px}
   /* 吸顶预览 */
   .stage{flex:0 0 auto;padding:0 14px 6px;box-shadow:0 8px 16px rgba(70,110,150,.10);position:relative;z-index:5;background:#EEF7FE}
-  .card{background:#ffffff;border-radius:14px;padding:6px;display:flex;justify-content:center;box-shadow:0 2px 10px rgba(70,110,150,.10)}
-  #cv{width:118px;height:118px;border-radius:10px;display:block;
-      background:conic-gradient(#e6e6e6 25%,#f7f7f7 0 50%,#e6e6e6 0 75%,#f7f7f7 0) 0 0/18px 18px}
+  .card{background:#dfe8f1;border-radius:14px;padding:6px;display:flex;justify-content:center}
+  #cv{width:118px;height:118px;border-radius:10px;display:block;background:#c9d4e0}
   /* 参数区 */
   .sheet{flex:0 0 auto;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:2px 14px 4px}
   h2{font-size:11px;letter-spacing:.6px;color:#7b8b9a;margin:9px 0 3px;font-weight:600}
@@ -49,7 +48,7 @@
 </head>
 <body>
   <div class="top">
-    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v1.4</span></div>
+    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v1.5</span></div>
     <div class="tag" id="tag">实时预览</div>
   </div>
 
@@ -514,7 +513,7 @@ $('save').onclick=()=>{
         const t=document.createElement('div'); t.textContent='长按图片 → 存储到照片';
         t.style.cssText='color:#cfcfd8;font-size:14px';
         const im=document.createElement('img'); im.id='ovimg';
-        im.style.cssText='max-width:88vw;max-height:66vh;border-radius:16px;background:conic-gradient(#e6e6e6 25%,#f7f7f7 0 50%,#e6e6e6 0 75%,#f7f7f7 0) 0 0/18px 18px;box-shadow:0 10px 40px rgba(40,70,100,.35)';
+        im.style.cssText='max-width:88vw;max-height:66vh;border-radius:16px;background:#c9d4e0;box-shadow:0 10px 40px rgba(40,70,100,.35)';
         const col=document.createElement('div'); col.style.cssText='display:flex;gap:10px';
         const a=document.createElement('a'); a.id='ovdl'; a.textContent='下载'; a.style.cssText='background:#0a84ff;color:#fff;padding:11px 18px;border-radius:12px;font-weight:600;text-decoration:none';
         const c=document.createElement('button'); c.textContent='关闭'; c.style.cssText='border:0;border-radius:12px;padding:11px 18px;background:#2c2c34;color:#eaeaf0;font-weight:600'; c.onclick=()=>ov.remove();
