@@ -2,80 +2,102 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
 <title>玻璃图标生成器</title>
 <style>
   :root{color-scheme:dark}
-  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  body{margin:0;background:#0f0f13;color:#eaeaf0;font:15px/1.5 -apple-system,system-ui,"PingFang SC",sans-serif;padding:16px 16px 44px}
-  h1{font-size:17px;margin:4px 0 12px;font-weight:600}
-  h2{font-size:13px;margin:16px 0 8px;color:#8e8e9c;font-weight:600;letter-spacing:.4px}
-  .drop{border:1.5px dashed #3a3a44;border-radius:16px;padding:26px 14px;text-align:center;color:#9a9aa6;background:#17171c;transition:.2s}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:#0f0f13;color:#eaeaf0;font:14px/1.45 -apple-system,system-ui,"PingFang SC",sans-serif;
+       display:flex;flex-direction:column;overflow:hidden}
+  /* 顶部标题 */
+  .top{flex:0 0 auto;padding:calc(8px + env(safe-area-inset-top)) 14px 4px;display:flex;align-items:center;gap:10px}
+  .title{font-size:15px;font-weight:600;flex:1}
+  .tag{font-size:11px;color:#7fd0ff;background:#0a84ff22;border:1px solid #0a84ff55;border-radius:999px;padding:2px 8px}
+  /* 吸顶预览 */
+  .stage{flex:0 0 auto;padding:6px 14px 10px;box-shadow:0 10px 20px rgba(0,0,0,.5);position:relative;z-index:5;background:#0f0f13}
+  .card{background:#16161b;border-radius:16px;padding:9px;display:flex;justify-content:center}
+  #cv{width:200px;height:200px;border-radius:14px;display:block;
+      background:conic-gradient(#26262c 25%,#1f1f25 0 50%,#26262c 0 75%,#1f1f25 0) 0 0/18px 18px}
+  /* 参数区 */
+  .sheet{flex:1 1 auto;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:6px 14px 96px}
+  h2{font-size:11.5px;letter-spacing:.6px;color:#8e8e9c;margin:14px 0 6px;font-weight:600}
+  .row{display:flex;align-items:center;gap:9px;margin:9px 0}
+  .row label{flex:0 0 76px;color:#b6b6c2;font-size:12.5px}
+  .row input[type=range]{flex:1;height:22px;background:transparent;-webkit-appearance:none;appearance:none}
+  .row input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:#33333c}
+  .row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;
+      background:#fff;margin-top:-7px;box-shadow:0 1px 4px rgba(0,0,0,.6)}
+  .v{flex:0 0 40px;text-align:right;color:#7fd0ff;font-size:11.5px;font-variant-numeric:tabular-nums}
+  select{background:#2c2c34;color:#eaeaf0;border:0;border-radius:8px;padding:7px 10px;font-size:13.5px;flex:1}
+  /* 导入区（放在参数下方） */
+  .drop{margin:18px 0 6px;border:1.5px dashed #3a3a44;border-radius:14px;padding:22px 12px;text-align:center;
+        color:#9a9aa6;background:#17171c;font-size:13.5px}
   .drop.hot{border-color:#5ac8fa;color:#cfe9ff;background:#16202a}
-  .row{display:flex;align-items:center;gap:10px;margin:8px 0}
-  .row label{flex:0 0 88px;color:#a9a9b6;font-size:13px}
-  .row input[type=range]{flex:1}
-  .val{flex:0 0 44px;text-align:right;color:#7fd0ff;font-variant-numeric:tabular-nums;font-size:12.5px}
-  .panel{background:#17171c;border-radius:14px;padding:12px 14px;margin:12px 0}
-  button{border:0;border-radius:12px;padding:11px 16px;font-size:15px;font-weight:600;background:#2c2c34;color:#eaeaf0}
-  button.primary{background:#0a84ff;color:#fff}
-  .btns{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
-  canvas{max-width:100%;display:block;border-radius:18px;background:
-    conic-gradient(#2a2a30 25%,#232329 0 50%,#2a2a30 0 75%,#232329 0) 0 0/22px 22px}
-  .prev{margin:12px 0}
-  .hint{color:#82828f;font-size:12.5px;margin-top:8px}
-  select{background:#2c2c34;color:#eaeaf0;border:0;border-radius:8px;padding:7px 10px;font-size:14px}
-  .foot{color:#6d6d79;font-size:12px;margin-top:20px;text-align:center}
+  .drop b{color:#0a84ff;font-weight:600}
+  .hint{color:#6d6d79;font-size:11.5px;text-align:center;margin-top:6px}
+  /* 底部按钮 */
+  .bar{position:fixed;left:0;right:0;bottom:0;display:flex;gap:10px;
+       padding:10px 14px calc(12px + env(safe-area-inset-bottom));
+       background:linear-gradient(transparent,rgba(15,15,19,.97) 35%)}
+  .btn{flex:1;text-align:center;border-radius:12px;padding:12px;font-size:14.5px;font-weight:600;background:#2c2c34;color:#eaeaf0;border:0}
+  .btn.pri{background:#0a84ff;color:#fff}
 </style>
 </head>
 <body>
-<h1>玻璃图标生成器</h1>
-
-<div id="drop" class="drop">点这里选照片，或把图片拖进来<br><span style="font-size:12.5px">（全部在本机处理，不上传）</span></div>
-<input id="file" type="file" accept="image/*" hidden>
-
-<div class="panel" id="panel" hidden>
-  <h2>外框</h2>
-  <div class="row"><label>圆角</label><input id="radius" type="range" min="8" max="34" step="0.5" value="21.9"><span class="val" id="radiusV"></span></div>
-  <div class="row"><label>外圈亮边</label><input id="rim" type="range" min="0" max="1.2" step="0.02" value="0.80"><span class="val" id="rimV"></span></div>
-  <div class="row"><label>亮边宽度</label><input id="rimW" type="range" min="1" max="8" step="0.2" value="3"><span class="val" id="rimWV"></span></div>
-
-  <h2>背景玻璃</h2>
-  <div class="row"><label>磨砂</label><input id="frost" type="range" min="0" max="1" step="0.02" value="0.85"><span class="val" id="frostV"></span></div>
-  <div class="row"><label>压暗</label><input id="dim" type="range" min="0.80" max="1.0" step="0.005" value="0.92"><span class="val" id="dimV"></span></div>
-
-  <h2>主体玻璃</h2>
-  <div class="row"><label>主体亮边</label><input id="sRim" type="range" min="0" max="1.2" step="0.02" value="0.75"><span class="val" id="sRimV"></span></div>
-  <div class="row"><label>主体投影</label><input id="sShadow" type="range" min="0" max="0.8" step="0.02" value="0.35"><span class="val" id="sShadowV"></span></div>
-  <div class="row"><label>主体体积</label><input id="sVol" type="range" min="0" max="0.6" step="0.02" value="0.25"><span class="val" id="sVolV"></span></div>
-
-  <div class="row"><label>输出尺寸</label><select id="size"><option value="1024">1024</option><option value="2048">2048</option><option value="512">512</option></select></div>
-  <div class="btns">
-    <button class="primary" id="save">下载 PNG</button>
-    <button id="reset">恢复默认</button>
+  <div class="top">
+    <div class="title">玻璃图标生成器</div>
+    <div class="tag" id="tag">实时预览</div>
   </div>
-</div>
 
-<div class="prev"><canvas id="cv" width="512" height="512"></canvas></div>
-<div class="hint" id="status"></div>
-<div class="foot">圆角 + 外圈玻璃边 + 主体玻璃 + 背景磨砂</div>
+  <div class="stage">
+    <div class="card"><canvas id="cv" width="512" height="512"></canvas></div>
+  </div>
+
+  <div class="sheet" id="sheet">
+    <h2>外框</h2>
+    <div class="row"><label>圆角</label><input id="radius" type="range" min="8" max="34" step="0.5" value="21.9"><span class="v" id="radiusV"></span></div>
+    <div class="row"><label>外圈亮边</label><input id="rim" type="range" min="0" max="1.2" step="0.02" value="0.80"><span class="v" id="rimV"></span></div>
+    <div class="row"><label>亮边宽度</label><input id="rimW" type="range" min="1" max="8" step="0.2" value="3"><span class="v" id="rimWV"></span></div>
+
+    <h2>背景玻璃</h2>
+    <div class="row"><label>磨砂</label><input id="frost" type="range" min="0" max="1" step="0.02" value="0.85"><span class="v" id="frostV"></span></div>
+    <div class="row"><label>压暗</label><input id="dim" type="range" min="0.80" max="1.0" step="0.005" value="0.92"><span class="v" id="dimV"></span></div>
+
+    <h2>主体玻璃</h2>
+    <div class="row"><label>主体亮边</label><input id="sRim" type="range" min="0" max="1.2" step="0.02" value="0.75"><span class="v" id="sRimV"></span></div>
+    <div class="row"><label>主体投影</label><input id="sShadow" type="range" min="0" max="0.8" step="0.02" value="0.35"><span class="v" id="sShadowV"></span></div>
+    <div class="row"><label>主体体积</label><input id="sVol" type="range" min="0" max="0.6" step="0.02" value="0.25"><span class="v" id="sVolV"></span></div>
+
+    <h2>输出</h2>
+    <div class="row"><label>尺寸</label><select id="size"><option>1024</option><option>2048</option><option>512</option></select><span class="v"></span></div>
+
+    <div class="drop" id="drop">点这里选照片，或把图片拖进来<br><span style="font-size:12px;color:#6d6d79">（在本机处理，不上传）</span></div>
+    <div class="hint">选好照片后可回到上面调参数，预览始终可见</div>
+  </div>
+
+  <div class="bar">
+    <button class="btn pri" id="save">下载 PNG</button>
+    <button class="btn" id="reset">恢复默认</button>
+  </div>
+
+  <input id="file" type="file" accept="image/*" hidden>
 
 <script>
 const $=id=>document.getElementById(id);
 const cv=$('cv'), ctx=cv.getContext('2d',{willReadFrequently:true});
 let img=null, imgName='icon';
+const PREVIEW_MAX=512;
 
-/* ---------- 基础工具 ---------- */
+/* ---------- 模糊 ---------- */
 function boxBlur(src,w,h,r){
-  const tmp=new Float32Array(w*h), out=new Float32Array(w*h);
-  const win=2*r+1;
+  const tmp=new Float32Array(w*h), out=new Float32Array(w*h), win=2*r+1;
   for(let y=0;y<h;y++){
-    let acc=0; const row=y*w;
+    let acc=0,row=y*w;
     for(let i=-r;i<=r;i++) acc+=src[row+Math.min(w-1,Math.max(0,i))];
     for(let x=0;x<w;x++){
       tmp[row+x]=acc/win;
-      const add=src[row+Math.min(w-1,x+r+1)], sub=src[row+Math.max(0,x-r)];
-      acc+=add-sub;
+      acc+=src[row+Math.min(w-1,x+r+1)]-src[row+Math.max(0,x-r)];
     }
   }
   for(let x=0;x<w;x++){
@@ -83,25 +105,24 @@ function boxBlur(src,w,h,r){
     for(let i=-r;i<=r;i++) acc+=tmp[Math.min(h-1,Math.max(0,i))*w+x];
     for(let y=0;y<h;y++){
       out[y*w+x]=acc/win;
-      const add=tmp[Math.min(h-1,y+r+1)*w+x], sub=tmp[Math.max(0,y-r)*w+x];
-      acc+=add-sub;
+      acc+=tmp[Math.min(h-1,y+r+1)*w+x]-tmp[Math.max(0,y-r)*w+x];
     }
   }
   return out;
 }
-function gauss(src,w,h,sigma){ // 三次盒式近似
-  const r=Math.max(1,Math.round(sigma*0.9));
-  let a=boxBlur(src,w,h,r), b=boxBlur(a,w,h,r), c=boxBlur(b,w,h,r);
-  return c;
+function gauss(src,w,h,sigma){
+  const r=Math.max(1,Math.round(sigma*0.85));
+  return boxBlur(boxBlur(boxBlur(src,w,h,r),w,h,r),w,h,r);
 }
-function percentile(arr,p){
-  const step=Math.max(1,Math.floor(arr.length/60000));
-  const s=[]; for(let i=0;i<arr.length;i+=step) s.push(arr[i]);
+function pct(arr,p){
+  const step=Math.max(1,Math.floor(arr.length/40000)), s=[];
+  for(let i=0;i<arr.length;i+=step) s.push(arr[i]);
   s.sort((a,b)=>a-b);
   return s[Math.min(s.length-1,Math.floor(s.length*p))]||1;
 }
 
-function syncLabels(){
+/* ---------- 参数 ---------- */
+function labels(){
   $('radiusV').textContent=(+$('radius').value).toFixed(1)+'%';
   $('rimV').textContent=(+$('rim').value).toFixed(2);
   $('rimWV').textContent=(+$('rimW').value).toFixed(1);
@@ -112,92 +133,68 @@ function syncLabels(){
   $('sVolV').textContent=(+$('sVol').value).toFixed(2);
 }
 
-function loadFile(f){
-  if(!f.type.startsWith('image/'))return;
-  imgName=(f.name||'icon').replace(/\.(png|jpe?g|webp|gif|bmp)$/i,'');
-  const r=new FileReader();
-  r.onload=e=>{const i=new Image(); i.onload=()=>{img=i;$('panel').hidden=false;$('status').textContent='已载入 '+i.width+'×'+i.height;render();}; i.src=e.target.result;};
-  r.readAsDataURL(f);
-}
-$('drop').onclick=()=>$('file').click();
-$('file').onchange=e=>{if(e.target.files[0])loadFile(e.target.files[0]);};
-['dragenter','dragover'].forEach(t=>$('drop').addEventListener(t,e=>{e.preventDefault();$('drop').classList.add('hot');}));
-['dragleave','drop'].forEach(t=>$('drop').addEventListener(t,e=>{e.preventDefault();$('drop').classList.remove('hot');}));
-$('drop').addEventListener('drop',e=>{const f=e.dataTransfer.files[0]; if(f) loadFile(f);});
-window.addEventListener('paste',e=>{for(const it of (e.clipboardData||{}).items||[]) if(it.type.startsWith('image/')) loadFile(it.getAsFile());});
-
-/* ---------- 主流程 ---------- */
-function process(){
+/* ---------- 主处理 ---------- */
+function process(S){
   if(!img) return null;
-  const S=parseInt($('size').value,10);
   const sc=document.createElement('canvas'); sc.width=sc.height=S;
   const sx=sc.getContext('2d'); sx.imageSmoothingQuality='high';
   sx.drawImage(img,0,0,S,S);
-  const id=sx.getImageData(0,0,S,S); const d=id.data;
+  const id=sx.getImageData(0,0,S,S), d=id.data, n=S*S;
 
-  const n=S*S;
-  const R=[]; const G=[]; const B=[]; const L=new Float32Array(n);
-  for(let i=0,p=0;i<n;i++,p+=4){ R[i]=d[p];G[i]=d[p+1];B[i]=d[p+2]; L[i]=0.299*d[p]+0.587*d[p+1]+0.114*d[p+2]; }
+  const R=new Float32Array(n), G=new Float32Array(n), B=new Float32Array(n), L=new Float32Array(n);
+  for(let i=0,p=0;i<n;i++,p+=4){
+    R[i]=d[p]; G[i]=d[p+1]; B[i]=d[p+2];
+    L[i]=0.299*d[p]+0.587*d[p+1]+0.114*d[p+2];
+  }
 
-  // 亮度模糊 → 梯度
   const Lb=gauss(L,S,S,2.0);
-  const Gx=new Float32Array(n), Gy=new Float32Array(n), Gm=new Float32Array(n);
+  const Gm=new Float32Array(n);
   for(let y=0;y<S;y++)for(let x=0;x<S;x++){
     const i=y*S+x;
-    const x0=Math.max(0,x-1),x1=Math.min(S-1,x+1),y0=Math.max(0,y-1),y1=Math.min(S-1,y+1);
+    const x0=x>0?x-1:x, x1=x<S-1?x+1:x, y0=y>0?y-1:y, y1=y<S-1?y+1:y;
     const gx=(Lb[y*S+x1]-Lb[y*S+x0])*0.5, gy=(Lb[y1*S+x]-Lb[y0*S+x])*0.5;
-    Gx[i]=gx; Gy[i]=gy; Gm[i]=Math.hypot(gx,gy);
+    Gm[i]=Math.hypot(gx,gy);
   }
-  const gmax=percentile(Gm,0.99)||1;
+  const gm=pct(Gm,0.99);
 
-  // 主体亮边权重
   const band=new Float32Array(n);
-  for(let i=0;i<n;i++){ let v=(Gm[i]/gmax-0.08)/0.30; band[i]=v<0?0:(v>1?1:v); }
+  for(let i=0;i<n;i++){ let v=(Gm[i]/gm-0.08)/0.30; band[i]=v<0?0:(v>1?1:v); }
   const bandS=gauss(band,S,S,1.4);
+  const protect=gauss(bandS,S,S,10.0);
 
   const sRim=+$('sRim').value, sSh=+$('sShadow').value, sVol=+$('sVol').value;
   const frost=+$('frost').value, dim=+$('dim').value;
 
-  // 背景磨砂：平坦区域（远离边缘）才磨
-  const protect=gauss(bandS,S,S,10.0);
   const frR=gauss(R,S,S,4.0), frG=gauss(G,S,S,4.0), frB=gauss(B,S,S,4.0);
-
-  // 体积：低频亮度差
   const low=gauss(L,S,S,18.0);
-  const vmax=percentile(Float32Array.from(L,(v,i)=>Math.abs(v-low[i])),0.99)||1;
+  const dv=new Float32Array(n);
+  for(let i=0;i<n;i++) dv[i]=Math.abs(L[i]-low[i]);
+  const vmax=pct(dv,0.99);
 
-  const outR=new Float32Array(n), outG=new Float32Array(n), outB=new Float32Array(n);
+  const oR=new Float32Array(n), oG=new Float32Array(n), oB=new Float32Array(n);
   for(let y=0;y<S;y++)for(let x=0;x<S;x++){
     const i=y*S+x;
-    // 背景磨砂混合
     const fw=(1-Math.min(1,protect[i]*1.4))*frost;
-    let r=R[i]*(1-fw)+frR[i]*fw;
-    let g=G[i]*(1-fw)+frG[i]*fw;
-    let b=B[i]*(1-fw)+frB[i]*fw;
-    // 压暗
+    let r=R[i]*(1-fw)+frR[i]*fw, g=G[i]*(1-fw)+frG[i]*fw, b=B[i]*(1-fw)+frB[i]*fw;
     r*=dim; g*=dim; b*=dim;
 
     const dir=0.75+0.30*(1-(x+y)/(2*S));
-    // 主体亮边
-    let br=Math.min(0.95, bandS[i]*sRim*dir);
-    // 主体投影：右下方带
+    const br=Math.min(0.95, bandS[i]*sRim*dir);
     const si=(y-6>=0&&x-4>=0)?(y-6)*S+(x-4):-1;
-    let sh=si>=0?Math.max(0, bandS[si]-bandS[i]*0.9):0;
+    let sh=si>=0?Math.max(0,bandS[si]-bandS[i]*0.9):0;
     sh=Math.min(1,sh)*sSh;
-    // 主体体积
     let v=(L[i]-low[i])/vmax; v=v<-1?-1:(v>1?1:v); v*=bandS[i];
     const vb=Math.max(0,v)*sVol, vd=Math.max(0,-v)*sVol*1.1;
 
-    r=r*(1-sh)*(1-vd); g=g*(1-sh)*(1-vd); b=b*(1-sh)*(1-vd);
+    r*= (1-sh)*(1-vd); g*=(1-sh)*(1-vd); b*=(1-sh)*(1-vd);
     r=r*(1-br)+255*br; g=g*(1-br)+255*br; b=b*(1-br)+255*br;
     r=r*(1-vb)+255*vb; g=g*(1-vb)+255*vb; b=b*(1-vb)+255*vb;
 
-    outR[i]=r; outG[i]=g; outB[i]=b;
+    oR[i]=r; oG[i]=g; oB[i]=b;
   }
 
-  // 外框：圆角 + 明亮玻璃边
-  const Rad=S*(+$('radius').value)/100;
-  const half=S/2, edge=half-Rad;
+  /* 外框圆角 + 明亮玻璃边 */
+  const Rad=S*(+$('radius').value)/100, half=S/2, edge=half-Rad;
   const rimAmp=+$('rim').value, rimW=+$('rimW').value;
   const P1=Math.max(1.2,rimW*0.9), P2=Math.max(P1+2,rimW*3.3), PS=P1+rimW*5.3;
   for(let y=0;y<S;y++){
@@ -205,65 +202,107 @@ function process(){
     for(let x=0;x<S;x++){
       const i=y*S+x, p=i*4;
       const ax=Math.abs(x+0.5-half), dx=ax-edge;
-      const pdx=Math.max(dx,0), pdy=Math.max(dy,0);
+      const pdx=dx>0?dx:0, pdy=dy>0?dy:0;
       const dist=Math.hypot(pdx,pdy)+Math.min(Math.max(dx,dy),0)-Rad;
       const depth=-dist;
       let a=depth+0.5; a=a<0?0:(a>1?1:a);
       if(a===0){ d[p+3]=0; continue; }
       const dir=0.80+0.20*(1-(x+y)/(2*S));
-      let br=dir*(rimAmp*Math.exp(-Math.pow((depth-P1)/rimW,2))+0.23*Math.exp(-Math.pow((depth-P2)/(rimW*2.4),2)));
-      if(br>0.92) br=0.92;
-      const sh=0.065*Math.exp(-Math.pow((depth-PS)/(rimW*2.1),2));
-      const k=(1-sh)*(1-br), add=255*br;
-      d[p]  =Math.min(255,outR[i]*k+add);
-      d[p+1]=Math.min(255,outG[i]*k+add);
-      d[p+2]=Math.min(255,outB[i]*k+add);
+      let b2=dir*(rimAmp*Math.exp(-Math.pow((depth-P1)/rimW,2))+0.23*Math.exp(-Math.pow((depth-P2)/(rimW*2.4),2)));
+      if(b2>0.92) b2=0.92;
+      const sh2=0.065*Math.exp(-Math.pow((depth-PS)/(rimW*2.1),2));
+      const k=(1-sh2)*(1-b2), add=255*b2;
+      d[p]  =oR[i]*k+add;
+      d[p+1]=oG[i]*k+add;
+      d[p+2]=oB[i]*k+add;
       d[p+3]=a*255;
     }
   }
 
   const oc=document.createElement('canvas'); oc.width=oc.height=S;
   oc.getContext('2d').putImageData(id,0,0);
-  cv.width=cv.height=Math.min(512,S);
-  ctx.clearRect(0,0,cv.width,cv.height);
-  ctx.imageSmoothingQuality='high';
-  ctx.drawImage(oc,0,0,cv.width,cv.height);
   return oc;
 }
 
-function render(){ syncLabels(); window.__out=process(); }
+/* ---------- 渲染调度（节流） ---------- */
+let pending=false, lastOut=null;
+function draw(canvas){
+  ctx.clearRect(0,0,cv.width,cv.height);
+  ctx.imageSmoothingQuality='high';
+  ctx.drawImage(canvas,0,0,cv.width,cv.height);
+}
+function schedule(){
+  labels();
+  if(pending||!img) return;
+  pending=true;
+  requestAnimationFrame(()=>{
+    pending=false;
+    const oc=process(PREVIEW_MAX);
+    if(oc){ lastOut=oc; draw(oc); }
+  });
+}
+function renderNow(){ labels(); if(!img) return; const oc=process(PREVIEW_MAX); if(oc){lastOut=oc; draw(oc);} }
 
-['radius','rim','rimW','frost','dim','sRim','sShadow','sVol','size'].forEach(id=>$(id).addEventListener('input',render));
+/* ---------- 载入 ---------- */
+function loadFile(f){
+  if(!f||!f.type.startsWith('image/')) return;
+  imgName=(f.name||'icon').replace(/\.(png|jpe?g|webp|gif|bmp|heic)$/i,'');
+  const r=new FileReader();
+  r.onload=e=>{
+    const im=new Image();
+    im.onload=()=>{ img=im; $('tag').textContent='已载入'; renderNow(); $('sheet').scrollTop=0; };
+    im.onerror=()=>{ $('tag').textContent='读取失败'; };
+    im.src=e.target.result;
+  };
+  r.readAsDataURL(f);
+}
+$('drop').onclick=()=>$('file').click();
+$('file').onchange=e=>{ if(e.target.files[0]) loadFile(e.target.files[0]); };
+['dragenter','dragover'].forEach(t=>$('drop').addEventListener(t,e=>{e.preventDefault();$('drop').classList.add('hot');}));
+['dragleave','drop'].forEach(t=>$('drop').addEventListener(t,e=>{e.preventDefault();$('drop').classList.remove('hot');}));
+$('drop').addEventListener('drop',e=>{ const f=e.dataTransfer.files[0]; if(f) loadFile(f); });
+window.addEventListener('paste',e=>{ for(const it of (e.clipboardData||{}).items||[]) if(it.type.startsWith('image/')) loadFile(it.getAsFile()); });
+
+['radius','rim','rimW','frost','dim','sRim','sShadow','sVol','size'].forEach(id=>{
+  $(id).addEventListener('input',schedule);
+  $(id).addEventListener('change',schedule);
+});
+
+/* ---------- 保存 ---------- */
 $('save').onclick=()=>{
-  if(!img) return;
-  const oc=process(); if(!oc) return;
-  oc.toBlob(b=>{
-    const url=URL.createObjectURL(b);
-    let ov=document.getElementById('ov');
-    if(!ov){
-      ov=document.createElement('div'); ov.id='ov';
-      ov.style.cssText='position:fixed;inset:0;background:#000000ee;z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:18px';
-      const t=document.createElement('div'); t.textContent='长按图片 → 存储到照片';
-      t.style.cssText='color:#cfcfd8;font-size:14px';
-      const im=document.createElement('img'); im.id='ovimg';
-      im.style.cssText='max-width:88vw;max-height:66vh;border-radius:16px;background:conic-gradient(#2a2a30 25%,#232329 0 50%,#2a2a30 0 75%,#232329 0) 0 0/22px 22px;box-shadow:0 10px 40px #000a';
-      const col=document.createElement('div'); col.style.cssText='display:flex;gap:10px';
-      const a=document.createElement('a'); a.id='ovdl'; a.textContent='下载'; a.style.cssText='background:#0a84ff;color:#fff;padding:11px 18px;border-radius:12px;font-weight:600;text-decoration:none';
-      const c=document.createElement('button'); c.textContent='关闭'; c.onclick=()=>ov.remove();
-      col.append(a,c); ov.append(t,im,col); document.body.append(ov);
-    }
-    document.getElementById('ovimg').src=url;
-    const a=document.getElementById('ovdl'); a.href=url; a.download=imgName+'_玻璃图标.png';
-    setTimeout(()=>URL.revokeObjectURL(url),120000);
-  },'image/png');
+  if(!img){ $('tag').textContent='先选照片'; return; }
+  $('tag').textContent='生成中…';
+  setTimeout(()=>{
+    const oc=process(parseInt($('size').value,10));
+    oc.toBlob(b=>{
+      const url=URL.createObjectURL(b);
+      let ov=document.getElementById('ov');
+      if(!ov){
+        ov=document.createElement('div'); ov.id='ov';
+        ov.style.cssText='position:fixed;inset:0;background:#000000ee;z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:18px';
+        const t=document.createElement('div'); t.textContent='长按图片 → 存储到照片';
+        t.style.cssText='color:#cfcfd8;font-size:14px';
+        const im=document.createElement('img'); im.id='ovimg';
+        im.style.cssText='max-width:88vw;max-height:66vh;border-radius:16px;background:conic-gradient(#26262c 25%,#1f1f25 0 50%,#26262c 0 75%,#1f1f25 0) 0 0/18px 18px;box-shadow:0 10px 40px #000a';
+        const col=document.createElement('div'); col.style.cssText='display:flex;gap:10px';
+        const a=document.createElement('a'); a.id='ovdl'; a.textContent='下载'; a.style.cssText='background:#0a84ff;color:#fff;padding:11px 18px;border-radius:12px;font-weight:600;text-decoration:none';
+        const c=document.createElement('button'); c.textContent='关闭'; c.style.cssText='border:0;border-radius:12px;padding:11px 18px;background:#2c2c34;color:#eaeaf0;font-weight:600'; c.onclick=()=>ov.remove();
+        col.append(a,c); ov.append(t,im,col); document.body.append(ov);
+      }
+      document.getElementById('ovimg').src=url;
+      const a=document.getElementById('ovdl'); a.href=url; a.download=imgName+'_玻璃图标.png';
+      $('tag').textContent='实时预览';
+      setTimeout(()=>URL.revokeObjectURL(url),120000);
+    },'image/png');
+  },30);
 };
 $('reset').onclick=()=>{
   $('radius').value=21.9; $('rim').value=0.80; $('rimW').value=3;
   $('frost').value=0.85; $('dim').value=0.92;
   $('sRim').value=0.75; $('sShadow').value=0.35; $('sVol').value=0.25; $('size').value='1024';
-  render();
+  schedule();
 };
-syncLabels();
+labels();
 </script>
 </body>
 </html>
