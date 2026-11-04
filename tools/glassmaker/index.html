@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>圆角玻璃图标生成器</title>
+<style>
+  :root{color-scheme:dark}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{margin:0;background:#101014;color:#eaeaf0;font:15px/1.5 -apple-system,system-ui,"PingFang SC",sans-serif;padding:16px 16px 40px}
+  h1{font-size:17px;margin:4px 0 12px;font-weight:600}
+  .drop{border:1.5px dashed #3a3a44;border-radius:16px;padding:26px 14px;text-align:center;color:#9a9aa6;background:#17171c;transition:.2s}
+  .drop.hot{border-color:#5ac8fa;color:#cfe9ff;background:#16202a}
+  .row{display:flex;align-items:center;gap:10px;margin:9px 0}
+  .row label{flex:0 0 92px;color:#a9a9b6;font-size:13px}
+  .row input[type=range]{flex:1}
+  .val{flex:0 0 46px;text-align:right;color:#7fd0ff;font-variant-numeric:tabular-nums;font-size:12.5px}
+  .panel{background:#17171c;border-radius:14px;padding:12px 14px;margin:12px 0}
+  button{border:0;border-radius:12px;padding:11px 16px;font-size:15px;font-weight:600;background:#2c2c34;color:#eaeaf0}
+  button.primary{background:#0a84ff;color:#fff}
+  button:disabled{opacity:.45}
+  .btns{display:flex;gap:10px;margin-top:6px;flex-wrap:wrap}
+  canvas{max-width:100%;display:block;border-radius:18px;background:
+    conic-gradient(#2a2a30 25%,#232329 0 50%,#2a2a30 0 75%,#232329 0) 0 0/22px 22px}
+  .prev{margin:12px 0}
+  .hint{color:#82828f;font-size:12.5px;margin-top:8px}
+  select{background:#2c2c34;color:#eaeaf0;border:0;border-radius:8px;padding:7px 10px;font-size:14px}
+  .foot{color:#6d6d79;font-size:12px;margin-top:18px;text-align:center}
+</style>
+</head>
+<body>
+<h1>圆角玻璃图标生成器</h1>
+
+<div id="drop" class="drop">点这里选照片，或把图片拖进来<br><span style="font-size:12.5px">（全部在本机处理，不上传）</span></div>
+<input id="file" type="file" accept="image/*" hidden>
+
+<div class="panel" id="panel" hidden>
+  <div class="row"><label>圆角大小</label><input id="radius" type="range" min="8" max="34" step="0.5" value="21.9"><span class="val" id="radiusV"></span></div>
+  <div class="row"><label>亮边强度</label><input id="b1" type="range" min="0" max="1.3" step="0.01" value="0.80"><span class="val" id="b1V"></span></div>
+  <div class="row"><label>亮边宽度</label><input id="w1" type="range" min="1" max="10" step="0.2" value="3"><span class="val" id="w1V"></span></div>
+  <div class="row"><label>高光扩散</label><input id="b2" type="range" min="0" max="0.8" step="0.01" value="0.23"><span class="val" id="b2V"></span></div>
+  <div class="row"><label>内侧阴影</label><input id="sh" type="range" min="0" max="0.30" step="0.005" value="0.065"><span class="val" id="shV"></span></div>
+  <div class="row"><label>输出尺寸</label><select id="size"><option value="1024">1024</option><option value="2048">2048</option><option value="512">512</option><option value="orig">原图尺寸</option></select></div>
+  <div class="btns">
+    <button class="primary" id="save">下载 PNG</button>
+    <button id="reset">恢复默认</button>
+    <button id="whiteb">白底预览</button>
+  </div>
+</div>
+
+<div class="prev"><canvas id="cv" width="512" height="512"></canvas></div>
+<div class="hint" id="status"></div>
+<div class="foot">圆角 + 明亮玻璃边 · 单页离线工具</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const cv=$('cv'), ctx=cv.getContext('2d',{willReadFrequently:true});
+let img=null, imgName='icon', whiteBg=false;
+let cache=null, cacheSize=0;
+
+function syncLabels(){
+  $('radiusV').textContent=$( 'radius').value+'%';
+  $('b1V').textContent=(+$('b1').value).toFixed(2);
+  $('w1V').textContent=(+$('w1').value).toFixed(1);
+  $('b2V').textContent=(+$('b2').value).toFixed(2);
+  $('shV').textContent=(+$('sh').value).toFixed(3);
+}
+
+function loadFile(f){
+  if(!f.type.startsWith('image/'))return;
+  imgName=(f.name||'icon').replace(/\.(png|jpe?g|webp|gif|bmp)$/i,'');
+  const r=new FileReader();
+  r.onload=e=>{const i=new Image(); i.onload=()=>{img=i;$('panel').hidden=false;$('status').textContent='已载入 '+i.width+'×'+i.height;cache=null;render();}; i.src=e.target.result;};
+  r.readAsDataURL(f);
+}
+
+$('drop').onclick=()=>$('file').click();
+$('file').onchange=e=>{if(e.target.files[0])loadFile(e.target.files[0]);};
+['dragenter','dragover'].forEach(t=>$('drop').addEventListener(t,e=>{e.preventDefault();$('drop').classList.add('hot');}));
+['dragleave','drop'].forEach(t=>$('drop').addEventListener(t,e=>{e.preventDefault();$('drop').classList.remove('hot');}));
+$('drop').addEventListener('drop',e=>{const f=e.dataTransfer.files[0]; if(f) loadFile(f);});
+window.addEventListener('paste',e=>{for(const it of (e.clipboardData||{}).items||[]) if(it.type.startsWith('image/')) loadFile(it.getAsFile());});
+
+function outSize(){
+  const v=$('size').value;
+  if(v==='orig') return img? Math.max(img.width,img.height):1024;
+  return parseInt(v,10);
+}
+
+function sourceCanvas(S){
+  const c=document.createElement('canvas'); c.width=c.height=S;
+  const x=c.getContext('2d');
+  x.imageSmoothingQuality='high';
+  x.drawImage(img,0,0,S,S);          // 拉伸铺满（与之前流程一致）
+  return c;
+}
+
+function process(showWhite){
+  if(!img) return;
+  const S=outSize();
+  const sc=sourceCanvas(S);
+  const id=sc.getContext('2d').getImageData(0,0,S,S);
+  const d=id.data;
+  const R=S*(+$('radius').value)/100;
+  const A1=+$('b1').value, W1=+$('w1').value, A2=+$('b2').value, SH=+$('sh').value;
+  const half=S/2, edge=half-R;
+  const P1=Math.max(1.2,W1*0.9), P2=Math.max(P1+2,W1*3.3), PS=P1+W1*5.3;
+  for(let y=0;y<S;y++){
+    const ay=Math.abs(y+0.5-half);
+    const dy=ay-edge;
+    for(let x=0;x<S;x++){
+      const i=(y*S+x)*4;
+      const ax=Math.abs(x+0.5-half); const dx=ax-edge;
+      const pdx=Math.max(dx,0), pdy=Math.max(dy,0);
+      const dist=Math.sqrt(pdx*pdx+pdy*pdy)+Math.min(Math.max(dx,dy),0)-R;
+      const depth=-dist;
+      let a=depth+0.5; a=a<0?0:(a>1?1:a);
+      if(a===0){ d[i+3]=0; continue; }
+      const dir=0.80+0.20*(1-(x+y)/(2*S));
+      let br=dir*(A1*Math.exp(-Math.pow((depth-P1)/W1,2)) + A2*Math.exp(-Math.pow((depth-P2)/(W1*2.4),2)));
+      if(br>0.92) br=0.92;
+      const sh=SH*Math.exp(-Math.pow((depth-PS)/(W1*2.1),2));
+      const k=(1-sh)*(1-br), add=255*br;
+      d[i]  = d[i]*k+add;
+      d[i+1]= d[i+1]*k+add;
+      d[i+2]= d[i+2]*k+add;
+      d[i+3]= a*255;
+      if(showWhite&&a>0){ /* 保留透明，仅预览时铺白底 */ }
+    }
+  }
+  const oc=document.createElement('canvas'); oc.width=oc.height=S;
+  oc.getContext('2d').putImageData(id,0,0);
+  // 预览：缩到 512，白底可选
+  cv.width=cv.height=Math.min(512,S);
+  ctx.clearRect(0,0,cv.width,cv.height);
+  if(showWhite){ ctx.fillStyle='#fff'; ctx.fillRect(0,0,cv.width,cv.height); }
+  ctx.imageSmoothingQuality='high';
+  ctx.drawImage(oc,0,0,cv.width,cv.height);
+  return oc;
+}
+
+function render(){ syncLabels(); const oc=process(whiteBg); window.__out=oc; }
+
+['radius','b1','w1','b2','sh','size'].forEach(id=>$(id).addEventListener('input',render));
+$('save').onclick=()=>{
+  if(!img) return;
+  const oc=process(false);
+  oc.toBlob(b=>{
+    const url=URL.createObjectURL(b);
+    // 先在浮层里显示结果：iOS 上长按图片即可「存储到照片」
+    let ov=document.getElementById('ov');
+    if(!ov){
+      ov=document.createElement('div'); ov.id='ov';
+      ov.style.cssText='position:fixed;inset:0;background:#000000ee;z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:18px';
+      const t=document.createElement('div');
+      t.textContent='长按图片 → 存储到照片';
+      t.style.cssText='color:#cfcfd8;font-size:14px';
+      const im=document.createElement('img'); im.id='ovimg';
+      im.style.cssText='max-width:88vw;max-height:66vh;border-radius:16px;background:conic-gradient(#2a2a30 25%,#232329 0 50%,#2a2a30 0 75%,#232329 0) 0 0/22px 22px;box-shadow:0 10px 40px #000a';
+      const col=document.createElement('div'); col.style.cssText='display:flex;gap:10px';
+      const a=document.createElement('a'); a.id='ovdl'; a.textContent='下载'; a.style.cssText='background:#0a84ff;color:#fff;padding:11px 18px;border-radius:12px;font-weight:600;text-decoration:none';
+      const c=document.createElement('button'); c.textContent='关闭'; c.onclick=()=>ov.remove();
+      col.append(a,c); ov.append(t,im,col); document.body.append(ov);
+    }
+    const im=document.getElementById('ovimg'); im.src=url;
+    const a=document.getElementById('ovdl'); a.href=url; a.download=imgName+'_圆角玻璃.png';
+    setTimeout(()=>URL.revokeObjectURL(url),120000);
+  },'image/png');
+};
+$('whiteb').onclick=()=>{whiteBg=!whiteBg; render();};
+$('reset').onclick=()=>{
+  $('radius').value=21.9; $('b1').value=0.80; $('w1').value=3; $('b2').value=0.23; $('sh').value=0.065; $('size').value='1024';
+  render();
+};
+syncLabels();
+</script>
+</body>
+</html>
