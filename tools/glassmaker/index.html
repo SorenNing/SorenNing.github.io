@@ -71,6 +71,7 @@
 
     <h2>输出</h2>
     <div class="row"><label>尺寸</label><select id="size"><option>1024</option><option>2048</option><option>512</option></select><span class="v"></span></div>
+    <div class="row"><label>自动裁边</label><select id="autocrop"><option value="1">开（去掉外围纯色）</option><option value="0">关</option></select><span class="v"></span></div>
 
     <div class="drop" id="drop">点这里选照片（可多选），或拖入图片 / ZIP<br><span style="font-size:12px;color:#6d6d79">（在本机处理，不上传）</span></div>
     <div class="hint" id="hint">选好照片后可回到上面调参数，预览始终可见</div>
@@ -142,12 +143,57 @@ function labels(){
   $('sVolV').textContent=(+$('sVol').value).toFixed(2);
 }
 
+
+/* ---------- 自动裁掉外围纯色边框 ---------- */
+function autoCropBox(im){
+  const T=160;
+  const c=document.createElement('canvas'); c.width=c.height=T;
+  const x=c.getContext('2d',{willReadFrequently:true});
+  const k=Math.max(T/im.width,T/im.height);
+  const dw=im.width*k, dh=im.height*k;
+  x.drawImage(im,(T-dw)/2,(T-dh)/2,dw,dh);
+  const d=x.getImageData(0,0,T,T).data;
+  const px=(a,b)=>{const i=(b*T+a)*4;return [d[i],d[i+1],d[i+2]];};
+  const cs=[px(2,2),px(T-3,2),px(2,T-3),px(T-3,T-3)];
+  const bg=[0,1,2].map(i=>(cs[0][i]+cs[1][i]+cs[2][i]+cs[3][i])/4);
+  // 仅当外围是近黑/近白时才裁，避免把满版彩色背景裁掉
+  const isBlack=Math.max(bg[0],bg[1],bg[2])<45;
+  const isWhite=Math.min(bg[0],bg[1],bg[2])>225;
+  if(!isBlack&&!isWhite) return null;
+  let x0=T,y0=T,x1=0,y1=0,found=false;
+  for(let y=0;y<T;y++)for(let a=0;a<T;a++){
+    const i=(y*T+a)*4;
+    const dd=Math.hypot(d[i]-bg[0],d[i+1]-bg[1],d[i+2]-bg[2]);
+    if(dd>26){ found=true; if(a<x0)x0=a; if(a>x1)x1=a; if(y<y0)y0=y; if(y>y1)y1=y; }
+  }
+  if(!found) return null;
+  // 映射回原图坐标（画布是 cover 放置的）
+  const sx=(im.width*dw/T), sy=(im.height*dh/T);
+  const ox=(dw-T)/2, oy=(dh-T)/2;
+  const bx0=Math.max(0,(x0+ox)*sx/dw*k*0+ (x0-Math.max(0,ox))* (im.width/T) );
+  // 简化：直接用比例换算
+  const fx=(v)=>{ const t=(v/T)*dw - dw/2 ; return (im.width/2 + t*(im.width/dw)); };
+  const fy=(v)=>{ const t=(v/T)*dh - dh/2 ; return (im.height/2 + t*(im.height/dh)); };
+  const X0=Math.max(0,Math.min(im.width-1,fx(x0-1)));
+  const X1=Math.min(im.width,Math.max(X0+2,fx(x1+2)));
+  const Y0=Math.max(0,Math.min(im.height-1,fy(y0-1)));
+  const Y1=Math.min(im.height,Math.max(Y0+2,fy(y1+2)));
+  return {x:X0,y:Y0,w:X1-X0,h:Y1-Y0};
+}
+
 /* ---------- 主处理 ---------- */
 function process(S){
   if(!img) return null;
   const sc=document.createElement('canvas'); sc.width=sc.height=S;
   const sx=sc.getContext('2d'); sx.imageSmoothingQuality='high';
-  sx.drawImage(img,0,0,S,S);
+  // 可选：先自动裁掉外围纯色
+  let src=img, box=null;
+  if($('autocrop').value==='1'){ try{ box=autoCropBox(img); }catch(e){ box=null; } }
+  const sw=box?box.w:img.width, sh=box?box.h:img.height;
+  const k=Math.max(S/sw,S/sh);
+  const dw=sw*k, dh=sh*k;
+  if(box) sx.drawImage(img,box.x,box.y,box.w,box.h,(S-dw)/2,(S-dh)/2,dw,dh);
+  else sx.drawImage(img,(S-dw)/2,(S-dh)/2,dw,dh);
   const id=sx.getImageData(0,0,S,S), d=id.data, n=S*S;
 
   const R=new Float32Array(n), G=new Float32Array(n), B=new Float32Array(n), L=new Float32Array(n);
@@ -437,6 +483,17 @@ window.addEventListener('paste',e=>{ for(const it of (e.clipboardData||{}).items
 ['radius','rim','rimW','frost','dim','sRim','sShadow','sVol','size'].forEach(id=>{
   $(id).addEventListener('input',schedule);
   $(id).addEventListener('change',schedule);
+});
+
+
+/* 点预览图：删除当前图 */
+cv.style.cursor='pointer';
+cv.addEventListener('click',()=>{
+  if(!img) return;
+  img=null;
+  ctx.clearRect(0,0,cv.width,cv.height);
+  $('tag').textContent='实时预览';
+  $('hint').textContent='已移除当前图片，可重新选择';
 });
 
 /* ---------- 保存 ---------- */
