@@ -22,7 +22,7 @@
   .card{background:#dfe8f1;border-radius:12px;padding:6px;display:flex;justify-content:center;width:fit-content;margin:0 auto}
   #cv{width:min(38vw,142px);height:min(38vw,142px);border-radius:11px;display:block;background:#c9d4e0}
   /* 参数区 */
-  .sheet{flex:0 0 auto;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:2px 14px 4px}
+  .sheet{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:2px 14px 4px}
   h2{font-size:11px;letter-spacing:.6px;color:#7b8b9a;margin:9px 0 3px;font-weight:600}
   .row{display:flex;align-items:center;gap:9px;margin:5px 0}
   .row label{flex:0 0 76px;color:#46566a;font-size:12.5px}
@@ -48,7 +48,7 @@
 </head>
 <body>
   <div class="top">
-    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v3.4</span></div>
+    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v3.7</span></div>
     <div class="tag" id="tag">实时预览</div>
   </div>
 
@@ -108,7 +108,7 @@
 const $=id=>document.getElementById(id);
 const cv=$('cv'), ctx=cv.getContext('2d',{willReadFrequently:true});
 let img=null, imgName='icon';
-const PREVIEW_MAX=512;
+const PREVIEW_MAX=256;
 
 /* ---------- 模糊 ---------- */
 function boxBlur(src,w,h,r){
@@ -133,7 +133,10 @@ function boxBlur(src,w,h,r){
 }
 function gauss(src,w,h,sigma){
   const r=Math.max(1,Math.round(sigma*0.85));
-  return boxBlur(boxBlur(boxBlur(src,w,h,r),w,h,r),w,h,r);
+  const passes = sigma>=8 ? 2 : 3;
+  let a=src;
+  for(let i=0;i<passes;i++) a=boxBlur(a,w,h,r);
+  return a;
 }
 function pct(arr,p){
   const step=Math.max(1,Math.floor(arr.length/40000)), s=[];
@@ -478,20 +481,32 @@ function process(S){
     L[i]=0.299*d[p]+0.587*d[p+1]+0.114*d[p+2];
   }
 
-  const Lb=gauss(L,S,S,2.0);
-  const Gm=new Float32Array(n);
-  for(let y=0;y<S;y++)for(let x=0;x<S;x++){
-    const i=y*S+x;
-    const x0=x>0?x-1:x, x1=x<S-1?x+1:x, y0=y>0?y-1:y, y1=y<S-1?y+1:y;
-    const gx=(Lb[y*S+x1]-Lb[y*S+x0])*0.5, gy=(Lb[y1*S+x]-Lb[y0*S+x])*0.5;
-    Gm[i]=Math.hypot(gx,gy);
+  // 与滑块无关的重活缓存：同一张图/同一裁切只算一次
+  const ckey=(img.__id||0)+'|'+S+'|'+(box?[box.x|0,box.y|0,box.w|0,box.h|0].join(','):'0');
+  let C = (window.__cache && window.__cache.key===ckey) ? window.__cache : null;
+  if(!C){
+    const Lb=gauss(L,S,S,2.0);
+    const Gm=new Float32Array(n);
+    for(let y=0;y<S;y++)for(let x=0;x<S;x++){
+      const i=y*S+x;
+      const x0=x>0?x-1:x, x1=x<S-1?x+1:x, y0=y>0?y-1:y, y1=y<S-1?y+1:y;
+      const gx=(Lb[y*S+x1]-Lb[y*S+x0])*0.5, gy=(Lb[y1*S+x]-Lb[y0*S+x])*0.5;
+      Gm[i]=Math.hypot(gx,gy);
+    }
+    const gm=pct(Gm,0.99);
+    const band=new Float32Array(n);
+    for(let i=0;i<n;i++){ let v=(Gm[i]/gm-0.08)/0.30; band[i]=v<0?0:(v>1?1:v); }
+    const bandS=gauss(band,S,S,1.4);
+    const protect=gauss(bandS,S,S,10.0);
+    const frR=gauss(R,S,S,4.0), frG=gauss(G,S,S,4.0), frB=gauss(B,S,S,4.0);
+    const low=gauss(L,S,S,18.0);
+    const dv=new Float32Array(n);
+    for(let i=0;i<n;i++) dv[i]=Math.abs(L[i]-low[i]);
+    const vmax=pct(dv,0.99);
+    C={key:ckey, bandS, protect, frR, frG, frB, low, vmax};
+    window.__cache=C;
   }
-  const gm=pct(Gm,0.99);
-
-  const band=new Float32Array(n);
-  for(let i=0;i<n;i++){ let v=(Gm[i]/gm-0.08)/0.30; band[i]=v<0?0:(v>1?1:v); }
-  const bandS=gauss(band,S,S,1.4);
-  const protect=gauss(bandS,S,S,10.0);
+  const bandS=C.bandS, protect=C.protect, frR=C.frR, frG=C.frG, frB=C.frB, low=C.low, vmax=C.vmax;
 
   const mode=$('mode').value;
   const sRim=mode==='full'?+$('sRim').value:0;
@@ -499,12 +514,6 @@ function process(S){
   const sVol=mode==='full'?+$('sVol').value:0;
   const frost=mode==='full'?+$('frost').value:0;
   const dim  =mode==='full'?+$('dim').value:1;
-
-  const frR=gauss(R,S,S,4.0), frG=gauss(G,S,S,4.0), frB=gauss(B,S,S,4.0);
-  const low=gauss(L,S,S,18.0);
-  const dv=new Float32Array(n);
-  for(let i=0;i<n;i++) dv[i]=Math.abs(L[i]-low[i]);
-  const vmax=pct(dv,0.99);
 
   const oR=new Float32Array(n), oG=new Float32Array(n), oB=new Float32Array(n);
   for(let y=0;y<S;y++)for(let x=0;x<S;x++){
@@ -786,7 +795,7 @@ function loadFile(f){
   const r=new FileReader();
   r.onload=e=>{
     const im=new Image();
-    im.onload=()=>{ img=im; $('tag').textContent='已载入'; renderNow(); $('sheet').scrollTop=0; };
+    im.onload=()=>{ im.__id=Date.now()%1e9; img=im; $('tag').textContent='已载入'; renderNow(); $('sheet').scrollTop=0; };
     im.onerror=()=>{ $('tag').textContent='读取失败'; };
     im.src=e.target.result;
   };
