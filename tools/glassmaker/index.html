@@ -31,12 +31,16 @@
   .row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;
       background:#fff;border:1px solid #cddcea;margin-top:-7px;box-shadow:0 1px 4px rgba(70,110,150,.28)}
   .v{flex:0 0 40px;text-align:right;color:#0a7bd0;font-size:11.5px;font-variant-numeric:tabular-nums}
-  select{background:#ffffff;color:#17202a;border:1px solid #d3e2ef;border-radius:8px;padding:7px 10px;font-size:13.5px;flex:1}
+  select{width:100%;min-width:0;text-overflow:ellipsis;background:#ffffff;color:#17202a;border:1px solid #d3e2ef;border-radius:8px;padding:7px 10px;font-size:13.5px;flex:1}
   /* 导入区（放在参数下方） */
-  .pick{display:block;width:100%;margin:14px 0 4px;border:1px solid #bcd9f0;border-radius:12px;padding:12px;background:#e9f4ff;color:#0a6fd0;font-size:14.5px;font-weight:600}
+  .outwrap{display:flex;align-items:center;gap:10px;margin-top:2px}
+.outcol{flex:1 1 auto;min-width:0}
+.outcol .row label{flex:0 0 62px}
+.impcol{flex:0 0 92px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.pick{width:92px;height:88px;border:1px solid #bcd9f0;border-radius:12px;padding:0 6px;background:#e9f4ff;color:#0a6fd0;font-size:13px;font-weight:600;line-height:1.25}
   .pick.hot{border-color:#0a84ff;background:#ffffff}
   .drop b{color:#0a84ff;font-weight:600}
-  .hint{color:#8296a8;font-size:11px;text-align:center;margin-top:4px}
+  .hint{color:#8296a8;font-size:10px;line-height:1.25;text-align:center}
   /* 底部按钮 */
   .bar{flex:0 0 auto;display:flex;gap:10px;
        padding:8px 14px calc(10px + env(safe-area-inset-bottom));
@@ -47,7 +51,7 @@
 </head>
 <body>
   <div class="top">
-    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v3.8</span></div>
+    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v4.1</span></div>
     <div class="tag" id="tag">实时预览</div>
   </div>
 
@@ -71,11 +75,19 @@
     <div class="row"><label>主体体积</label><input id="sVol" type="range" min="0" max="0.6" step="0.02" value="0.25"><span class="v" id="sVolV"></span></div>
 
     <h2>输出</h2>
-    <div class="row"><label>处理</label><select id="mode"><option value="crop">只裁切（原图）</option><option value="full">完整玻璃效果</option><option value="round">只加圆角+亮边</option></select><span class="v"></span></div>
-    <div class="row"><label>形状</label><select id="shape"><option value="square">方形（不圆角）</option><option value="auto">跟随原图</option><option value="round">圆角（用上面滑块）</option></select><span class="v"></span></div>
+    <div class="outwrap">
+      <div class="outcol">
+    <div class="row"><label>处理</label><select id="mode"><option value="crop">只裁切（原图）</option><option value="full">完整效果</option><option value="round">只圆角+亮边</option></select><span class="v"></span></div>
+    <div class="row"><label>形状</label><select id="shape"><option value="square">方形</option><option value="auto">跟随原图</option><option value="round">圆角</option></select><span class="v"></span></div>
     <div class="row"><label>尺寸</label><select id="size"><option>1024</option><option>2048</option><option>512</option></select><span class="v"></span></div>
-    <div class="row"><label>自动裁边</label><select id="autocrop"><option value="3">自动（推荐）</option><option value="1">只认黑白底</option><option value="2">只认彩色图标</option><option value="4">手动裁切</option><option value="0">关</option></select><span class="v"></span></div>
+    <div class="row"><label>自动裁边</label><select id="autocrop"><option value="3">自动</option><option value="1">只认黑白底</option><option value="2">只认彩色图标</option><option value="4">手动</option><option value="0">关</option></select><span class="v"></span></div>
 
+      </div>
+      <div class="impcol">
+        <button class="pick" id="drop">选择照片 / ZIP</button>
+        <div class="hint" id="hint">在本机处理<br>不上传</div>
+      </div>
+    </div>
     <div id="manual" hidden>
       <div class="row"><label>上边</label><input id="cT" type="range" min="0" max="40" step="0.5" value="0"><span class="v" id="cTV"></span></div>
       <div class="row"><label>下边</label><input id="cB" type="range" min="0" max="40" step="0.5" value="0"><span class="v" id="cBV"></span></div>
@@ -83,8 +95,6 @@
       <div class="row"><label>右边</label><input id="cR" type="range" min="0" max="40" step="0.5" value="0"><span class="v" id="cRV"></span></div>
     </div>
 
-    <button class="pick" id="drop">选择照片 / ZIP（可多选）</button>
-    <div class="hint" id="hint">处理在本机完成，不上传</div>
 
     <div id="batch" hidden>
       <h2>批量结果 <span id="count" style="color:#7fd0ff"></span></h2>
