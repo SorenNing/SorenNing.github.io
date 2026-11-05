@@ -51,7 +51,7 @@
 </head>
 <body>
   <div class="top">
-    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v4.6</span></div>
+    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v4.7</span></div>
     <div class="tag" id="tag">实时预览</div>
   </div>
 
@@ -607,7 +607,7 @@ function process(S){
   }
 
   const rimAmp=+$('rim').value, rimW=+$('rimW').value;
-  const P1=Math.max(1.2,rimW*0.9), P2=Math.max(P1+2,rimW*3.3), PS=P1+rimW*5.3;
+  const P1=Math.max(1.2,rimW*0.9), P2=Math.max(P1+2,rimW*3.3), PS=P1+rimW*3.2;
   for(let y=0;y<S;y++){
     const ay=Math.abs(y+0.5-half), dy=ay-edge;
     for(let x=0;x<S;x++){
@@ -621,7 +621,7 @@ function process(S){
       const dn=dirWeight(x,y,S);
       let b2=dn*(rimAmp*Math.exp(-Math.pow((depth-P1)/rimW,2))+0.23*Math.exp(-Math.pow((depth-P2)/(rimW*2.4),2)));
       if(b2>0.92) b2=0.92;
-      const sh2=0.065*Math.exp(-Math.pow((depth-PS)/(rimW*2.1),2));
+      const sh2=0.055*Math.exp(-Math.pow((depth-PS)/(rimW*1.8),2))*(0.55+0.55*dn);
       const k=(1-sh2)*(1-b2), add=255*b2;
       d[p]  =oR[i]*k+add;
       d[p+1]=oG[i]*k+add;
