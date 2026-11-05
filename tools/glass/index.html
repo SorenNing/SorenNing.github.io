@@ -51,7 +51,7 @@
 </head>
 <body>
   <div class="top">
-    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v4.5</span></div>
+    <div class="title">玻璃图标生成器 <span style="font-size:10px;color:#8aa0b4;font-weight:400">v4.6</span></div>
     <div class="tag" id="tag">实时预览</div>
   </div>
 
@@ -477,11 +477,19 @@ function syncEnabled(){}
 
 function dirWeight(x,y,S){
   const m=$('dirMode')?$('dirMode').value:'diag';
-  let t;
-  if(m==='tb') t=y/S;              // 上亮下暗
-  else if(m==='lr') t=x/S;         // 左亮右暗
-  else t=(x+y)/(2*S);              // 对角：左上亮
-  return 0.75+0.30*(1-t);
+  if(m==='tb'){
+    const v=y/S;
+    const peak=Math.max(Math.exp(-Math.pow(v/0.26,2)), Math.exp(-Math.pow((1.0-v)/0.26,2)));
+    return 0.20+0.80*peak;
+  }
+  if(m==='lr'){
+    const u=x/S;
+    const peak=Math.max(Math.exp(-Math.pow(u/0.26,2)), Math.exp(-Math.pow((1.0-u)/0.26,2)));
+    return 0.20+0.80*peak;
+  }
+  const u=(x+y)/(2*S);
+  const peak=Math.max(Math.exp(-Math.pow(u/0.30,2)), Math.exp(-Math.pow((1.0-u)/0.30,2)));
+  return 0.18+0.82*peak;
 }
 
 /* ---------- 主处理 ---------- */
@@ -554,7 +562,7 @@ function process(S){
     let r=R[i]*(1-fw)+frR[i]*fw, g=G[i]*(1-fw)+frG[i]*fw, b=B[i]*(1-fw)+frB[i]*fw;
     r*=dim; g*=dim; b*=dim;
 
-    const dir=dirWeight(x,y,S);
+    const dir=0.35+0.65*dirWeight(x,y,S);
     const br=Math.min(0.95, bandS[i]*sRim*dir);
     const si=(y-6>=0&&x-4>=0)?(y-6)*S+(x-4):-1;
     let sh=si>=0?Math.max(0,bandS[si]-bandS[i]*0.9):0;
@@ -829,7 +837,7 @@ function loadFile(f){
   const r=new FileReader();
   r.onload=e=>{
     const im=new Image();
-    im.onload=()=>{ im.__id=Date.now()%1e9; img=im; $('tag').textContent='已载入'; renderNow(); $('sheet').scrollTop=0; };
+    im.onload=()=>{ im.__id=Date.now()%1e9; img=im; $('tag').textContent='已载入'; applyModePreset(); labels(); renderNow(); $('sheet').scrollTop=0; };
     im.onerror=()=>{ $('tag').textContent='读取失败'; };
     im.src=e.target.result;
   };
