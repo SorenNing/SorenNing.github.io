@@ -2466,3 +2466,21 @@ Section: 命令行工具
 Priority: important
 Multi-Arch: foreign
 Description: standard Windows compression tool
+
+Package: com.ning.simcontrol
+Name: 蜂窝管理
+Version: 1.0.1
+Architecture: iphoneos-arm64e
+Maintainer: Ning
+Author: Ning
+Section: 状态栏与控制中心
+Priority: optional
+Depends: firmware (>= 16.0), firmware (<< 18.0), com.opa334.ccsupport
+Description: Native SIM switches for the system Control Center on iOS 16 and 17.
+Icon: https://sorenning.github.io/debs/icons/simcontrol.png
+Filename: debs/roothide/com.ning.simcontrol_1.0.1_iphoneos-arm64e.deb
+Size: 151144
+MD5sum: 920559a7a8d3c03bf8ae649dd57b89a8
+SHA1: 31e338edd8fef74608e21c6444c15814d3f10e34
+SHA256: 586d51dbd28ce87ff74b211657ef2ace37e51e13d73ef7dd17699624547a7148
+
