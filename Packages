@@ -81,43 +81,6 @@ Priority: optional
 Homepage: https://www.llvm.org/
 Description: C, C++ and Objective-C compiler
 
-Package: cn.llld.appfix
-Version: 1.2.21
-Architecture: iphoneos-arm64e
-Maintainer: 来了老弟
-Installed-Size: 1940
-Pre-Depends: rootless-compat (>= 0.9)
-Depends: firmware (>= 14.0), ellekit | mobilesubstrate
-Filename: debs/roothide/cn.llld.appfix_1.2.21_iphoneos-arm64e.deb
-Size: 1041606
-MD5sum: fa63ad99068cfea66384d402703a9e83
-SHA1: 04528f03045274698462fcde8462516e6b3ef2eb
-SHA256: 748c143a70c303ec4f58ef5296e9c297d1603af1de33ebabcecfcd38d899c6be
-Section: 应用增强
-Description: appfix 应用修改器 ———  系统应用，用户应用，越狱应用的调整工具（Flex3 思路重写增强，1.0版本之后支持导入Flex3配置），支持自定义脚本代码，配置导出导入，一键开关，视图层级可视化 等等，不收费。
-Tag: purpose::uikit, compatible::ios14
-Author: 来了老弟
-Icon: file:///var/jb/Applications/appfix.app/AppIcon60@3x.png
-Name: 应用修改器
-
-Package: cn.llld.skineditor
-Version: 0.5
-Architecture: iphoneos-arm64e
-Maintainer: 来了老弟
-Installed-Size: 2868
-Pre-Depends: rootless-compat (>= 0.9)
-Depends: firmware (>= 14.0)
-Filename: debs/roothide/cn.llld.skineditor_0.5_iphoneos-arm64e.deb
-Size: 1759870
-MD5sum: 1dbd6a161f86fc021d0aded4a4195f6b
-SHA1: 010f5b94010f6446bfe9936cbfe94dae34a23e17
-SHA256: fde860d9fabf7d130af38a79264a4fe447ac3458292a0f9409284a849c789b80
-Section: 应用增强
-Description: 百度/微信输入法皮肤可视化编辑器，系统配置预览或改图
-Tag: purpose::uikit, compatible::ios14
-Author: 来了老弟
-Name: 皮肤编辑器
-
 Package: cn.octoforce.squidextender
 Version: 3.7.4
 Architecture: iphoneos-arm64e
@@ -2483,4 +2446,3 @@ Size: 151144
 MD5sum: 920559a7a8d3c03bf8ae649dd57b89a8
 SHA1: 31e338edd8fef74608e21c6444c15814d3f10e34
 SHA256: 586d51dbd28ce87ff74b211657ef2ace37e51e13d73ef7dd17699624547a7148
-
