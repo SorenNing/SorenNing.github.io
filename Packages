@@ -2481,3 +2481,28 @@ MD5sum: 51f98891a16e6d0b49f57442533c4acf
 SHA1: ec8fc173e4e9a99756406a431f01ed74f531be2f
 SHA256: e7d9b0753b25c7778fb19ae25db362b30a8c69ac0ec70d433d0a1505c4ee0876
 
+Package: com.hmmzzz.fontmanager
+Name: MarkFont
+Description: iOS 16+ 全局字体管理器，支持 conventional rootless 与 RootHide。
+ 可在 App 内导入 ZIP、TTF、TTC 和 OTF 字体，创建并切换多套字体方案，
+ 将字体安全应用到整个系统，也可以随时恢复系统默认字体。
+ .
+ MarkFont 使用只读字体镜像，不直接修改系统字体文件，并支持重新越狱后
+ 自动恢复已启用的字体。两种环境需要安装各自对应的软件包，请勿混装。
+Maintainer: Ning&Hmmzzz
+Author: Ning&Hmmzzz
+Section: 应用
+Homepage: https://hmmzzz.github.io/repo/
+Depends: firmware (>= 16.0), uikittools
+Conflicts: com.nan.bindfs, cn.zqbb.hello.mnt
+Icon: https://sorenning.github.io/debs/icons/markfont.png
+Architecture: iphoneos-arm64
+Version: 0.3.9
+Installed-Size: 2772
+Filename: debs/com.hmmzzz.fontmanager_0.3.9_iphoneos-arm64.deb
+Size: 535736
+MD5sum: 2dae782a637519262aeffaa168c19253
+SHA1: e2a67ad8b400837301a0c5fe26b12c1d46cb54a3
+SHA256: 4073882b22df29732b749653d8218b0ac98ae129c0123a029d5ec540c12f23f9
+SileoDepiction: https://sorenning.github.io/depictions/markfont.json
+
