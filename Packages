@@ -2506,3 +2506,23 @@ SHA1: e2a67ad8b400837301a0c5fe26b12c1d46cb54a3
 SHA256: 4073882b22df29732b749653d8218b0ac98ae129c0123a029d5ec540c12f23f9
 SileoDepiction: https://sorenning.github.io/depictions/markfont.json
 
+Package: com.bazik1337.ios27animsreborn
+Name: iOS 27 动画 Reborn（简体中文）
+Description: Reborn 重做版简体中文汉化：神灯应用开关动画、小组件动画及通知中心。
+Maintainer: Ning&bazik1337 <https://t.me/bazik1337>
+Author: Ning&bazik1337 <https://t.me/bazik1337>
+Homepage: https://t.me/ba31k_tweaks
+Section: Tweaks
+Depends: mobilesubstrate, preferenceloader
+Conflicts: com.bazik1337.ios2627anims, com.bazik.codexgenie27, com.bazik.genie27
+Architecture: iphoneos-arm64e
+Version: 1.0.0~beta1+ningzh1
+Installed-Size: 561
+Filename: debs/roothide/com.bazik1337.ios27animsreborn_1.0.0~beta1+ningzh1_iphoneos-arm64e.deb
+Size: 140760
+MD5sum: 569fee491cc84199be1e4040bfcea7c4
+SHA1: 4e9be3e7a072007e99298b7cde843fffdecb5a6b
+SHA256: 8b5f8c87f4e5a50464c2cad3bc1de64bf31160e620e2ead83444df09089bd4de
+Icon: https://sorenning.github.io/debs/icons/ios27animsreborn.png
+SileoDepiction: https://sorenning.github.io/depictions/ios27animsreborn.json
+

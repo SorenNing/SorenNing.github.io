@@ -5,3 +5,12 @@ Version: 1.0
 Architectures: iphoneos-arm iphoneos-arm64 iphoneos-arm64e
 Components: main
 Description: Ning's Repo
+MD5Sum:
+ 5ede2646060915d7878e5a9b596ddce7 104770 Packages
+ 864eb3a315920e5a860174ebfb10636e 36578 Packages.gz
+SHA1:
+ 52f5f1701374fd6bbb67101289906289766e7936 104770 Packages
+ 35b165dc1381620f300d14ed0b8f37353e3c2935 36578 Packages.gz
+SHA256:
+ 775317ed8c6b95b81466151adf65484eb59535026e3e25beac477f0597d7df4a 104770 Packages
+ 48df34ee1173782767dd09438b24985f3efcf22471046789c7b13c936d00f4fd 36578 Packages.gz

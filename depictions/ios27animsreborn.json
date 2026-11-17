@@ -1,0 +1,20 @@
+{
+  "class": "DepictionTabView",
+  "tintColor": "#548CF5",
+  "tabs": [
+    {
+      "tabname": "详情",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionSubheaderView",
+          "title": "iOS 27 动画 Reborn（简体中文）"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "Reborn Beta1 简体中文汉化。\n\n神灯应用开关动画、小组件动画及通知中心。\n\n版本：1.0.0~beta1+ningzh1\n\n架构：iphoneos-arm64e（RootHide）。\n\n作者：Ning&bazik1337。"
+        }
+      ]
+    }
+  ]
+}
